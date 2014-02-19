@@ -50,7 +50,7 @@ Prode::Application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new).
-  config.logger = ActiveSupport::BufferedLogger.new(File.join(ENV['OPENSHIFT_RUBY_LOG_DIR'], "production.log"))
+  config.logger = ActiveSupport::Logger.new(File.join(ENV['OPENSHIFT_RUBY_LOG_DIR'], "production.log"))
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
