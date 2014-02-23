@@ -13,5 +13,5 @@ require File.join(Rails.root,'lib','openshift_secret_generator.rb')
 # Prode::Application.config.secret_key_base = '7133e5db82bac9bed1e95ed9e13d7f3f708cc73c0302fdbc5a4c5e70dcabec8fa4f43bda36d2fc97eaac0c5afd3251115d16924451d3b483eb781c84a625d1f9'
 Prode::Application.config.secret_token = initialize_secret(
   :token,
-  '335a4e365ef2daeea969640d74e18f0e3cd9fae1abd8f4125691a880774ea6d456a29c0831aa6921bf86a710fe555e916f0673f5657619ec9df22e0409bec345'
+  '64b786dbb42f64acba5e366c3b24b90eda34cc3f6e58ed7e69314901b285d75b6977493dd39d6e6c0d51835890f930b5a9c0bf2bd860372c1779b73409a94f3f'
 )
