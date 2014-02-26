@@ -65,7 +65,7 @@ Prode::Application.routes.draw do
       root :to => 'devise/registrations#edit', as: :authenticated_root
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root :to => 'devise/sessions#create', as: :unauthenticated_root
     end
   end
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

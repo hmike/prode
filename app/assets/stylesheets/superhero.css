@@ -1,0 +1,9 @@
+/* Superhero
+ * Bootswatch
+ *= require_self
+ *= require font-awesome
+ *= require superhero/loader
+ *= require superhero/bootswatch
+ *= require superhero/bootswatch_override
+ *= require superhero/social-button
+*/
