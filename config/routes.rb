@@ -85,6 +85,13 @@ Prode::Application.routes.draw do
   end
 
 
+  # AngularJS
+  scope :api do
+    resources :user_groups, defaults: {format: :json}
+  end
+  # root 'watchlist#index'
+
+
 end
 
 # authenticated_root_path  GET   /   devise/registrations#edit

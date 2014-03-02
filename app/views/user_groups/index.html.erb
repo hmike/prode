@@ -1,0 +1,133 @@
+<%- model_class = UserGroup -%>
+<div class="page-header">
+  <!-- <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1> -->
+  <h1>Mis Grupos</h1>
+</div>
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_groups.each do |user_group| %>
+      <tr>
+        <td><%= link_to user_group.id, user_group_path(user_group) %></td>
+        <td><%= user_group.user.email %></td>
+        <td><%= user_group.name %></td>
+        <td><%=l user_group.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_group_path(user_group), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_group_path(user_group),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
+
+<div ng-controller="UserGroupsCtrl">
+<form ng-submit="createUserGroup()" class="col-md-4">
+  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Nuevo nombre" ng-model='newName'>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+      </span>
+  </div>
+</form>
+<form ng-submit="searchUserGroup()" class="col-md-4">
+  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar..." ng-model='searchName'>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+      </span>
+  </div>
+</form>
+<!--   <input type="text" ng-model='newName' placeholder="Nuevo nombre">
+  <input type="submit" value="Crear">
+<form ng-submit="searchUserGroup()">
+  <input type="text" ng-model='searchName' placeholder="Buscar...">
+  <input type="submit" value="Buscar">
+</form> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+      <!-- <th>Id</th> -->
+      <!-- <th><%= model_class.human_attribute_name(:user_id) %></th> -->
+      <!-- <th>Usuario</th> -->
+      <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
+      <th>Nombre</th>
+      <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="user_group in user_groups | filter: {name: searchName }">
+
+        <!-- <td><%= link_to "{{user_group.id}}", "user_groups/{{user_group.id}}" %></td> -->
+        <!-- <td>{{user_group.user.email}}</td> -->
+        <td>{{user_group.name}}</td>
+        <td>
+          <%= link_to "Editar", "user_groups/{{user_group.id}}", :class => 'btn btn-mini' %>
+          <a href='' class="btn btn-mini btn-danger" ng-click="deleteUserGroup(user_group.id, $index)">Borrar</a>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- AngularJS EXAMPLE -->
+<!--
+<h1>Watchlist</h1>
+<div ng-controller="UserGroupsCtrl">
+  <form ng-submit="createUserGroup()">
+    <input type="text" ng-model='newName' placeholder="Enter a name">
+    <input type="submit" value="Add">
+  </form>
+  <div ng-show="error">
+    There was an error. Please try again later.
+  </div>
+  <ul>
+    <li ng-repeat="user_group in user_groups">
+      {{user_group.id}}, {{user_group.name}}
+      <a href='' ng-click="deleteUserGroup(user_group.id, $index)">Delete</a>
+    </li>
+  </ul>
+</div>
+-->
+
+<!-- 
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_group_path,
+            :class => 'btn btn-primary' %>
+
+<%= form_for(@user_group_new) do |f| %>
+  <% if @user_group_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_group_new.errors.count, "error") %> prohibited this user_group_new from being saved:</h2>
+
+      <ul>
+      <% @user_group_new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Crear Grupo", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+ -->

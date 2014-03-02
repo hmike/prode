@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='Prode'>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -37,7 +37,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li class="active"><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+            <li class=""><%= link_to "Grupos", user_groups_path %></li>
+            <li class=""><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Entrar", new_user_session_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path %></li>
