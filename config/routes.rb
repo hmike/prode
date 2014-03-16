@@ -1,5 +1,7 @@
 Prode::Application.routes.draw do
   
+  resources :user_group_members
+
   resources :user_groups
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -84,22 +86,23 @@ Prode::Application.routes.draw do
     delete 'create', to: 'devise/registrations#destroy'
   end
 
+  # resources :user_groups do
+    # get 'signup', :on => :collection
+  # devise_scope :user_groups do
+  as :user_groups do
+    get 'user_groups/:id/inviteMember/:email', to: 'user_groups#inviteMember', as: :user_group_invite_member
+  end
+  # end
+  # end
+
 
   # AngularJS
   scope :api do
     resources :user_groups, defaults: {format: :json}
+    # match 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}, via: [:post]
+    post 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}
   end
   # root 'watchlist#index'
 
 
 end
-
-# authenticated_root_path  GET   /   devise/registrations#edit
-# unauthenticated_root_path  GET   /   devise/registrations#new
-# cancel_user_registration_path  GET   /users/cancel(.:format)   devise/registrations#cancel
-# user_registration_path   POST  /users(.:format)  devise/registrations#create
-# new_user_registration_path   GET   /users/sign_up(.:format)  devise/registrations#new
-# edit_user_registration_path  GET   /users/edit(.:format)   devise/registrations#edit
-# PATCH  /users(.:format)  devise/registrations#update
-# PUT  /users(.:format)  devise/registrations#update
-# DELETE   /users(.:format)  devise/registrations#destroy

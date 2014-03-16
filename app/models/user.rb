@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 			:omniauthable
 
 	has_many :user_goups
+	has_many :user_group_members
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     	user = User.where(:provider => auth.provider, :uid => auth.uid).first

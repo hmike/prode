@@ -11,3 +11,8 @@
  *= require_self
  *
  */
+
+.alertMessages {
+	position: fixed;
+	top: 45px;
+}

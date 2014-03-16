@@ -1,32 +1,21 @@
-app.controller('UserGroupsCtrl', ['$scope', 'UserGroup', function($scope, UserGroup, $filter) {
+app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scope, growl, UserGroup, $filter) {
 	$scope.user_groups = UserGroup.all();
+
+	$scope.addSpecialWarnMessage = function() {
+        // growl.addWarnMessage("This adds a warn message");
+        // growl.addInfoMessage("This adds a info message");
+        // growl.addSuccessMessage("This adds a success message");
+        // growl.addErrorMessage("This adds a error message");
+    }
+
 
 	$scope.createUserGroup = function() {
 		var attr = {};
-		// attr.name = $filter('uppercase')($scope.newSymbol);
 		attr.name = $scope.newName;
 		var newUserGroup = UserGroup.create(attr);
-		console.log(newUserGroup);
    		$scope.user_groups.push(newUserGroup);
 		$scope.newUserGroup = "";
 		$scope.newName = "";
-		// $scope.error = true;
-
-
-
-		// //Create the forum object to send to the back-end
-  //       var newUserGroup = new UserGroup($scope.newName);
-		// //Save the forum object
-		// newUserGroup.$save(function() {
-		// 	//Redirect us back to the main page
-		// 	// $location.path('/');
-		// 	$scope.user_groups.push(userGroup);
-
-		// }, function(response) {
-		// 	//Post response objects to the view
-		// 	// $scope.errors = response.data.errors;
-  //           $scope.error = true;
-		// });
 	};
 
 	$scope.deleteUserGroup = function(id, idx) {
@@ -36,7 +25,23 @@ app.controller('UserGroupsCtrl', ['$scope', 'UserGroup', function($scope, UserGr
 
 	$scope.searchUserGroup = function() {
 		searchedUserGroups = UserGroup.search($scope.searchName);
-		console.log(searchedUserGroups);
 		$scope.user_groups = searchedUserGroups;
 	};
+
+	$scope.inviteMember = function(id, idx) {
+		newMemberEmail = $scope.user_groups[idx].newMemberEmail;
+		var ret= UserGroup.inviteMember(id, newMemberEmail);
+		ret.$promise.then(
+			// success
+			function(result){
+				$scope.user_groups[idx].members = result
+				$scope.user_groups[idx].newMemberEmail = "";
+			},
+			// error
+			function(error){
+		    	// handle some error exception
+			}
+		);
+	};
+	
 }]);

@@ -33,7 +33,6 @@
     <% end %>
   </tbody>
 </table> -->
-
 <div ng-controller="UserGroupsCtrl">
 <form ng-submit="createUserGroup()" class="col-md-4">
   <div class="input-group">
@@ -65,17 +64,34 @@
       <!-- <th><%= model_class.human_attribute_name(:user_id) %></th> -->
       <!-- <th>Usuario</th> -->
       <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
-      <th>Nombre</th>
+      <th class="col-md-2">Nombre</th>
+      <th class="col-md-8">Miembros</th>
       <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
       <th></th>
     </tr>
   </thead>
   <tbody>
       <tr ng-repeat="user_group in user_groups | filter: {name: searchName }">
-
         <!-- <td><%= link_to "{{user_group.id}}", "user_groups/{{user_group.id}}" %></td> -->
         <!-- <td>{{user_group.user.email}}</td> -->
         <td>{{user_group.name}}</td>
+        <!-- <td>{{user_group.members}}</td> -->
+        <td>
+          <div class="groupMembers">
+            <span ng-repeat="member in user_group.members">
+              <!-- {{member.email}}<br/> -->
+              {{member.user.email}}<br/>
+            </span>
+          </div>
+          <form ng-submit="inviteMember(user_group.id, $index)" class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Ingresa el email de quien quieras invitar" ng-model='user_groups[$index].newMemberEmail'>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                </span>
+            </div>
+          </form>
+        </td>
         <td>
           <%= link_to "Editar", "user_groups/{{user_group.id}}", :class => 'btn btn-mini' %>
           <a href='' class="btn btn-mini btn-danger" ng-click="deleteUserGroup(user_group.id, $index)">Borrar</a>

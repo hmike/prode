@@ -7,7 +7,8 @@
 
 // AngularJS
 //= require angular
+//= require angular-animate
 //= require angular-resource
-//= require main.js
+//= require main
 //= require_tree ./angular
 //= require_tree .

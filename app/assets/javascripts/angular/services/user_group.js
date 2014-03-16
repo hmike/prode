@@ -1,4 +1,5 @@
 app.factory('UserGroup', ['$resource', function($resource) {
+
 	function UserGroup() {
 		this.service = $resource('/api/user_groups/:userGroupId', {userGroupId: '@id'});
 	};
@@ -13,6 +14,12 @@ app.factory('UserGroup', ['$resource', function($resource) {
 	}
 	UserGroup.prototype.search = function(name) {
 		return this.service.search(name)
+	}
+	UserGroup.prototype.inviteMember = function(id, email) {
+		var service = $resource('/api/user_groups/:userGroupId/inviteMember/', {userGroupId: id}, 
+							{'inviteMember': {method: 'POST', isArray: true}}
+						);
+		return service.inviteMember({email: email});
 	}
 	return new UserGroup;
 }]);
