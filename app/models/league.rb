@@ -5,4 +5,6 @@ class League < ActiveRecord::Base
 	validates :groups_count, presence: true
 	validates :teams_count, presence: true
 
+	has_and_belongs_to_many :teams
+
 end

@@ -5,4 +5,6 @@ class Team < ActiveRecord::Base
 	validates :country, presence: true
 	validates :avatar, presence: true
 
+	has_and_belongs_to_many :leagues
+
 end
