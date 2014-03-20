@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
   # layout 'superhero'
   layout 'yeti'
 
+  # cancan Exception handler
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.unauthenticated_root_path, :alert => exception.message
+  end
+
 end

@@ -62,3 +62,7 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'font-awesome-rails'
 
 gem 'angularjs-rails'
+
+gem "rails_admin", "~> 0.6.1"
+
+gem "cancan"

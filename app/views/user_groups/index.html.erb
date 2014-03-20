@@ -17,9 +17,9 @@
     <% @user_groups.each do |user_group| %>
       <tr>
         <td><%= link_to user_group.id, user_group_path(user_group) %></td>
-        <td><%= user_group.user.email %></td>
+        <td> user_group.user.email </td>
         <td><%= user_group.name %></td>
-        <td><%=l user_group.created_at %></td>
+        <td><%= user_group.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_group_path(user_group), :class => 'btn btn-mini' %>

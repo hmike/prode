@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
 			:recoverable, :rememberable, :trackable, :validatable,
 			:omniauthable
 
-	has_many :user_goups
 	has_many :user_group_members
+	has_many :user_groups, :through => :user_group_members
+
+	# for the Group owner relationship
+	has_many :user_groups
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     	user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -47,5 +50,4 @@ class User < ActiveRecord::Base
 	      end
 	   	end
 	end
-
 end
