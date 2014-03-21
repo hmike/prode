@@ -1,0 +1,50 @@
+<%= form_for @match, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :league_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :league_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :date, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :local_team_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :local_team_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :away_team_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :away_team_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :local_score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :local_score, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :away_score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :away_score, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :league_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :league_date, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                matches_path, :class => 'btn' %>
+  </div>
+<% end %>

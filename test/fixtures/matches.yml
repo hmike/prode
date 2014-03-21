@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  league_id: 1
+  date: 2014-03-20 20:27:05
+  local_team_id: 1
+  away_team_id: 1
+  local_score: 1
+  away_score: 1
+  league_date: 1
+
+two:
+  league_id: 1
+  date: 2014-03-20 20:27:05
+  local_team_id: 1
+  away_team_id: 1
+  local_score: 1
+  away_score: 1
+  league_date: 1
