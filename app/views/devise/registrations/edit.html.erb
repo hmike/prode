@@ -1,7 +1,24 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
+  <div><%= f.label :name, "Nombre"%><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :lastname, "Apellido" %><br />
+  <%= f.text_field :lastname %></div>
+
+  <div><%= f.label :birthday, "Fecha de Nacimiento" %><br />
+  <%= f.date_field :birthday %></div>
+
+  <div><% if resource.avatar.exists? %>
+    <%= image_tag resource.avatar.url(:medium) %>
+  <div><%= f.label :avatar, "Cambia tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% else %>
+  <div><%= f.label :avatar, "Subi tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% end %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>

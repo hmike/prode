@@ -37,7 +37,13 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li class=""><%= link_to "Grupos", user_groups_path %></li>
+            <li class="">
+              <%= link_to "Grupos", user_groups_path %></li>
+            <li class="">
+              <%= link_to edit_user_registration_path do  %>
+              <%= image_tag (current_user.avatar(:thumb)) %>
+              <% end %>
+            </li>
             <li class=""><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Entrar", new_user_session_path %></li>

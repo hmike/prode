@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	has_many :user_goups
 	has_many :user_group_members
 
+	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     	user = User.where(:provider => auth.provider, :uid => auth.uid).first
 		if user

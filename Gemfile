@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use postgresql as the database for Active Record
-gem 'pg'
+gem 'sqlite3-ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -62,3 +61,4 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'font-awesome-rails'
 
 gem 'angularjs-rails'
+gem 'paperclip'
