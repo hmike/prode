@@ -5,38 +5,42 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:type) %></th>
-      <th><%= model_class.human_attribute_name(:groups_count) %></th>
-      <th><%= model_class.human_attribute_name(:teams_count) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+      <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
+      <!-- <th><%= model_class.human_attribute_name(:type) %></th> -->
+      <!-- <th><%= model_class.human_attribute_name(:groups_count) %></th> -->
+      <!-- <th><%= model_class.human_attribute_name(:teams_count) %></th> -->
+      <!-- <th><%= model_class.human_attribute_name(:created_at) %></th> -->
+      <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
+      <th>Nombre</th>
+      <th>Grupos</th>
+      <th>Equipos</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @leagues.each do |league| %>
       <tr>
-        <td><%= link_to league.id, league_path(league) %></td>
+        <!-- <td><%= link_to league.id, league_path(league) %></td> -->
         <td><%= league.name %></td>
-        <td><%= league.league_type %></td>
+        <!-- <td><%= league.league_type %></td> -->
         <td><%= league.groups_count %></td>
         <td><%= league.teams_count %></td>
-        <td><%=l league.created_at %></td>
+        <!-- <td><%=l league.created_at %></td> -->
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_league_path(league), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to "Ver Torneo", league_path(league), :class => 'btn btn-mini' %>
+        <!--  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       league_path(league),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' %> -->
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<!--
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_league_path,
             :class => 'btn btn-primary' %>
+-->

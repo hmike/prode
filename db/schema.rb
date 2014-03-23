@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320232705) do
+ActiveRecord::Schema.define(version: 20140322191948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bets", force: true do |t|
+    t.integer  "user_group_member_id"
+    t.integer  "match_id"
+    t.integer  "bet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "leagues", force: true do |t|
     t.string   "name"
@@ -30,6 +38,14 @@ ActiveRecord::Schema.define(version: 20140320232705) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "group_number",   limit: 1
+    t.integer  "points"
+    t.integer  "matches_played"
+    t.integer  "matches_won"
+    t.integer  "matches_lost"
+    t.integer  "matches_tied"
+    t.integer  "goals_scored"
+    t.integer  "goals_against"
   end
 
   create_table "matches", force: true do |t|
@@ -42,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140320232705) do
     t.integer  "league_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_playoff"
   end
 
   create_table "teams", force: true do |t|
@@ -66,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140320232705) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "league_id"
   end
 
   create_table "users", force: true do |t|

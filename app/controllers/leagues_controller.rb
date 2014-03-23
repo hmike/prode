@@ -6,12 +6,73 @@ class LeaguesController < ApplicationController
   # GET /leagues
   # GET /leagues.json
   def index
-    @leagues = League.all
+    @leagues = League.includes(:teams)
+    Rails.logger.debug "********************************************************"
+    @leagues.each do |league|
+      Rails.logger.debug league.inspect
+      Rails.logger.debug league.teams.inspect
+    end
+    Rails.logger.debug "********************************************************" 
   end
 
   # GET /leagues/1
   # GET /leagues/1.json
   def show
+    @leagues_teams = LeaguesTeams.find_all_by_league_id(@league.id, :order => :group_number)
+    @league_groups = Hash.new
+    @leagues_teams.each do |league_team|
+      if (!@league_groups[league_team.group_number]) 
+        @league_groups[league_team.group_number] = Array.new
+      end
+      @league_groups[league_team.group_number].push(league_team)
+    end
+
+
+    @matches = Match.where(:league_id => @league.id, :is_playoff => false).order(:league_date)
+
+    # remove this hack !!! and use the proper group
+    group_id = 40
+
+    user_group_member = UserGroupMember.joins(:user_group)
+                                                          .where( :user_id => current_user.id, 
+                                                                  :user_group_id => group_id,
+                                                                  :user_groups => { :league_id => @league.id }
+                                                                ).first
+    # get user bets for group matches
+    @user_bets = Hash.new
+    @matches.each do |match|
+      @user_bets[match.id] = match.bets.where(:match_id => match.id, :user_group_member_id => user_group_member.id).first
+    end
+
+    @groups_matches = Hash.new
+    @matches.each do |match|
+      if (!@groups_matches[match.league_date]) 
+        @groups_matches[match.league_date] = Array.new
+      end
+      @groups_matches[match.league_date].push(match)
+    end
+
+    @matches = Match.where(:league_id => @league.id, :is_playoff => true).order(:league_date)
+
+    # get user bets for playoff matches
+    @matches.each do |match|
+      @user_bets[match.id] = match.bets.where(:match_id => match.id, :user_group_member_id => user_group_member.id).first
+    end
+
+    @playoff_matches = Hash.new
+    @matches.each do |match|
+      if (!@playoff_matches[match.league_date]) 
+        @playoff_matches[match.league_date] = Array.new
+      end
+      @playoff_matches[match.league_date].push(match)
+    end
+
+    @playoff_labels = Hash.new
+    @playoff_labels[1] = 'Octavos'
+    @playoff_labels[2] = 'Cuartos'
+    @playoff_labels[3] = 'Semifinal'
+    @playoff_labels[4] = '3er y 4to Puesto'
+    @playoff_labels[5] = 'Final'
   end
 
   # GET /leagues/new

@@ -6,5 +6,6 @@ class UserGroupMember < ActiveRecord::Base
 	
 	belongs_to :user
 	belongs_to :user_group
+	has_many :bets
 
 end

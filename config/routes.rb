@@ -1,5 +1,7 @@
 Prode::Application.routes.draw do
 
+  resources :bets
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :users

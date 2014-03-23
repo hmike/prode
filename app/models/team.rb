@@ -7,7 +7,7 @@ class Team < ActiveRecord::Base
 
 	has_and_belongs_to_many :leagues
 
-	has_many :local_team_matches, :foreign_key => :local_team, :class_name => 'Match'
-	has_many :away_team_matches, :foreign_key => :away_team, :class_name => 'Match'
+	has_many :local_team_matches, :foreign_key => 'local_team_id', :class_name => 'Match'
+	has_many :away_team_matches, :foreign_key => 'away_team_id', :class_name => 'Match'
  
 end

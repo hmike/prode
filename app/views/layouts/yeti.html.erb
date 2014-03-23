@@ -38,7 +38,11 @@
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li class=""><%= link_to "Grupos", user_groups_path %></li>
+            <li class=""><%= link_to "Torneos", leagues_path %></li>
             <li class=""><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+            <% if current_user.admin? %>
+              <li class=""><%= link_to "Admin", rails_admin_path %></li>
+            <% end %>
           <% else %>
             <li><%= link_to "Entrar", new_user_session_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path %></li>
