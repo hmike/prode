@@ -11,8 +11,12 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
+<<<<<<< HEAD
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+=======
+
+>>>>>>> 4e0903734f78fd18557eb0ff27386dcb535cdbb3
     <%= stylesheet_link_tag "yeti", :media => "all" %>
 
     <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
@@ -77,7 +81,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    #<%= javascript_include_tag "yeti" %>
-    #<%= yield(:page_javascript) if content_for?(:page_javascript) %>
+    <%= javascript_include_tag "yeti" %>
+    <%= yield(:page_javascript) if content_for?(:page_javascript) %>
   </body>
 </html>

@@ -1,5 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<<<<<<< HEAD
 
   <%= devise_error_messages! %>
 
@@ -11,29 +12,7 @@
   
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
-  <div><% if resource.avatar.exists? %>
-    <%= image_tag resource.avatar.url(:medium) %>
-  <div><%= f.label :avatar, "Cambia tu foto" %><br />
-  <%= f.file_field :avatar %></div>
-  <% else %>
-  <div><%= f.label :avatar, "Subi tu foto" %><br />
-  <%= f.file_field :avatar %></div>
-  <% end %>
-
-  
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
-
-=OLD TEMPLATE
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+=======
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
   <div><%= f.label :name, "Nombre"%><br />
@@ -45,6 +24,7 @@
   <div><%= f.label :birthday, "Fecha de Nacimiento" %><br />
   <%= f.date_field :birthday %></div>
 
+>>>>>>> 4e0903734f78fd18557eb0ff27386dcb535cdbb3
   <div><% if resource.avatar.exists? %>
     <%= image_tag resource.avatar.url(:medium) %>
   <div><%= f.label :avatar, "Cambia tu foto" %><br />
@@ -54,6 +34,9 @@
   <%= f.file_field :avatar %></div>
   <% end %>
 
+<<<<<<< HEAD
+  
+=======
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
@@ -69,6 +52,7 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
+>>>>>>> 4e0903734f78fd18557eb0ff27386dcb535cdbb3
 
   <div><%= f.submit "Update" %></div>
 <% end %>
@@ -78,5 +62,3 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
 <%= link_to "Back", :back %>
-
-=END
