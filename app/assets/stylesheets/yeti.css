@@ -1,0 +1,25 @@
+/* Yeti
+ * Bootswatch
+ *= require_self
+ *= require font-awesome
+ *= require yeti/loader
+ *= require yeti/bootswatch
+ *= require yeti/bootswatch_override
+ *= require yeti/social-buttons
+ *= require angular/angular-growl/angular-growl.min
+*/
+
+.groupMembers {
+	margin-bottom: 15px;
+}
+
+/* Growl notifications (angular-growl) */
+.growlMessages .growl {
+	z-index: 9999;
+	width: 450px;
+}
+
+.growlMessages .growl-item.alert {
+	margin-bottom: 5px;
+	font-size: 14px;
+}
