@@ -11,5 +11,11 @@ app.factory('UserGroupMember', ['$resource', function($resource) {
 	UserGroup.prototype.create = function(attr) {
 		return this.service.save(attr)
 	}
+	UserGroup.prototype.my_bets = function(id, email) {
+		var service = $resource('/api/user_group_members/:userGroupMemberId/my_bets/', {userGroupId: id}, 
+							{'my_bets': {method: 'GET', isArray: true}}
+						);
+		return service.my_bets();
+	}
 	return new UserGroupMember;
 }]);

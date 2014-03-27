@@ -43,5 +43,20 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 			}
 		);
 	};
+
+	$scope.my_bets = function(id) {
+		var ret= UserGroup.my_bets(id);
+		ret.$promise.then(
+			// success
+			function(result){
+				console.log("success")
+			},
+			// error
+			function(error){
+		    	// handle some error exception
+		    	console.log("error")
+			}
+		);
+	};
 	
 }]);

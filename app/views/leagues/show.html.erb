@@ -152,4 +152,29 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
- --><
+ -->
+
+<div ng-controller="MatchesCtrl">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="col-md-2">Fecha</th>
+      <th class="col-md-2">Local</th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
+      <th class="col-md-2">Visitante</th>
+      <th class="col-md-2">Apuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="match in matches | filter: {name: searchName }">
+        <td>{{match.date}}</td>
+        <td>{{match.local_team.team.name}}</td>
+        <td>{{match.local_score}}</td>
+        <td>{{match.away_score}}</td>
+        <td>{{match.away_team.team.name}}</td>
+        <td>{{match.bets.bet.bet}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>

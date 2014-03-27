@@ -21,5 +21,6 @@ app.factory('UserGroup', ['$resource', function($resource) {
 						);
 		return service.inviteMember({email: email});
 	}
+	
 	return new UserGroup;
 }]);

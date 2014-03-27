@@ -108,6 +108,8 @@ Prode::Application.routes.draw do
     resources :user_groups, defaults: {format: :json}
     # match 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}, via: [:post]
     post 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}
+    post 'user_group_members/:id/my_bets', to: 'user_group_members#my_bets', defaults: {format: :json}, via: [:get]
+    resources :matches, defaults: {format: :json}
   end
   # root 'watchlist#index'
 

@@ -61,6 +61,39 @@ class UserGroupMembersController < ApplicationController
     end
   end
 
+
+  def my_bets
+
+    # @user = User.find_by_email(params[:email])
+
+    # if (!@user)
+    #   respond_with_errors("No existe un usuario con ese email", 'error')
+    #   return
+    # end
+
+    # @user_group_member = @user_group.user_group_members.build(:user_id => @user.id)
+    # @user_group_members = UserGroupMember.where(user_group_id: @user_group.id)
+
+
+    # user_group_member = UserGroupMember.joins(:user_group)
+    #                                                   .where( :user_id => current_user.id, 
+    #                                                           :user_group_id => group_id,
+    #                                                           :user_groups => { :league_id => @league.id }
+    #                                                         ).first
+    # # get user bets for group matches
+    # @user_bets = Hash.new
+    # @matches.each do |match|
+    #   @user_bets[match.id] = match.bets.where(:match_id => match.id, :user_group_member_id => user_group_member.id).first
+    # end
+
+    @bets = Bet.where(:user_group_member => @user_group_member.id)
+    
+    respond_to do |format|
+      format.html { redirect_to user_group_members_path, notice: 'Se retornan las apuestas!' }
+      format.json { render 'bets/index', notice: 'Se retornan las apuestas!', status: :created }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_group_member
