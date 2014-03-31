@@ -36,18 +36,25 @@
 <div ng-controller="UserGroupsCtrl">
 <form ng-submit="createUserGroup()" class="col-md-4">
   <div class="input-group">
-      <input type="text" class="form-control" placeholder="Nuevo nombre" ng-model='newName'>
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
-      </span>
+    <input type="text" class="form-control" placeholder="Nuevo grupo" ng-model="newName">
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+    </span>
+  </div>
+  <div class="input-group">
+    <select class="form-control" ng-model="newLeague" ng-init="newLeague = <%= @leagues.first.id %>">
+    <% @leagues.each do |league| %>
+      <option value="<%= league.id %>"><%= league.name %></option>
+    <% end %>
+    </select>
   </div>
 </form>
 <form ng-submit="searchUserGroup()" class="col-md-4">
   <div class="input-group">
-      <input type="text" class="form-control" placeholder="Buscar..." ng-model='searchName'>
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-      </span>
+    <input type="text" class="form-control" placeholder="Buscar..." ng-model='searchName'>
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+    </span>
   </div>
 </form>
 <!--   <input type="text" ng-model='newName' placeholder="Nuevo nombre">
@@ -74,7 +81,11 @@
       <tr ng-repeat="user_group in user_groups | filter: {name: searchName }">
         <!-- <td><%= link_to "{{user_group.id}}", "user_groups/{{user_group.id}}" %></td> -->
         <!-- <td>{{user_group.user.email}}</td> -->
-        <td>{{user_group.name}}</td>
+        <td>
+          {{user_group.name}}
+          <br/>
+          ({{user_group.league.name}})
+        </td>
         <!-- <td>{{user_group.members}}</td> -->
         <td>
           <div class="groupMembers">

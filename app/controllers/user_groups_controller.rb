@@ -6,8 +6,9 @@ class UserGroupsController < ApplicationController
   # GET /user_groups
   # GET /user_groups.json
   def index
-    @user_groups = UserGroup.includes(user_group_members: :user).all
+    @user_groups = UserGroup.joins(:user_group_members).where("user_group_members.user_id" => current_user.id).all
     @user_group_new = UserGroup.new
+    @leagues = League.all
   end
 
   # GET /user_groups/1
@@ -32,6 +33,8 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.save
+        @user_group.user_group_members.build(:user_id => current_user.id).save
+  
         format.html { redirect_to user_groups_path, notice: 'User group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_group }
       else
@@ -198,7 +201,7 @@ class UserGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_group_params
-      params.require(:user_group).permit(:name)
+      params.require(:user_group).permit(:name, :league_id)
     end
 
     # respond back to the client an http 200 status plus the message

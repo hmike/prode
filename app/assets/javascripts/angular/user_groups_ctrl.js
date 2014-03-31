@@ -2,7 +2,6 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 	$scope.user_groups = UserGroup.all();
 	$scope.my_bets = new Array();
 	
-
 	$scope.addSpecialWarnMessage = function() {
         // growl.addWarnMessage("This adds a warn message");
         // growl.addInfoMessage("This adds a info message");
@@ -10,10 +9,10 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
         // growl.addErrorMessage("This adds a error message");
     }
 
-
 	$scope.createUserGroup = function() {
 		var attr = {};
 		attr.name = $scope.newName;
+		attr.league_id = $scope.newLeague;
 		var newUserGroup = UserGroup.create(attr);
    		$scope.user_groups.push(newUserGroup);
 		$scope.newUserGroup = "";
@@ -73,9 +72,10 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 		);
 	};
 
-	//@todo: hmike: get UserGroup id
-	ret = UserGroup.myBets(33);
-	ret.$promise.then(
+	$scope.init = function(id){
+	    $scope.id = id
+		ret = UserGroup.myBets(id);
+		ret.$promise.then(
 			// success
 			function(result){
 				myBets = result;
@@ -93,4 +93,6 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 		    	// handle some error exception
 			}
 		);
+	};
+
 }]);

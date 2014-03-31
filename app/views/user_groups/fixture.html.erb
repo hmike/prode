@@ -1,3 +1,6 @@
+
+<div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)">
+
 <%- model_class = UserGroup -%>
 <div class="page-header">
   <h1><%= @user_group.name %></h1>
@@ -98,23 +101,27 @@
               # concat "empate"
               bet_winner = 0
             end
-            if (@user_bets[match.id].bet == bet_winner)
-              style = 'background-color: green; color: white'
-            else
-              style = 'background-color: red; color: white'
+            if (!@user_bets[match.id].nil?)
+              if (@user_bets[match.id].bet == bet_winner)
+                style = 'background-color: green; color: white'
+              else
+                style = 'background-color: red; color: white'
+              end
             end
           end
           %>
-          <td style="<%= style %>"><div ng-controller="UserGroupsCtrl">
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-            <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
-                <div class="animate-switch" ng-switch-when="0">EMPATE</div>
-                <div class="animate-switch" ng-switch-when="1">LOCAL</div>
-                <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
-            </div>
-          </div></td>
+          <td style="<%= style %>">
+            <!-- <div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)"> -->
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+              <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
+                  <div class="animate-switch" ng-switch-when="0">EMPATE</div>
+                  <div class="animate-switch" ng-switch-when="1">LOCAL</div>
+                  <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
+              </div>
+            <!-- </div> -->
+          </td>
           <td><%= match.away_score %></td>
           <td><%= match.away_team.name %></td>
         </tr>
@@ -158,23 +165,25 @@
               # concat "empate"
               bet_winner = 0
             end
-            if (@user_bets[match.id].bet == bet_winner)
+            if (@user_bets.has_key?(match.id) && @user_bets[match.id].bet == bet_winner)
               style = 'background-color: green; color: white'
             else
               style = 'background-color: red; color: white'
             end
           end
           %>
-          <td style="<%= style %>"><div ng-controller="UserGroupsCtrl">
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>L
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>E
-            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>V
-            <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
-                <div class="animate-switch" ng-switch-when="0">EMPATE</div>
-                <div class="animate-switch" ng-switch-when="1">LOCAL</div>
-                <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
+          <td style="<%= style %>">
+            <!-- <div ng-controller="UserGroupsCtrl"> -->
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>L
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>E
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>V
+              <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
+                  <div class="animate-switch" ng-switch-when="0">EMPATE</div>
+                  <div class="animate-switch" ng-switch-when="1">LOCAL</div>
+                  <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
+              </div>
             </div>
-          </div></td>
+          </td>
           <td><%= match.away_score %></td>
           <td><%= match.away_team.name %></td>
         </tr>
@@ -182,3 +191,5 @@
     </tbody>
   </table>
 <% end %>
+
+</div>
