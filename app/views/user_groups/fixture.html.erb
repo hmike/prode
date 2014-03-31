@@ -1,0 +1,184 @@
+<%- model_class = UserGroup -%>
+<div class="page-header">
+  <h1><%= @user_group.name %></h1>
+  <h3><%= @user_group.league.name %></h3>
+</div>
+
+<!-- <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @user_group.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user_group.name %></dd>
+</dl> -->
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              user_groups_path, :class => 'btn'  %>
+</div>
+
+
+<!-- Show Teams by groups -->
+<% @league_groups.each do |k,group_teams| %>
+  <h3><%= "Grupo #{k.upcase}" %></h3>
+  <table class="table table-striped col-md-3">
+    <thead>
+      <tr>
+        <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+        <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
+        <!-- <th><%= model_class.human_attribute_name(:type) %></th> -->
+        <!-- <th><%= model_class.human_attribute_name(:groups_count) %></th> -->
+        <!-- <th><%= model_class.human_attribute_name(:teams_count) %></th> -->
+        <!-- <th><%= model_class.human_attribute_name(:created_at) %></th> -->
+        <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
+        <th class="col-md-1"></th>
+        <th class="col-md-2">Nombre</th>
+        <th class="col-md-1">Puntos</th>
+        <th class="col-md-1">PJ</th>
+        <th class="col-md-1">PG</th>
+        <th class="col-md-1">PP</th>
+        <th class="col-md-1">PE</th>
+        <th class="col-md-1">GF</th>
+        <th class="col-md-1">GC</th>
+        <th class="col-md-1">D</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% group_teams.each do |league_team| %>
+        <tr>
+          <td><%= league_team.team.code %></td>
+          <td><%= league_team.team.name %></td>
+          <td><%= league_team.points %></td>
+          <td><%= league_team.matches_played %></td>
+          <td><%= league_team.matches_won %></td>
+          <td><%= league_team.matches_lost %></td>
+          <td><%= league_team.matches_tied %></td>
+          <td><%= league_team.goals_scored %></td>
+          <td><%= league_team.goals_against %></td>
+          <% diff = (league_team.goals_scored.to_i - league_team.goals_against.to_i) %>
+          <td><%= diff %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<h2>Fixture</h2>
+<!-- Show Fixture matches -->
+<% @groups_matches.each do |k,matches| %>
+  <h3><%= "Fecha #{k}" %></h3>
+  <table class="table table-striped col-md-3">
+    <thead>
+      <tr>
+        <th class="col-md-2">Fecha</th>
+        <th class="col-md-2">Local</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-2">L | E | V</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-2">Visitante</th>
+        <!-- <th class="col-md-2"></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <% matches.each do |match| %>
+        <tr>
+          <td><%= match.date %></td>
+          <td><%= match.local_team.name %></td>
+          <td><%= match.local_score %></td>
+          <% 
+          style = ''
+          if !(match.local_score.nil?) && !(match.away_score.nil?)
+            total_score = match.local_score - match.away_score
+            if (total_score > 0)
+              # concat "local"
+              bet_winner = 1
+            elsif (total_score < 0)
+              # concat "visitante"
+              bet_winner = 2
+            else
+              # concat "empate"
+              bet_winner = 0
+            end
+            if (@user_bets[match.id].bet == bet_winner)
+              style = 'background-color: green; color: white'
+            else
+              style = 'background-color: red; color: white'
+            end
+          end
+          %>
+          <td style="<%= style %>"><div ng-controller="UserGroupsCtrl">
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+            <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
+                <div class="animate-switch" ng-switch-when="0">EMPATE</div>
+                <div class="animate-switch" ng-switch-when="1">LOCAL</div>
+                <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
+            </div>
+          </div></td>
+          <td><%= match.away_score %></td>
+          <td><%= match.away_team.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<h2>Playoff</h2>
+<!-- Show Playoff matches -->
+<% @playoff_matches.each do |k,matches| %>
+  <h3><%= @playoff_labels[k] %></h3>
+  <table class="table table-striped col-md-3">
+    <thead>
+      <tr>
+        <th class="col-md-2">Fecha</th>
+        <th class="col-md-2">Local</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-2">L | E | V</th>
+        <th class="col-md-1"></th>
+        <th class="col-md-2">Visitante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% matches.each do |match| %>
+        <tr>
+          <td><%= match.date %></td>
+          <td><%= match.local_team.name %></td>
+          <td><%= match.local_score %></td>
+          <% 
+          style = ''
+          if !(match.local_score.nil?) && !(match.away_score.nil?)
+            total_score = match.local_score - match.away_score
+            if (total_score > 0)
+              # concat "local"
+              bet_winner = 1
+            elsif (total_score < 0)
+              # concat "visitante"
+              bet_winner = 2
+            else
+              # concat "empate"
+              bet_winner = 0
+            end
+            if (@user_bets[match.id].bet == bet_winner)
+              style = 'background-color: green; color: white'
+            else
+              style = 'background-color: red; color: white'
+            end
+          end
+          %>
+          <td style="<%= style %>"><div ng-controller="UserGroupsCtrl">
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>L
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>E
+            <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>V
+            <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
+                <div class="animate-switch" ng-switch-when="0">EMPATE</div>
+                <div class="animate-switch" ng-switch-when="1">LOCAL</div>
+                <div class="animate-switch" ng-switch-when="2">VISITANTE</div>
+            </div>
+          </div></td>
+          <td><%= match.away_score %></td>
+          <td><%= match.away_team.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

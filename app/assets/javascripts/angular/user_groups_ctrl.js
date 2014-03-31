@@ -1,5 +1,7 @@
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scope, growl, UserGroup, $filter) {
 	$scope.user_groups = UserGroup.all();
+	$scope.my_bets = new Array();
+	
 
 	$scope.addSpecialWarnMessage = function() {
         // growl.addWarnMessage("This adds a warn message");
@@ -30,7 +32,7 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 
 	$scope.inviteMember = function(id, idx) {
 		newMemberEmail = $scope.user_groups[idx].newMemberEmail;
-		var ret= UserGroup.inviteMember(id, newMemberEmail);
+		var ret = UserGroup.inviteMember(id, newMemberEmail);
 		ret.$promise.then(
 			// success
 			function(result){
@@ -44,19 +46,51 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 		);
 	};
 
-	$scope.my_bets = function(id) {
-		var ret= UserGroup.my_bets(id);
+	$scope.getBetLang = function(bet) {
+		if (bet == 0){
+			return 'empate';
+		} else if (bet == 1){
+			return 'local';
+		} else {
+			return 'visitante';
+		}
+	}
+
+	$scope.betMatch = function(id, matchId, bet) {
+		var ret = UserGroup.betMatch(id, matchId, bet);
+
 		ret.$promise.then(
 			// success
 			function(result){
-				console.log("success")
+				$scope.my_bets[matchId].bet = bet;
+
 			},
 			// error
 			function(error){
 		    	// handle some error exception
-		    	console.log("error")
+		    	$scope.my_bets[matchId].bet = '';
 			}
 		);
 	};
-	
+
+	//@todo: hmike: get UserGroup id
+	ret = UserGroup.myBets(33);
+	ret.$promise.then(
+			// success
+			function(result){
+				myBets = result;
+				for (var i = 0; i < myBets.length; i++) {
+					var bet = myBets[i]
+					if (bet.bet != null){
+						$scope.my_bets[bet.match] = { bet: bet.bet.bet.bet };
+					} else {
+						$scope.my_bets[bet.match] = { bet: '' };
+					}
+				}
+			},
+			// error
+			function(error){
+		    	// handle some error exception
+			}
+		);
 }]);

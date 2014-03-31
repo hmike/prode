@@ -16,11 +16,22 @@ app.factory('UserGroup', ['$resource', function($resource) {
 		return this.service.search(name)
 	}
 	UserGroup.prototype.inviteMember = function(id, email) {
-		var service = $resource('/api/user_groups/:userGroupId/inviteMember/', {userGroupId: id}, 
-							{'inviteMember': {method: 'POST', isArray: true}}
+		var service = $resource('/api/user_groups/:userGroupId/invite_member/', {userGroupId: id}, 
+							{'invite_member': {method: 'POST', isArray: true}}
 						);
-		return service.inviteMember({email: email});
+		return service.invite_member({email: email});
 	}
-	
+	UserGroup.prototype.betMatch = function(id, matchId, bet) {
+		var service = $resource('/api/user_groups/:userGroupId/bet_match/', {userGroupId: id}, 
+							{'bet_match': {method: 'POST', isArray: false}}
+						);
+		return service.bet_match({match_id: matchId, bet: bet});
+	}
+	UserGroup.prototype.myBets = function(id) {
+		var service = $resource('/api/user_groups/:userGroupId/my_bets/', {userGroupId: id}, 
+							{'my_bets': {method: 'GET', isArray: true}}
+						);
+		return service.my_bets();
+	}
 	return new UserGroup;
 }]);

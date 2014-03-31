@@ -1,5 +1,5 @@
 class UserGroupMembersController < ApplicationController
-  before_action :set_user_group_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_group_member, only: [:show, :edit, :update, :destroy, :my_bets]
 
   # GET /user_group_members
   # GET /user_group_members.json
@@ -86,11 +86,15 @@ class UserGroupMembersController < ApplicationController
     #   @user_bets[match.id] = match.bets.where(:match_id => match.id, :user_group_member_id => user_group_member.id).first
     # end
 
-    @bets = Bet.where(:user_group_member => @user_group_member.id)
+    @bets = Bet.where(:user_group_member_id => @user_group_member.id)
+
+    Rails.logger.debug "********************************************************"
+    Rails.logger.debug @bets.inspect
+    Rails.logger.debug "********************************************************"
     
     respond_to do |format|
       format.html { redirect_to user_group_members_path, notice: 'Se retornan las apuestas!' }
-      format.json { render 'bets/index', notice: 'Se retornan las apuestas!', status: :created }
+      format.json { render 'user_group_members/show', notice: 'Se retornan las apuestas!', status: :created }
     end
   end
 

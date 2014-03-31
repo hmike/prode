@@ -97,7 +97,8 @@ Prode::Application.routes.draw do
     # get 'signup', :on => :collection
   # devise_scope :user_groups do
   as :user_groups do
-    get 'user_groups/:id/inviteMember/:email', to: 'user_groups#inviteMember', as: :user_group_invite_member
+    get 'user_groups/:id/invite_member/:email', to: 'user_groups#invite_member', as: :user_group_invite_member
+    get 'user_groups/:id/fixture', to: 'user_groups#fixture', as: :user_group_fixture
   end
   # end
   # end
@@ -106,9 +107,11 @@ Prode::Application.routes.draw do
   # AngularJS
   scope :api do
     resources :user_groups, defaults: {format: :json}
-    # match 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}, via: [:post]
-    post 'user_groups/:id/inviteMember', to: 'user_groups#inviteMember', defaults: {format: :json}
-    post 'user_group_members/:id/my_bets', to: 'user_group_members#my_bets', defaults: {format: :json}, via: [:get]
+    # match 'user_groups/:id/invite_member', to: 'user_groups#invite_member', defaults: {format: :json}, via: [:post]
+    post 'user_groups/:id/invite_member', to: 'user_groups#invite_member', defaults: {format: :json}
+    post 'user_groups/:id/bet_match', to: 'user_groups#bet_match', defaults: {format: :json}
+    get 'user_group_members/:id/my_bets', to: 'user_group_members#my_bets', defaults: {format: :json}
+    get 'user_groups/:id/my_bets', to: 'user_groups#my_bets', defaults: {format: :json}
     resources :matches, defaults: {format: :json}
   end
   # root 'watchlist#index'
