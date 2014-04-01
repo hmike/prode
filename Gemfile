@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+gem 'pg'
 gem 'sqlite3-ruby'
 
 # Use SCSS for stylesheets
@@ -19,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -61,6 +63,6 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'font-awesome-rails'
 
 gem 'angularjs-rails'
+
 gem 'paperclip'
 gem 'best_in_place', git: 'https://github.com/bernat/best_in_place.git', branch: 'rails-4'
-gem 'jquery-ui-rails' 
