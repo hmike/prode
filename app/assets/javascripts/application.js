@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require turbolinks
+// require turbolinks <= turbolinks was removed because the page loading
 //= require yeti/loader
 //= require yeti/bootswatch
 //= require best_in_place
