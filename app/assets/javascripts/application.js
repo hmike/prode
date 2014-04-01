@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require turbolinks
+//= require jquery.ui.all
+// require turbolinks <= turbolinks was removed because the page loading
 //= require yeti/loader
 //= require yeti/bootswatch
+//= require best_in_place
 
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});

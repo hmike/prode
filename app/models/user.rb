@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
-			:recoverable, :rememberable, :trackable, :validatable,
+			:recoverable, :rememberable, :trackable, 
 			:omniauthable
 
 	has_many :user_group_members
@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
 
 	# for the Group owner relationship
 	has_many :user_groups
+
+	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "40x40>" }
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     	user = User.where(:provider => auth.provider, :uid => auth.uid).first

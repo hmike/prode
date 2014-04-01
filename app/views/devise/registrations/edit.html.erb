@@ -1,7 +1,58 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+
   <%= devise_error_messages! %>
+
+  <div> Nombre: <%= best_in_place resource, :name, path: 'create' %>
+
+  <div> Fecha Nacimiento: <%= best_in_place resource, :birthday, path: 'create', :type => :date %>
+
+  <div> Pais: <%= best_in_place resource, :country, :type => :select, :collection => [[1, "Argentina"], [2, "Italy"], [3, "Germany"], [4, "France"]], path: 'create' %>
+  
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <div><% if resource.avatar.exists? %>
+    <%= image_tag resource.avatar.url(:medium) %>
+  <div><%= f.label :avatar, "Cambia tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% else %>
+  <div><%= f.label :avatar, "Subi tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% end %>
+
+  
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+
+<%= link_to "Back", :back %>
+
+<!-- OLD TEMPLATE
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
+  <div><%= f.label :name, "Nombre"%><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :lastname, "Apellido" %><br />
+  <%= f.text_field :lastname %></div>
+
+  <div><%= f.label :birthday, "Fecha de Nacimiento" %><br />
+  <%= f.date_field :birthday %></div>
+
+  <div><% if resource.avatar.exists? %>
+    <%= image_tag resource.avatar.url(:medium) %>
+  <div><%= f.label :avatar, "Cambia tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% else %>
+  <div><%= f.label :avatar, "Subi tu foto" %><br />
+  <%= f.file_field :avatar %></div>
+  <% end %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
@@ -30,3 +81,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
 <%= link_to "Back", :back %>
+
+END -->
