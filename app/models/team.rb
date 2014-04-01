@@ -9,5 +9,8 @@ class Team < ActiveRecord::Base
 
 	has_many :local_team_matches, :foreign_key => 'local_team_id', :class_name => 'Match'
 	has_many :away_team_matches, :foreign_key => 'away_team_id', :class_name => 'Match'
+
+	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "40x40>" }
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
  
 end

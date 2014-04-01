@@ -1,7 +1,12 @@
 <%- model_class = UserGroup -%>
 <div class="page-header">
   <h1><%= @user_group.name %></h1>
-  <h3><%= @user_group.league.name %></h3>
+  <h3><% 
+    if (@user_group.league.avatar?)
+      concat image_tag (@user_group.league.avatar(:medium))
+    end
+    concat @user_group.league.name
+  %></h3>
 </div>
 
 <!-- <dl class="dl-horizontal">
@@ -38,7 +43,12 @@
     <% @user_group.user_group_members.each do |member| %>
       <tr>
         <td>-</td>
-        <td><%= member.user.email %></td>
+        <td><%
+          if (member.user.avatar?)
+            concat image_tag(member.user.avatar(:thumb))
+          end
+          concat member.user.email 
+        %></td>
         <td>-</td>
         <td>-</td>
       </tr>

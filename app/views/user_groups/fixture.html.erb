@@ -4,7 +4,12 @@
 <%- model_class = UserGroup -%>
 <div class="page-header">
   <h1><%= @user_group.name %></h1>
-  <h3><%= @user_group.league.name %></h3>
+  <h3><% 
+    if (@user_group.league.avatar?)
+      concat image_tag (@user_group.league.avatar(:medium))
+    end
+    concat @user_group.league.name
+  %></h3>
 </div>
 
 <!-- <dl class="dl-horizontal">
@@ -49,7 +54,14 @@
       <% group_teams.each do |league_team| %>
         <tr>
           <td><%= league_team.team.code %></td>
-          <td><%= league_team.team.name %></td>
+          <td>
+            <% 
+              if (league_team.team.avatar?)
+                concat image_tag (league_team.team.avatar(:thumb))
+              end
+              concat league_team.team.name
+            %>
+          </td>
           <td><%= league_team.points %></td>
           <td><%= league_team.matches_played %></td>
           <td><%= league_team.matches_won %></td>
@@ -85,7 +97,12 @@
       <% matches.each do |match| %>
         <tr>
           <td><%= match.date %></td>
-          <td><%= match.local_team.name %></td>
+          <td><% 
+            if (match.local_team.avatar?)
+              concat image_tag (match.local_team.avatar(:thumb))
+            end
+            concat match.local_team.name
+          %></td>
           <td><%= match.local_score %></td>
           <% 
           style = ''
@@ -123,7 +140,12 @@
             <!-- </div> -->
           </td>
           <td><%= match.away_score %></td>
-          <td><%= match.away_team.name %></td>
+          <td><% 
+            if (match.away_team.avatar?)
+              concat image_tag (match.away_team.avatar(:thumb))
+            end
+            concat match.away_team.name
+          %></td>
         </tr>
       <% end %>
     </tbody>
@@ -149,7 +171,12 @@
       <% matches.each do |match| %>
         <tr>
           <td><%= match.date %></td>
-          <td><%= match.local_team.name %></td>
+          <td><% 
+            concat match.local_team.name
+            if (match.local_team.avatar?)
+              concat image_tag (match.local_team.avatar(:thumb))
+            end
+          %></td>
           <td><%= match.local_score %></td>
           <% 
           style = ''
@@ -174,9 +201,9 @@
           %>
           <td style="<%= style %>">
             <!-- <div ng-controller="UserGroupsCtrl"> -->
-              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>L
-              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>E
-              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>V
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
+              <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
               <div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
                   <div class="animate-switch" ng-switch-when="0">EMPATE</div>
                   <div class="animate-switch" ng-switch-when="1">LOCAL</div>
@@ -185,7 +212,12 @@
             </div>
           </td>
           <td><%= match.away_score %></td>
-          <td><%= match.away_team.name %></td>
+          <td><% 
+            if (match.away_team.avatar?)
+              concat image_tag (match.away_team.avatar(:thumb))
+            end
+            concat match.away_team.name
+          %></td>
         </tr>
       <% end %>
     </tbody>
