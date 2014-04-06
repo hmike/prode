@@ -14,6 +14,9 @@ class UserGroupsController < ApplicationController
   # GET /user_groups/1
   # GET /user_groups/1.json
   def show
+    # scores calculation
+    #@todo: hmike: use :score field from db
+    @members_scored = @user_group.user_group_members.sort_by(&:score).reverse!
   end
 
   # GET /user_groups/new

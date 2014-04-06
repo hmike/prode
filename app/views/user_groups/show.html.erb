@@ -30,28 +30,32 @@
 </div>
 
 <!-- Show Memebers -->
-<table class="table table-striped col-md-3">
+<div class="col-md-12">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th class="col-md-1"></th>
-      <th class="col-md-2">Nombre</th>
-      <th class="col-md-1">Puntos</th>
-      <th class="col-md-1">Aciertos (%)</th>
+      <th class="col-md-8">Nombre</th>
+      <th class="col-md-1 text-center">Puntos</th>
+      <th class="col-md-2 text-center">Aciertos (%)</th>
     </tr>
   </thead>
   <tbody>
-    <% @user_group.user_group_members.each do |member| %>
+    <% position = 1 %>
+    <% @members_scored.each do |member| %>
       <tr>
-        <td>-</td>
+        <td><%= position %></td>
         <td><%
           if (member.user.avatar?)
             concat image_tag(member.user.avatar(:thumb))
           end
-          concat member.user.email 
+          concat " " + member.user.email 
         %></td>
-        <td>-</td>
-        <td>-</td>
+        <td class="text-center"><%= member.score %></td>
+        <td class="text-center">-</td>
       </tr>
+      <% position+=1 %>
     <% end %>
   </tbody>
 </table>
+</div>

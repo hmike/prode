@@ -81,15 +81,15 @@
 <!-- Show Fixture matches -->
 <% @groups_matches.each do |k,matches| %>
   <h3><%= "Fecha #{k}" %></h3>
-  <table class="table table-striped col-md-3">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th class="col-md-2">Fecha</th>
-        <th class="col-md-2">Local</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-2">L | E | V</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-2">Visitante</th>
+        <th class="col-md-3">Fecha</th>
+        <th class="col-md-3">Local</th>
+        <th class="col-md-1 text-center"></th>
+        <th class="col-md-1 text-center">L | E | V</th>
+        <th class="col-md-1 text-center"></th>
+        <th class="col-md-3">Visitante</th>
         <!-- <th class="col-md-2"></th> -->
       </tr>
     </thead>
@@ -103,7 +103,7 @@
             end
             concat match.local_team.name
           %></td>
-          <td><%= match.local_score %></td>
+          <td class="text-center"><%= match.local_score %></td>
           <% 
           style = ''
           if !(match.local_score.nil?) && !(match.away_score.nil?)
@@ -127,7 +127,7 @@
             end
           end
           %>
-          <td style="<%= style %>">
+          <td class="text-center" style="<%= style %>">
             <!-- <div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)"> -->
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
@@ -139,7 +139,7 @@
               </div>
             <!-- </div> -->
           </td>
-          <td><%= match.away_score %></td>
+          <td class="text-center"><%= match.away_score %></td>
           <td><% 
             if (match.away_team.avatar?)
               concat image_tag (match.away_team.avatar(:thumb))
@@ -159,12 +159,12 @@
   <table class="table table-striped col-md-3">
     <thead>
       <tr>
-        <th class="col-md-2">Fecha</th>
-        <th class="col-md-2">Local</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-2">L | E | V</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-2">Visitante</th>
+        <th class="col-md-3">Fecha</th>
+        <th class="col-md-3">Local</th>
+        <th class="col-md-1 text-center"></th>
+        <th class="col-md-1 text-center">L | E | V</th>
+        <th class="col-md-1 text-center"></th>
+        <th class="col-md-3">Visitante</th>
       </tr>
     </thead>
     <tbody>
@@ -177,7 +177,7 @@
               concat image_tag (match.local_team.avatar(:thumb))
             end
           %></td>
-          <td><%= match.local_score %></td>
+          <td class="text-center"><%= match.local_score %></td>
           <% 
           style = ''
           if !(match.local_score.nil?) && !(match.away_score.nil?)
@@ -199,7 +199,7 @@
             end
           end
           %>
-          <td style="<%= style %>">
+          <td class="text-center" style="<%= style %>">
             <!-- <div ng-controller="UserGroupsCtrl"> -->
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
@@ -211,7 +211,7 @@
               </div>
             </div>
           </td>
-          <td><%= match.away_score %></td>
+          <td class="text-center"><%= match.away_score %></td>
           <td><% 
             if (match.away_team.avatar?)
               concat image_tag (match.away_team.avatar(:thumb))

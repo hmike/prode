@@ -14,4 +14,35 @@ class Match < ActiveRecord::Base
 	belongs_to :away_team, :class_name => 'Team'
 	has_many :bets
 
+	def was_played
+		(local_score != nil && away_score != nil)
+	end
+
+	def is_local_win
+		#@todo: hmike: handle this error case
+		if !was_played
+			return nil
+		end
+
+		(local_score > away_score)
+	end
+
+	def is_away_win
+		#@todo: hmike: handle this error case
+		if !was_played
+			return nil
+		end
+
+		(local_score < away_score)
+	end
+
+	def is_tie
+		#@todo: hmike: handle this error case
+		if !was_played
+			return nil
+		end
+
+		(local_score == away_score)
+	end
+
 end

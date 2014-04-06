@@ -63,6 +63,7 @@
   <input type="text" ng-model='searchName' placeholder="Buscar...">
   <input type="submit" value="Buscar">
 </form> -->
+<div class="col-md-12">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -71,10 +72,10 @@
       <!-- <th><%= model_class.human_attribute_name(:user_id) %></th> -->
       <!-- <th>Usuario</th> -->
       <!-- <th><%= model_class.human_attribute_name(:name) %></th> -->
-      <th class="col-md-2">Nombre</th>
-      <th class="col-md-8">Miembros</th>
+      <th class="col-md-3">Nombre</th>
+      <th class="col-md-7">Miembros</th>
       <!-- <th><%=t '.actions', :default => t("helpers.actions") %></th> -->
-      <th></th>
+      <th class="col-md-2"></th>
     </tr>
   </thead>
   <tbody>
@@ -111,6 +112,8 @@
       </tr>
   </tbody>
 </table>
+</div>
+
 </div>
 
 <!-- AngularJS EXAMPLE -->
