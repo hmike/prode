@@ -1,3 +1,5 @@
+'use strict';
+
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scope, growl, UserGroup, $filter) {
 	$scope.user_groups = UserGroup.all();
 	$scope.my_bets = new Array();

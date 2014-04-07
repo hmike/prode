@@ -36,3 +36,32 @@
   padding-right: 1.5em;
   background: url("red_pen.png") no-repeat right;
   background-color: #CCC;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+#loadingWidget {
+  text-align: center;
+  margin: 50px 0;
+}
+
+/*#loadingWidget {
+  padding: 0px 0.7em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 9998;
+  text-align: center;
+  background-color: grey;
+  opacity: 0.4;
+}
+
+#loadingWidget .loadingContent {
+  width: auto;
+  display: inline-block;
+  margin: auto;
+  z-index: 9999;
+}*/

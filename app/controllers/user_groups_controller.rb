@@ -9,6 +9,7 @@ class UserGroupsController < ApplicationController
     @user_groups = UserGroup.joins(:user_group_members).where("user_group_members.user_id" => current_user.id).all
     @user_group_new = UserGroup.new
     @leagues = League.all
+    # sleep 2
   end
 
   # GET /user_groups/1
