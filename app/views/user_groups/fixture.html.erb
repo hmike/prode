@@ -106,6 +106,7 @@
           <td class="text-center"><%= match.local_score %></td>
           <% 
           style = ''
+          betclass = ''
           if !(match.local_score.nil?) && !(match.away_score.nil?)
             total_score = match.local_score - match.away_score
             if (total_score > 0)
@@ -120,14 +121,16 @@
             end
             if (!@user_bets[match.id].nil?)
               if (@user_bets[match.id].bet == bet_winner)
-                style = 'background-color: green; color: white'
+                style = '/*background-color: green;*/ color: white*/'
+                betclass = 'success'
               else
-                style = 'background-color: red; color: white'
+                style = '/*background-color: red;*/ color: white*/'
+                betclass = 'danger'
               end
             end
           end
           %>
-          <td class="text-center" style="<%= style %>">
+          <td class="text-center <%= betclass %>" style="<%= style %>">
             <!-- <div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)"> -->
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
@@ -180,6 +183,7 @@
           <td class="text-center"><%= match.local_score %></td>
           <% 
           style = ''
+          betclass = ''
           if !(match.local_score.nil?) && !(match.away_score.nil?)
             total_score = match.local_score - match.away_score
             if (total_score > 0)
@@ -193,13 +197,15 @@
               bet_winner = 0
             end
             if (@user_bets.has_key?(match.id) && @user_bets[match.id].bet == bet_winner)
-              style = 'background-color: green; color: white'
+              style = '/*background-color: green; color: white*/'
+              betclass = 'success'
             else
-              style = 'background-color: red; color: white'
+              style = '/*background-color: red;*/ color: white*/'
+              betclass = 'danger'
             end
           end
           %>
-          <td class="text-center" style="<%= style %>">
+          <td class="text-center <%= betclass %>" style="<%= style %>">
             <!-- <div ng-controller="UserGroupsCtrl"> -->
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
               <input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
