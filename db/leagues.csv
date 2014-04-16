@@ -1,0 +1,3 @@
+id,name,league_type,groups_count,teams_count,avatar
+1,Torneo Final 2014,tournament,1,20,http://0.0.0.0:3000/assets/afa2014.png
+2,Mundial Brasil 2014,tournament_playoffs,8,32,http://0.0.0.0:3000/assets/brasil2014.png

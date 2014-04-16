@@ -40,6 +40,7 @@ class Ability
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard                  # allow access to dashboard
       can :manage, :all
+      can :import, :all #[User, Model1, Model2]
       # if user.role? :superadmin
       #   can :manage, :all             # allow superadmins to do anything
       # elsif user.role? :manager

@@ -103,8 +103,8 @@ class UserGroupsController < ApplicationController
     @league = @user_group.league
     group_id = @user_group.id
 
-
-    @leagues_teams = LeaguesTeams.find_all_by_league_id(@league.id, :order => :group_number)
+    # @leagues_teams = LeaguesTeams.find_all_by_league_id(@league.id, :order => :group_number)
+    @leagues_teams = LeaguesTeams.where(:league => @league).where.not(:group_number => "").order(:group_number)
     @league_groups = Hash.new
     @leagues_teams.each do |league_team|
       if (!@league_groups[league_team.group_number]) 
@@ -156,11 +156,11 @@ class UserGroupsController < ApplicationController
 
     # @todo: hmike: calculate labels based on playoff matches count
     @playoff_labels = Hash.new
-    @playoff_labels[1] = 'Octavos'
-    @playoff_labels[2] = 'Cuartos'
-    @playoff_labels[3] = 'Semifinal'
-    @playoff_labels[4] = '3er y 4to Puesto'
-    @playoff_labels[5] = 'Final'
+    @playoff_labels[4] = 'Octavos'
+    @playoff_labels[5] = 'Cuartos'
+    @playoff_labels[6] = 'Semifinal'
+    @playoff_labels[7] = '3er y 4to Puesto'
+    @playoff_labels[8] = 'Final'
 
   end
 

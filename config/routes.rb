@@ -3,6 +3,7 @@ Prode::Application.routes.draw do
   resources :bets
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
 
   resources :users
   resources :user_groups

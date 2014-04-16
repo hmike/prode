@@ -27,7 +27,7 @@
 
 <!-- Show Teams by groups -->
 <% @league_groups.each do |k,group_teams| %>
-  <h3><%= "Grupo #{k.upcase}" %></h3>
+    <h3><%= (k.nil?) ? "" : "Grupo #{k.upcase}" %></h3>
   <table class="table table-striped col-md-3">
     <thead>
       <tr>

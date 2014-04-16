@@ -1,0 +1,191 @@
+id,league,date,local_team,away_team,local_score,away_score,league_date,is_playoff,stadium,referee,Local,goles_local,goles_visitante,Visitante,Estado,Estadio,Arbitro,ficha
+1,Torneo Final 2014,2014-02-09 00:00:00 ART,EST,ARS,1,0,1,0,Ciudad de La Plata,"Pitana, Néstor Fabián",Estudiantes L.P.,1,0,Arsenal F.C.,Finalizado,Ciudad de La Plata,"Pitana, Néstor Fabián",Ficha
+2,Torneo Final 2014,2014-02-09 00:00:00 ART,VEL,TIG,0,0,1,0,Vélez,"Alvarez, Luis",Vélez Sarsfield,0,0,Tigre,Finalizado,Vélez,"Alvarez, Luis",Ficha
+3,Torneo Final 2014,2014-02-09 00:00:00 ART,OLI,SLO,2,0,1,0,Olimpo,"Merlos, Andrés",Olimpo B. Blanca,2,0,San Lorenzo de A.,Finalizado,Olimpo,"Merlos, Andrés",Ficha
+4,Torneo Final 2014,2014-02-09 00:00:00 ART,ARG,GOD,2,1,1,0,D.Maradona,"Delfino, Germán",Argentinos Jrs.,2,1,Godoy Cruz Mza.,Finalizado,D.Maradona,"Delfino, Germán",Ficha
+5,Torneo Final 2014,2014-02-09 00:00:00 ART,ATR,ALL,1,1,1,0,At. de Rafaela,"Ceballos, Diego",At. de Rafaela,1,1,All Boys,Finalizado,At. de Rafaela,"Ceballos, Diego",Ficha
+6,Torneo Final 2014,2014-02-09 00:00:00 ART,RAC,COL,3,0,1,0,Racing,"Rapallini, Fernando",Racing Club,3,0,Colón,Finalizado,Racing,"Rapallini, Fernando",Ficha
+7,Torneo Final 2014,2014-02-09 00:00:00 ART,QUI,ROS,0,1,1,0,,"Herrera, Darío",Quilmes A.C.,0,1,Rosario Ctral.,Finalizado,,"Herrera, Darío",Ficha
+8,Torneo Final 2014,2014-02-09 00:00:00 ART,NEW,BOC,0,0,1,0,M.Bielsa,"Vigliano, Mauro",N.O. Boys,0,0,Boca Jrs.,Finalizado,M.Bielsa,"Vigliano, Mauro",Ficha
+9,Torneo Final 2014,2014-02-09 00:00:00 ART,RIV,GIM,1,0,1,0,River Plate,"Lunati, Pablo",River Plate,1,0,G. y Esgrima L.P.,Finalizado,River Plate,"Lunati, Pablo",Ficha
+10,Torneo Final 2014,2014-02-09 00:00:00 ART,BEL,LAN,2,2,1,0,Mario Alberto Kempes,"Trucco, Silvio",Belgrano,2,2,Lanús,Finalizado,Mario Alberto Kempes,"Trucco, Silvio",Ficha
+1,Torneo Final 2014,2014-02-16 00:00:00 ART,GOD,QUI,2,0,2,0,Mundialista Mendoza,"Trucco, Silvio",Godoy Cruz Mza.,2,0,Quilmes A.C.,Finalizado,Mundialista Mendoza,"Trucco, Silvio",Ficha
+2,Torneo Final 2014,2014-02-16 00:00:00 ART,ALL,EST,0,1,2,0,All Boys,"Merlos, Andrés",All Boys,0,1,Estudiantes L.P.,Finalizado,All Boys,"Merlos, Andrés",Ficha
+3,Torneo Final 2014,2014-02-16 00:00:00 ART,ARS,VEL,1,3,2,0,Arsenal,"Lunati, Pablo",Arsenal F.C.,1,3,Vélez Sarsfield,Finalizado,Arsenal,"Lunati, Pablo",Ficha
+4,Torneo Final 2014,2014-02-16 00:00:00 ART,TIG,OLI,0,0,2,0,Tigre,"Pezzotta, Sergio",Tigre,0,0,Olimpo B. Blanca,Finalizado,Tigre,"Pezzotta, Sergio",Ficha
+5,Torneo Final 2014,2014-02-16 00:00:00 ART,SLO,RAC,1,0,2,0,CASLA,"Loustau, Patricio",San Lorenzo de A.,1,0,Racing Club,Finalizado,CASLA,"Loustau, Patricio",Ficha
+6,Torneo Final 2014,2014-02-16 00:00:00 ART,COL,ARG,1,0,2,0,Colón,"Pompei, Juan Pablo",Colón,1,0,Argentinos Jrs.,Finalizado,Colón,"Pompei, Juan Pablo",Ficha
+7,Torneo Final 2014,2014-02-16 00:00:00 ART,GIM,NEW,3,0,2,0,Gimnasia,"Herrera, Darío",G. y Esgrima L.P.,3,0,N.O. Boys,Finalizado,Gimnasia,"Herrera, Darío",Ficha
+8,Torneo Final 2014,2014-02-16 00:00:00 ART,LAN,ATR,0,3,2,0,Lanús,"Maglio, Carlos",Lanús,0,3,At. de Rafaela,Finalizado,Lanús,"Maglio, Carlos",Ficha
+9,Torneo Final 2014,2014-02-16 00:00:00 ART,ROS,RIV,1,1,2,0,R.Central,"Rapallini, Fernando",Rosario Ctral.,1,1,River Plate,Finalizado,R.Central,"Rapallini, Fernando",Ficha
+10,Torneo Final 2014,2014-02-16 00:00:00 ART,BOC,BEL,2,3,2,0,Boca Jrs.,"Delfino, Germán",Boca Jrs.,2,3,Belgrano,Finalizado,Boca Jrs.,"Delfino, Germán",Ficha
+1,Torneo Final 2014,2014-02-19 00:00:00 ART,OLI,ARS,0,2,3,0,Olimpo,"Echenique, Fernando",Olimpo B. Blanca,0,2,Arsenal F.C.,Finalizado,Olimpo,"Echenique, Fernando",Ficha
+2,Torneo Final 2014,2014-02-19 00:00:00 ART,VEL,ALL,3,0,3,0,Vélez,"González, Mariano",Vélez Sarsfield,3,0,All Boys,Finalizado,Vélez,"González, Mariano",Ficha
+3,Torneo Final 2014,2014-02-19 00:00:00 ART,RAC,TIG,0,1,3,0,Racing,"Vigliano, Mauro",Racing Club,0,1,Tigre,Finalizado,Racing,"Vigliano, Mauro",Ficha
+4,Torneo Final 2014,2014-02-19 00:00:00 ART,QUI,COL,0,2,3,0,,"Delfino, Germán",Quilmes A.C.,0,2,Colón,Finalizado,,"Delfino, Germán",Ficha
+5,Torneo Final 2014,2014-02-19 00:00:00 ART,ARG,SLO,0,2,3,0,D.Maradona,"Herrera, Darío",Argentinos Jrs.,0,2,San Lorenzo de A.,Finalizado,D.Maradona,"Herrera, Darío",Ficha
+6,Torneo Final 2014,2014-02-19 00:00:00 ART,EST,LAN,2,1,3,0,Ciudad de La Plata,"Baliño, Jorge",Estudiantes L.P.,2,1,Lanús,Finalizado,Ciudad de La Plata,"Baliño, Jorge",Ficha
+7,Torneo Final 2014,2014-02-19 00:00:00 ART,RIV,GOD,1,2,3,0,River Plate,"Díaz, Pablo Daniel",River Plate,1,2,Godoy Cruz Mza.,Finalizado,River Plate,"Díaz, Pablo Daniel",Ficha
+8,Torneo Final 2014,2014-02-19 00:00:00 ART,BEL,NEW,1,1,3,0,Kempes,"Ceballos, Diego",Belgrano,1,1,N.O. Boys,Finalizado,Kempes,"Ceballos, Diego",Ficha
+9,Torneo Final 2014,2014-02-19 00:00:00 ART,ROS,GIM,3,1,3,0,R.Central,"Beligoy, Federico",Rosario Ctral.,3,1,G. y Esgrima L.P.,Finalizado,R.Central,"Beligoy, Federico",Ficha
+10,Torneo Final 2014,2014-02-19 00:00:00 ART,ATR,BOC,1,0,3,0,At. de Rafaela,"Pitana, Néstor Fabián",At. de Rafaela,1,0,Boca Jrs.,Finalizado,At. de Rafaela,"Pitana, Néstor Fabián",Ficha
+1,Torneo Final 2014,2014-02-23 00:00:00 ART,LAN,VEL,3,2,4,0,Lanús,"Laverni, Saúl",Lanús,3,2,Vélez Sarsfield,Finalizado,Lanús,"Laverni, Saúl",Ficha
+2,Torneo Final 2014,2014-02-23 00:00:00 ART,ALL,OLI,1,0,4,0,All Boys,"Ceballos, Diego",All Boys,1,0,Olimpo B. Blanca,Finalizado,All Boys,"Ceballos, Diego",Ficha
+3,Torneo Final 2014,2014-02-23 00:00:00 ART,ARS,RAC,3,1,4,0,Arsenal,"Herrera, Darío",Arsenal F.C.,3,1,Racing Club,Finalizado,Arsenal,"Herrera, Darío",Ficha
+4,Torneo Final 2014,2014-02-23 00:00:00 ART,NEW,ATR,4,1,4,0,M.Bielsa,"Alvarez, Luis",N.O. Boys,4,1,At. de Rafaela,Finalizado,M.Bielsa,"Alvarez, Luis",Ficha
+5,Torneo Final 2014,2014-02-23 00:00:00 ART,SLO,QUI,1,0,4,0,CASLA,"Echenique, Fernando",San Lorenzo de A.,1,0,Quilmes A.C.,Finalizado,CASLA,"Echenique, Fernando",Ficha
+6,Torneo Final 2014,2014-02-23 00:00:00 ART,BOC,EST,1,0,4,0,Boca Jrs.,"Loustau, Patricio",Boca Jrs.,1,0,Estudiantes L.P.,Finalizado,Boca Jrs.,"Loustau, Patricio",Ficha
+7,Torneo Final 2014,2014-02-23 00:00:00 ART,COL,RIV,3,1,4,0,Colón,"Vigliano, Mauro",Colón,3,1,River Plate,Finalizado,Colón,"Vigliano, Mauro",Ficha
+8,Torneo Final 2014,2014-02-23 00:00:00 ART,GOD,ROS,3,0,4,0,Mundialista Mendoza,"Pitana, Néstor Fabián",Godoy Cruz Mza.,3,0,Rosario Ctral.,Finalizado,Mundialista Mendoza,"Pitana, Néstor Fabián",Ficha
+9,Torneo Final 2014,2014-02-23 00:00:00 ART,TIG,ARG,0,0,4,0,Tigre,"Beligoy, Federico",Tigre,0,0,Argentinos Jrs.,Finalizado,Tigre,"Beligoy, Federico",Ficha
+10,Torneo Final 2014,2014-02-23 00:00:00 ART,GIM,BEL,2,2,4,0,Gimnasia,"Giannini, Mauro",G. y Esgrima L.P.,2,2,Belgrano,Finalizado,Gimnasia,"Giannini, Mauro",Ficha
+1,Torneo Final 2014,2014-02-03 00:00:00 ART,GOD,GIM,0,2,5,0,Mundialista Mendoza,"Loustau, Patricio",Godoy Cruz Mza.,0,2,G. y Esgrima L.P.,Finalizado,Mundialista Mendoza,"Loustau, Patricio",Ficha
+2,Torneo Final 2014,2014-02-03 00:00:00 ART,RAC,ALL,1,1,5,0,Racing,"Lunati, Pablo",Racing Club,1,1,All Boys,Finalizado,Racing,"Lunati, Pablo",Ficha
+3,Torneo Final 2014,2014-02-03 00:00:00 ART,VEL,BOC,1,0,5,0,Vélez,"Pezzotta, Sergio",Vélez Sarsfield,1,0,Boca Jrs.,Finalizado,Vélez,"Pezzotta, Sergio",Ficha
+4,Torneo Final 2014,2014-02-03 00:00:00 ART,ATR,BEL,1,2,5,0,At. de Rafaela,"Rapallini, Fernando",At. de Rafaela,1,2,Belgrano,Finalizado,At. de Rafaela,"Rapallini, Fernando",Ficha
+5,Torneo Final 2014,2014-02-03 00:00:00 ART,ARG,ARS,2,0,5,0,D.Maradona,"Vigliano, Mauro",Argentinos Jrs.,2,0,Arsenal F.C.,Finalizado,D.Maradona,"Vigliano, Mauro",Ficha
+6,Torneo Final 2014,2014-02-03 00:00:00 ART,ROS,COL,0,1,5,0,R.Central,"González, Mariano",Rosario Ctral.,0,1,Colón,Finalizado,R.Central,"González, Mariano",Ficha
+7,Torneo Final 2014,2014-02-03 00:00:00 ART,QUI,TIG,1,0,5,0,,"Maglio, Carlos",Quilmes A.C.,1,0,Tigre,Finalizado,,"Maglio, Carlos",Ficha
+8,Torneo Final 2014,2014-02-03 00:00:00 ART,OLI,LAN,2,0,5,0,Olimpo,"Trucco, Silvio",Olimpo B. Blanca,2,0,Lanús,Finalizado,Olimpo,"Trucco, Silvio",Ficha
+9,Torneo Final 2014,2014-02-03 00:00:00 ART,RIV,SLO,1,0,5,0,River Plate,"Pitana, Néstor Fabián",River Plate,1,0,San Lorenzo de A.,Finalizado,River Plate,"Pitana, Néstor Fabián",Ficha
+10,Torneo Final 2014,2014-02-03 00:00:00 ART,EST,NEW,0,0,5,0,Ciudad de La Plata,"Delfino, Germán",Estudiantes L.P.,0,0,N.O. Boys,Finalizado,Ciudad de La Plata,"Delfino, Germán",Ficha
+1,Torneo Final 2014,2014-03-05 00:00:00 ART,COL,GOD,1,1,6,0,Colón,"Abal, Diego",Colón,1,1,Godoy Cruz Mza.,Finalizado,Colón,"Abal, Diego",Ficha
+2,Torneo Final 2014,2014-03-05 00:00:00 ART,GIM,ATR,1,1,6,0,Gimnasia,"Ceballos, Diego",G. y Esgrima L.P.,1,1,At. de Rafaela,Finalizado,Gimnasia,"Ceballos, Diego",Ficha
+3,Torneo Final 2014,2014-03-05 00:00:00 ART,ALL,ARG,0,0,6,0,All Boys,"Rapallini, Fernando",All Boys,0,0,Argentinos Jrs.,Finalizado,All Boys,"Rapallini, Fernando",Ficha
+4,Torneo Final 2014,2014-03-05 00:00:00 ART,BEL,EST,1,1,6,0,Mario Alberto Kempes,"Pompei, Juan Pablo",Belgrano,1,1,Estudiantes L.P.,Finalizado,Mario Alberto Kempes,"Pompei, Juan Pablo",Ficha
+5,Torneo Final 2014,2014-03-05 00:00:00 ART,LAN,RAC,1,0,6,0,Lanús,"Pitana, Néstor Fabián",Lanús,1,0,Racing Club,Finalizado,Lanús,"Pitana, Néstor Fabián",Ficha
+6,Torneo Final 2014,2014-03-05 00:00:00 ART,BOC,OLI,2,0,6,0,Boca Jrs.,"Herrera, Darío",Boca Jrs.,2,0,Olimpo B. Blanca,Finalizado,Boca Jrs.,"Herrera, Darío",Ficha
+7,Torneo Final 2014,2014-03-05 00:00:00 ART,NEW,VEL,4,1,6,0,M.Bielsa,"Baliño, Jorge",N.O. Boys,4,1,Vélez Sarsfield,Finalizado,M.Bielsa,"Baliño, Jorge",Ficha
+8,Torneo Final 2014,2014-03-05 00:00:00 ART,ARS,QUI,0,2,6,0,Arsenal,"Alvarez, Luis",Arsenal F.C.,0,2,Quilmes A.C.,Finalizado,Arsenal,"Alvarez, Luis",Ficha
+9,Torneo Final 2014,2014-03-05 00:00:00 ART,SLO,ROS,2,1,6,0,CASLA,"Merlos, Andrés",San Lorenzo de A.,2,1,Rosario Ctral.,Finalizado,CASLA,"Merlos, Andrés",Ficha
+10,Torneo Final 2014,2014-03-05 00:00:00 ART,TIG,RIV,0,0,6,0,Tigre,"Echenique, Fernando",Tigre,0,0,River Plate,Finalizado,Tigre,"Echenique, Fernando",Ficha
+1,Torneo Final 2014,2014-03-09 00:00:00 ART,COL,GIM,0,0,7,0,Colón,"Pitana, Néstor Fabián",Colón,0,0,G. y Esgrima L.P.,Finalizado,Colón,"Pitana, Néstor Fabián",Ficha
+2,Torneo Final 2014,2014-03-09 00:00:00 ART,ARG,LAN,0,2,7,0,D.Maradona,"González, Mariano",Argentinos Jrs.,0,2,Lanús,Finalizado,D.Maradona,"González, Mariano",Ficha
+3,Torneo Final 2014,2014-03-09 00:00:00 ART,EST,ATR,0,0,7,0,Ciudad de La Plata,"Echenique, Fernando",Estudiantes L.P.,0,0,At. de Rafaela,Finalizado,Ciudad de La Plata,"Echenique, Fernando",Ficha
+4,Torneo Final 2014,2014-03-09 00:00:00 ART,VEL,BEL,3,1,7,0,Vélez,"Delfino, Germán",Vélez Sarsfield,3,1,Belgrano,Finalizado,Vélez,"Delfino, Germán",Ficha
+5,Torneo Final 2014,2014-03-09 00:00:00 ART,GOD,SLO,1,1,7,0,Mundialista Mendoza,"Vigliano, Mauro",Godoy Cruz Mza.,1,1,San Lorenzo de A.,Finalizado,Mundialista Mendoza,"Vigliano, Mauro",Ficha
+6,Torneo Final 2014,2014-03-09 00:00:00 ART,OLI,NEW,1,0,7,0,Olimpo,"Rapallini, Fernando",Olimpo B. Blanca,1,0,N.O. Boys,Finalizado,Olimpo,"Rapallini, Fernando",Ficha
+7,Torneo Final 2014,2014-03-09 00:00:00 ART,RIV,ARS,1,0,7,0,River Plate,"Lunati, Pablo",River Plate,1,0,Arsenal F.C.,Finalizado,River Plate,"Lunati, Pablo",Ficha
+8,Torneo Final 2014,2014-03-09 00:00:00 ART,RAC,BOC,1,2,7,0,Racing,"Trucco, Silvio",Racing Club,1,2,Boca Jrs.,Finalizado,Racing,"Trucco, Silvio",Ficha
+9,Torneo Final 2014,2014-03-09 00:00:00 ART,QUI,ALL,1,2,7,0,,"Merlos, Andrés",Quilmes A.C.,1,2,All Boys,Finalizado,,"Merlos, Andrés",Ficha
+10,Torneo Final 2014,2014-03-09 00:00:00 ART,ROS,TIG,1,1,7,0,R.Central,"Herrera, Darío",Rosario Ctral.,1,1,Tigre,Finalizado,R.Central,"Herrera, Darío",Ficha
+1,Torneo Final 2014,2014-03-16 00:00:00 ART,ATR,VEL,3,1,8,0,At. de Rafaela,"Pitana, Néstor Fabián",At. de Rafaela,3,1,Vélez Sarsfield,Finalizado,At. de Rafaela,"Pitana, Néstor Fabián",Ficha
+11,Torneo Final 2014,2014-03-09 00:00:00 ART,TIG,GOD,0,0,8,0,Tigre,"Laverni, Saúl",Tigre,0,0,Godoy Cruz Mza.,Finalizado,Tigre,"Laverni, Saúl",Ficha
+12,Torneo Final 2014,2014-03-09 00:00:00 ART,BEL,OLI,1,1,8,0,Kempes,"Pezzotta, Sergio",Belgrano,1,1,Olimpo B. Blanca,Finalizado,Kempes,"Pezzotta, Sergio",Ficha
+13,Torneo Final 2014,2014-03-09 00:00:00 ART,SLO,COL,0,0,8,0,CASLA,"Rapallini, Fernando",San Lorenzo de A.,0,0,Colón,Finalizado,CASLA,"Rapallini, Fernando",Ficha
+14,Torneo Final 2014,2014-03-09 00:00:00 ART,GIM,EST,0,1,8,0,Gimnasia,"Loustau, Patricio",G. y Esgrima L.P.,0,1,Estudiantes L.P.,Finalizado,Gimnasia,"Loustau, Patricio",Ficha
+15,Torneo Final 2014,2014-03-09 00:00:00 ART,ARS,ROS,1,1,8,0,Arsenal,"Pompei, Juan Pablo",Arsenal F.C.,1,1,Rosario Ctral.,Finalizado,Arsenal,"Pompei, Juan Pablo",Ficha
+16,Torneo Final 2014,2014-03-09 00:00:00 ART,NEW,RAC,2,0,8,0,M.Bielsa,"Herrera, Darío",N.O. Boys,2,0,Racing Club,Finalizado,M.Bielsa,"Herrera, Darío",Ficha
+17,Torneo Final 2014,2014-03-09 00:00:00 ART,BOC,ARG,1,1,8,0,Boca Jrs.,"Abal, Diego",Boca Jrs.,1,1,Argentinos Jrs.,Finalizado,Boca Jrs.,"Abal, Diego",Ficha
+18,Torneo Final 2014,2014-03-09 00:00:00 ART,ALL,RIV,3,2,8,0,All Boys,"Maglio, Carlos",All Boys,3,2,River Plate,Finalizado,All Boys,"Maglio, Carlos",Ficha
+19,Torneo Final 2014,2014-03-09 00:00:00 ART,LAN,QUI,1,0,8,0,Lanús,"Trucco, Silvio",Lanús,1,0,Quilmes A.C.,Finalizado,Lanús,"Trucco, Silvio",Ficha
+1,Torneo Final 2014,2014-03-23 00:00:00 ART,OLI,ATR,2,1,9,0,Olimpo,"Loustau, Patricio",Olimpo B. Blanca,2,1,At. de Rafaela,Finalizado,Olimpo,"Loustau, Patricio",Ficha
+2,Torneo Final 2014,2014-03-23 00:00:00 ART,COL,TIG,1,0,9,0,Colón,"Merlos, Andrés",Colón,1,0,Tigre,Finalizado,Colón,"Merlos, Andrés",Ficha
+3,Torneo Final 2014,2014-03-23 00:00:00 ART,RAC,BEL,2,0,9,0,Racing,"Laverni, Saúl",Racing Club,2,0,Belgrano,Finalizado,Racing,"Laverni, Saúl",Ficha
+4,Torneo Final 2014,2014-03-23 00:00:00 ART,ARG,NEW,0,0,9,0,D.Maradona,"Trucco, Silvio",Argentinos Jrs.,0,0,N.O. Boys,Finalizado,D.Maradona,"Trucco, Silvio",Ficha
+5,Torneo Final 2014,2014-03-23 00:00:00 ART,ROS,ALL,2,0,9,0,R.Central,"Abal, Diego",Rosario Ctral.,2,0,All Boys,Finalizado,R.Central,"Abal, Diego",Ficha
+6,Torneo Final 2014,2014-03-23 00:00:00 ART,VEL,EST,1,1,9,0,Vélez,"Alvarez, Luis",Vélez Sarsfield,1,1,Estudiantes L.P.,Finalizado,Vélez,"Alvarez, Luis",Ficha
+7,Torneo Final 2014,2014-03-23 00:00:00 ART,GOD,ARS,2,1,9,0,Mundialista Mendoza,"Beligoy, Federico",Godoy Cruz Mza.,2,1,Arsenal F.C.,Finalizado,Mundialista Mendoza,"Beligoy, Federico",Ficha
+8,Torneo Final 2014,2014-03-23 00:00:00 ART,GIM,SLO,2,1,9,0,Gimnasia,"Delfino, Germán",G. y Esgrima L.P.,2,1,San Lorenzo de A.,Finalizado,Gimnasia,"Delfino, Germán",Ficha
+9,Torneo Final 2014,2014-03-23 00:00:00 ART,RIV,LAN,2,0,9,0,River Plate,"Vigliano, Mauro",River Plate,2,0,Lanús,Finalizado,River Plate,"Vigliano, Mauro",Ficha
+10,Torneo Final 2014,2014-03-23 00:00:00 ART,QUI,BOC,0,0,9,0,,"Herrera, Darío",Quilmes A.C.,0,0,Boca Jrs.,Finalizado,,"Herrera, Darío",Ficha
+1,Torneo Final 2014,2014-03-30 00:00:00 ART,ALL,GOD,0,0,10,0,All Boys,"Trucco, Silvio",All Boys,0,0,Godoy Cruz Mza.,Finalizado,All Boys,"Trucco, Silvio",Ficha
+2,Torneo Final 2014,2014-03-30 00:00:00 ART,EST,OLI,0,0,10,0,,"Pompei, Juan Pablo",Estudiantes L.P.,0,0,Olimpo B. Blanca,Finalizado,,"Pompei, Juan Pablo",Ficha
+3,Torneo Final 2014,2014-03-30 00:00:00 ART,BEL,ARG,0,0,10,0,Kempes,"Ceballos, Diego",Belgrano,0,0,Argentinos Jrs.,Finalizado,Kempes,"Ceballos, Diego",Ficha
+4,Torneo Final 2014,2014-03-30 00:00:00 ART,VEL,GIM,5,1,10,0,Vélez,"Herrera, Darío",Vélez Sarsfield,5,1,G. y Esgrima L.P.,Finalizado,Vélez,"Herrera, Darío",Ficha
+5,Torneo Final 2014,2014-03-30 00:00:00 ART,NEW,QUI,1,1,10,0,M.Bielsa,"Lunati, Pablo",N.O. Boys,1,1,Quilmes A.C.,Finalizado,M.Bielsa,"Lunati, Pablo",Ficha
+6,Torneo Final 2014,2014-03-30 00:00:00 ART,ATR,RAC,2,2,10,0,At. de Rafaela,"Delfino, Germán",At. de Rafaela,2,2,Racing Club,Finalizado,At. de Rafaela,"Delfino, Germán",Ficha
+7,Torneo Final 2014,2014-03-30 00:00:00 ART,LAN,ROS,2,1,10,0,Lanús,"González, Mariano",Lanús,2,1,Rosario Ctral.,Finalizado,Lanús,"González, Mariano",Ficha
+8,Torneo Final 2014,2014-03-30 00:00:00 ART,ARS,COL,1,0,10,0,Arsenal,"Echenique, Fernando",Arsenal F.C.,1,0,Colón,Finalizado,Arsenal,"Echenique, Fernando",Ficha
+9,Torneo Final 2014,2014-03-30 00:00:00 ART,BOC,RIV,1,2,10,0,Boca Jrs.,"Pitana, Néstor Fabián",Boca Jrs.,1,2,River Plate,Finalizado,Boca Jrs.,"Pitana, Néstor Fabián",Ficha
+10,Torneo Final 2014,2014-03-30 00:00:00 ART,TIG,SLO,2,2,10,0,Tigre,"Alvarez, Luis",Tigre,2,2,San Lorenzo de A.,Finalizado,Tigre,"Alvarez, Luis",Ficha
+1,Torneo Final 2014,2014-04-02 00:00:00 ART,QUI,BEL,1,0,11,0,,"Trucco, Silvio",Quilmes A.C.,1,0,Belgrano,Finalizado,,"Trucco, Silvio",Ficha
+2,Torneo Final 2014,2014-04-02 00:00:00 ART,OLI,VEL,1,2,11,0,Olimpo,"Díaz, Pablo Daniel",Olimpo B. Blanca,1,2,Vélez Sarsfield,Finalizado,Olimpo,"Díaz, Pablo Daniel",Ficha
+3,Torneo Final 2014,2014-04-02 00:00:00 ART,ARG,ATR,0,0,11,0,D.Maradona,"Merlos, Andrés",Argentinos Jrs.,0,0,At. de Rafaela,Finalizado,D.Maradona,"Merlos, Andrés",Ficha
+4,Torneo Final 2014,2014-04-02 00:00:00 ART,RAC,EST,3,3,11,0,Racing,"Giannini, Mauro",Racing Club,3,3,Estudiantes L.P.,Finalizado,Racing,"Giannini, Mauro",Ficha
+5,Torneo Final 2014,2014-04-02 00:00:00 ART,GOD,LAN,1,0,11,0,Mundialista Mendoza,"Maglio, Carlos",Godoy Cruz Mza.,1,0,Lanús,Finalizado,Mundialista Mendoza,"Maglio, Carlos",Ficha
+6,Torneo Final 2014,2014-04-02 00:00:00 ART,ROS,BOC,2,1,11,0,R.Central,"Rapallini, Fernando",Rosario Ctral.,2,1,Boca Jrs.,Finalizado,R.Central,"Rapallini, Fernando",Ficha
+7,Torneo Final 2014,2014-04-02 00:00:00 ART,COL,ALL,1,0,11,0,Colón,"Ceballos, Diego",Colón,1,0,All Boys,Finalizado,Colón,"Ceballos, Diego",Ficha
+8,Torneo Final 2014,2014-04-02 00:00:00 ART,RIV,NEW,1,0,11,0,River Plate,"Pompei, Juan Pablo",River Plate,1,0,N.O. Boys,Finalizado,River Plate,"Pompei, Juan Pablo",Ficha
+9,Torneo Final 2014,2014-04-02 00:00:00 ART,GIM,TIG,3,1,11,0,Gimnasia,"Abal, Diego",G. y Esgrima L.P.,3,1,Tigre,Finalizado,Gimnasia,"Abal, Diego",Ficha
+10,Torneo Final 2014,2014-04-02 00:00:00 ART,SLO,ARS,2,0,11,0,CASLA,"Vigliano, Mauro",San Lorenzo de A.,2,0,Arsenal F.C.,Finalizado,CASLA,"Vigliano, Mauro",Ficha
+1,Torneo Final 2014,2014-04-06 00:00:00 ART,LAN,COL,1,0,12,0,Lanús,"Baliño, Jorge",Lanús,1,0,Colón,Finalizado,Lanús,"Baliño, Jorge",Ficha
+2,Torneo Final 2014,2014-04-06 00:00:00 ART,VEL,RAC,0,1,12,0,Vélez,"Rapallini, Fernando",Vélez Sarsfield,0,1,Racing Club,Finalizado,Vélez,"Rapallini, Fernando",Ficha
+3,Torneo Final 2014,2014-04-06 00:00:00 ART,NEW,ROS,0,1,12,0,M.Bielsa,"Loustau, Patricio",N.O. Boys,0,1,Rosario Ctral.,Finalizado,M.Bielsa,"Loustau, Patricio",Ficha
+4,Torneo Final 2014,2014-04-06 00:00:00 ART,ATR,QUI,2,2,12,0,At. de Rafaela,"Díaz, Pablo Daniel",At. de Rafaela,2,2,Quilmes A.C.,Finalizado,At. de Rafaela,"Díaz, Pablo Daniel",Ficha
+5,Torneo Final 2014,2014-04-06 00:00:00 ART,ALL,SLO,1,2,12,0,All Boys,"Merlos, Andrés",All Boys,1,2,San Lorenzo de A.,Finalizado,All Boys,"Merlos, Andrés",Ficha
+6,Torneo Final 2014,2014-04-06 00:00:00 ART,ARS,TIG,0,1,12,0,Arsenal,"Maglio, Carlos",Arsenal F.C.,0,1,Tigre,Finalizado,Arsenal,"Maglio, Carlos",Ficha
+7,Torneo Final 2014,2014-04-06 00:00:00 ART,BOC,GOD,3,0,12,0,Boca Jrs.,"Ceballos, Diego",Boca Jrs.,3,0,Godoy Cruz Mza.,Finalizado,Boca Jrs.,"Ceballos, Diego",Ficha
+8,Torneo Final 2014,2014-04-06 00:00:00 ART,BEL,RIV,2,1,12,0,Mario Alberto Kempes,"Echenique, Fernando",Belgrano,2,1,River Plate,Finalizado,Mario Alberto Kempes,"Echenique, Fernando",Ficha
+9,Torneo Final 2014,2014-04-06 00:00:00 ART,EST,ARG,1,0,12,0,Ciudad de La Plata,"Beligoy, Federico",Estudiantes L.P.,1,0,Argentinos Jrs.,Finalizado,Ciudad de La Plata,"Beligoy, Federico",Ficha
+10,Torneo Final 2014,2014-04-06 00:00:00 ART,OLI,GIM,0,2,12,0,Olimpo,"Lunati, Pablo",Olimpo B. Blanca,0,2,G. y Esgrima L.P.,Finalizado,Olimpo,"Lunati, Pablo",Ficha
+1,Torneo Final 2014,2014-04-13 00:00:00 ART,TIG,ALL,2,0,13,0,Tigre,"Loustau, Patricio",Tigre,2,0,All Boys,Finalizado,Tigre,"Loustau, Patricio",Ficha
+2,Torneo Final 2014,2014-04-13 00:00:00 ART,ROS,BEL,0,0,13,0,R.Central,"Abal, Diego",Rosario Ctral.,0,0,Belgrano,Finalizado,R.Central,"Abal, Diego",Ficha
+3,Torneo Final 2014,2014-04-13 00:00:00 ART,QUI,EST,1,3,13,0,,"Baliño, Jorge",Quilmes A.C.,1,3,Estudiantes L.P.,Finalizado,,"Baliño, Jorge",Ficha
+4,Torneo Final 2014,2014-04-13 00:00:00 ART,ARG,VEL,2,1,13,0,D.Maradona,"Lunati, Pablo",Argentinos Jrs.,2,1,Vélez Sarsfield,Finalizado,D.Maradona,"Lunati, Pablo",Ficha
+5,Torneo Final 2014,2014-04-13 00:00:00 ART,RAC,OLI,1,1,13,0,Racing,"Maglio, Carlos",Racing Club,1,1,Olimpo B. Blanca,Finalizado,Racing,"Maglio, Carlos",Ficha
+6,Torneo Final 2014,2014-04-13 00:00:00 ART,SLO,LAN,1,4,13,0,CASLA,"Herrera, Darío",San Lorenzo de A.,1,4,Lanús,Finalizado,CASLA,"Herrera, Darío",Ficha
+7,Torneo Final 2014,2014-04-13 00:00:00 ART,GOD,NEW, , ,13,0,Mundialista Mendoza,"Trucco, Silvio",Godoy Cruz Mza., , ,N.O. Boys,,Mundialista Mendoza,"Trucco, Silvio",Ficha
+8,Torneo Final 2014,2014-04-13 00:00:00 ART,GIM,ARS, , ,13,0,Gimnasia,"Merlos, Andrés",G. y Esgrima L.P., , ,Arsenal F.C.,,Gimnasia,"Merlos, Andrés",Ficha
+9,Torneo Final 2014,2014-04-13 00:00:00 ART,RIV,ATR, , ,13,0,River Plate,"Beligoy, Federico",River Plate, , ,At. de Rafaela,,River Plate,"Beligoy, Federico",Ficha
+10,Torneo Final 2014,2014-04-13 00:00:00 ART,COL,BOC, , ,13,0,Colón,"Díaz, Pablo Daniel",Colón, , ,Boca Jrs.,,Colón,"Díaz, Pablo Daniel",Ficha
+1,Torneo Final 2014,2014-04-16 00:00:00 ART,OLI,ARG, , ,14,0,Olimpo,"Herrera, Darío",Olimpo B. Blanca, , ,Argentinos Jrs.,,Olimpo,"Herrera, Darío",Ficha
+2,Torneo Final 2014,2014-04-16 00:00:00 ART,LAN,TIG, , ,14,0,Lanús,"Trucco, Silvio",Lanús, , ,Tigre,,Lanús,"Trucco, Silvio",Ficha
+3,Torneo Final 2014,2014-04-16 00:00:00 ART,VEL,QUI, , ,14,0,Vélez,"Giannini, Mauro",Vélez Sarsfield, , ,Quilmes A.C.,,Vélez,"Giannini, Mauro",Ficha
+4,Torneo Final 2014,2014-04-16 00:00:00 ART,ATR,ROS, , ,14,0,At. de Rafaela,"Pitana, Néstor Fabián",At. de Rafaela, , ,Rosario Ctral.,,At. de Rafaela,"Pitana, Néstor Fabián",Ficha
+5,Torneo Final 2014,2014-04-16 00:00:00 ART,EST,RIV, , ,14,0,Ciudad de La Plata,"Delfino, Germán",Estudiantes L.P., , ,River Plate,,Ciudad de La Plata,"Delfino, Germán",Ficha
+6,Torneo Final 2014,2014-04-16 00:00:00 ART,NEW,COL, , ,14,0,M.Bielsa,"Ceballos, Diego",N.O. Boys, , ,Colón,,M.Bielsa,"Ceballos, Diego",Ficha
+7,Torneo Final 2014,2014-04-16 00:00:00 ART,BOC,SLO, , ,14,0,Boca Jrs.,"Abal, Diego",Boca Jrs., , ,San Lorenzo de A.,,Boca Jrs.,"Abal, Diego",Ficha
+8,Torneo Final 2014,2014-04-16 00:00:00 ART,ALL,ARS, , ,14,0,All Boys,"Rapallini, Fernando",All Boys, , ,Arsenal F.C.,,All Boys,"Rapallini, Fernando",Ficha
+9,Torneo Final 2014,2014-04-16 00:00:00 ART,BEL,GOD, , ,14,0,Mario Alberto Kempes,"Loustau, Patricio",Belgrano, , ,Godoy Cruz Mza.,,Mario Alberto Kempes,"Loustau, Patricio",Ficha
+10,Torneo Final 2014,2014-04-16 00:00:00 ART,RAC,GIM, , ,14,0,Racing,"Laverni, Saúl",Racing Club, , ,G. y Esgrima L.P.,,Racing,"Laverni, Saúl",Ficha
+1,Torneo Final 2014,2014-04-20 00:00:00 ART,ROS,EST, , ,15,0,R.Central,Ficha,Rosario Ctral., , ,Estudiantes L.P.,,R.Central,Ficha,
+2,Torneo Final 2014,2014-04-20 00:00:00 ART,QUI,OLI, , ,15,0,,Ficha,Quilmes A.C., , ,Olimpo B. Blanca,,,Ficha,
+3,Torneo Final 2014,2014-04-20 00:00:00 ART,SLO,NEW, , ,15,0,CASLA,Ficha,San Lorenzo de A., , ,N.O. Boys,,CASLA,Ficha,
+4,Torneo Final 2014,2014-04-20 00:00:00 ART,COL,BEL, , ,15,0,Colón,Ficha,Colón, , ,Belgrano,,Colón,Ficha,
+5,Torneo Final 2014,2014-04-20 00:00:00 ART,ARG,RAC, , ,15,0,D.Maradona,Ficha,Argentinos Jrs., , ,Racing Club,,D.Maradona,Ficha,
+6,Torneo Final 2014,2014-04-20 00:00:00 ART,ARS,LAN, , ,15,0,Arsenal,Ficha,Arsenal F.C., , ,Lanús,,Arsenal,Ficha,
+7,Torneo Final 2014,2014-04-20 00:00:00 ART,RIV,VEL, , ,15,0,River Plate,Ficha,River Plate, , ,Vélez Sarsfield,,River Plate,Ficha,
+8,Torneo Final 2014,2014-04-20 00:00:00 ART,TIG,BOC, , ,15,0,Tigre,Ficha,Tigre, , ,Boca Jrs.,,Tigre,Ficha,
+9,Torneo Final 2014,2014-04-20 00:00:00 ART,GOD,ATR, , ,15,0,Mundialista Mendoza,Ficha,Godoy Cruz Mza., , ,At. de Rafaela,,Mundialista Mendoza,Ficha,
+10,Torneo Final 2014,2014-04-20 00:00:00 ART,GIM,ALL, , ,15,0,Gimnasia,Ficha,G. y Esgrima L.P., , ,All Boys,,Gimnasia,Ficha,
+1,Torneo Final 2014,2014-04-27 00:00:00 ART,OLI,RIV, , ,16,0,Sin confirmar,Ficha,Olimpo B. Blanca, , ,River Plate,,Sin confirmar,Ficha,
+2,Torneo Final 2014,2014-04-27 00:00:00 ART,VEL,ROS, , ,16,0,Sin confirmar,Ficha,Vélez Sarsfield, , ,Rosario Ctral.,,Sin confirmar,Ficha,
+3,Torneo Final 2014,2014-04-27 00:00:00 ART,EST,GOD, , ,16,0,Sin confirmar,Ficha,Estudiantes L.P., , ,Godoy Cruz Mza.,,Sin confirmar,Ficha,
+4,Torneo Final 2014,2014-04-27 00:00:00 ART,ATR,COL, , ,16,0,Sin confirmar,Ficha,At. de Rafaela, , ,Colón,,Sin confirmar,Ficha,
+5,Torneo Final 2014,2014-04-27 00:00:00 ART,ARG,GIM, , ,16,0,Sin confirmar,Ficha,Argentinos Jrs., , ,G. y Esgrima L.P.,,Sin confirmar,Ficha,
+6,Torneo Final 2014,2014-04-27 00:00:00 ART,BEL,SLO, , ,16,0,Sin confirmar,Ficha,Belgrano, , ,San Lorenzo de A.,,Sin confirmar,Ficha,
+7,Torneo Final 2014,2014-04-27 00:00:00 ART,NEW,TIG, , ,16,0,Sin confirmar,Ficha,N.O. Boys, , ,Tigre,,Sin confirmar,Ficha,
+8,Torneo Final 2014,2014-04-27 00:00:00 ART,BOC,ARS, , ,16,0,Sin confirmar,Ficha,Boca Jrs., , ,Arsenal F.C.,,Sin confirmar,Ficha,
+9,Torneo Final 2014,2014-04-27 00:00:00 ART,LAN,ALL, , ,16,0,Sin confirmar,Ficha,Lanús, , ,All Boys,,Sin confirmar,Ficha,
+10,Torneo Final 2014,2014-04-27 00:00:00 ART,RAC,QUI, , ,16,0,Sin confirmar,Ficha,Racing Club, , ,Quilmes A.C.,,Sin confirmar,Ficha,
+1,Torneo Final 2014,2014-05-04 00:00:00 ART,ALL,BOC, , ,17,0,Sin confirmar,Ficha,All Boys, , ,Boca Jrs.,,Sin confirmar,Ficha,
+2,Torneo Final 2014,2014-05-04 00:00:00 ART,ARS,NEW, , ,17,0,Sin confirmar,Ficha,Arsenal F.C., , ,N.O. Boys,,Sin confirmar,Ficha,
+3,Torneo Final 2014,2014-05-04 00:00:00 ART,TIG,BEL, , ,17,0,Sin confirmar,Ficha,Tigre, , ,Belgrano,,Sin confirmar,Ficha,
+4,Torneo Final 2014,2014-05-04 00:00:00 ART,SLO,ATR, , ,17,0,Sin confirmar,Ficha,San Lorenzo de A., , ,At. de Rafaela,,Sin confirmar,Ficha,
+5,Torneo Final 2014,2014-05-04 00:00:00 ART,COL,EST, , ,17,0,Sin confirmar,Ficha,Colón, , ,Estudiantes L.P.,,Sin confirmar,Ficha,
+6,Torneo Final 2014,2014-05-04 00:00:00 ART,GOD,VEL, , ,17,0,Sin confirmar,Ficha,Godoy Cruz Mza., , ,Vélez Sarsfield,,Sin confirmar,Ficha,
+7,Torneo Final 2014,2014-05-04 00:00:00 ART,ROS,OLI, , ,17,0,Sin confirmar,Ficha,Rosario Ctral., , ,Olimpo B. Blanca,,Sin confirmar,Ficha,
+8,Torneo Final 2014,2014-05-04 00:00:00 ART,RIV,RAC, , ,17,0,Sin confirmar,Ficha,River Plate, , ,Racing Club,,Sin confirmar,Ficha,
+9,Torneo Final 2014,2014-05-04 00:00:00 ART,QUI,ARG, , ,17,0,Sin confirmar,Ficha,Quilmes A.C., , ,Argentinos Jrs.,,Sin confirmar,Ficha,
+10,Torneo Final 2014,2014-05-04 00:00:00 ART,GIM,LAN, , ,17,0,Sin confirmar,Ficha,G. y Esgrima L.P., , ,Lanús,,Sin confirmar,Ficha,
+1,Torneo Final 2014,2014-05-11 00:00:00 ART,ARG,RIV, , ,18,0,Sin confirmar,Ficha,Argentinos Jrs., , ,River Plate,,Sin confirmar,Ficha,
+2,Torneo Final 2014,2014-05-11 00:00:00 ART,RAC,ROS, , ,18,0,Sin confirmar,Ficha,Racing Club, , ,Rosario Ctral.,,Sin confirmar,Ficha,
+3,Torneo Final 2014,2014-05-11 00:00:00 ART,OLI,GOD, , ,18,0,Sin confirmar,Ficha,Olimpo B. Blanca, , ,Godoy Cruz Mza.,,Sin confirmar,Ficha,
+4,Torneo Final 2014,2014-05-11 00:00:00 ART,VEL,COL, , ,18,0,Sin confirmar,Ficha,Vélez Sarsfield, , ,Colón,,Sin confirmar,Ficha,
+5,Torneo Final 2014,2014-05-11 00:00:00 ART,QUI,GIM, , ,18,0,Sin confirmar,Ficha,Quilmes A.C., , ,G. y Esgrima L.P.,,Sin confirmar,Ficha,
+6,Torneo Final 2014,2014-05-11 00:00:00 ART,EST,SLO, , ,18,0,Sin confirmar,Ficha,Estudiantes L.P., , ,San Lorenzo de A.,,Sin confirmar,Ficha,
+7,Torneo Final 2014,2014-05-11 00:00:00 ART,ATR,TIG, , ,18,0,Sin confirmar,Ficha,At. de Rafaela, , ,Tigre,,Sin confirmar,Ficha,
+8,Torneo Final 2014,2014-05-11 00:00:00 ART,BEL,ARS, , ,18,0,Sin confirmar,Ficha,Belgrano, , ,Arsenal F.C.,,Sin confirmar,Ficha,
+9,Torneo Final 2014,2014-05-11 00:00:00 ART,NEW,ALL, , ,18,0,Sin confirmar,Ficha,N.O. Boys, , ,All Boys,,Sin confirmar,Ficha,
+10,Torneo Final 2014,2014-05-11 00:00:00 ART,BOC,LAN, , ,18,0,Sin confirmar,Ficha,Boca Jrs., , ,Lanús,,Sin confirmar,Ficha,
+1,Torneo Final 2014,2014-05-18 00:00:00 ART,GIM,BOC, , ,19,0,Sin confirmar,Ficha,G. y Esgrima L.P., , ,Boca Jrs.,,Sin confirmar,Ficha,
+2,Torneo Final 2014,2014-05-18 00:00:00 ART,LAN,NEW, , ,19,0,Sin confirmar,Ficha,Lanús, , ,N.O. Boys,,Sin confirmar,Ficha,
+3,Torneo Final 2014,2014-05-18 00:00:00 ART,ALL,BEL, , ,19,0,Sin confirmar,Ficha,All Boys, , ,Belgrano,,Sin confirmar,Ficha,
+4,Torneo Final 2014,2014-05-18 00:00:00 ART,ARS,ATR, , ,19,0,Sin confirmar,Ficha,Arsenal F.C., , ,At. de Rafaela,,Sin confirmar,Ficha,
+5,Torneo Final 2014,2014-05-18 00:00:00 ART,TIG,EST, , ,19,0,Sin confirmar,Ficha,Tigre, , ,Estudiantes L.P.,,Sin confirmar,Ficha,
+6,Torneo Final 2014,2014-05-18 00:00:00 ART,SLO,VEL, , ,19,0,Sin confirmar,Ficha,San Lorenzo de A., , ,Vélez Sarsfield,,Sin confirmar,Ficha,
+7,Torneo Final 2014,2014-05-18 00:00:00 ART,COL,OLI, , ,19,0,Sin confirmar,Ficha,Colón, , ,Olimpo B. Blanca,,Sin confirmar,Ficha,
+8,Torneo Final 2014,2014-05-18 00:00:00 ART,GOD,RAC, , ,19,0,Sin confirmar,Ficha,Godoy Cruz Mza., , ,Racing Club,,Sin confirmar,Ficha,
+9,Torneo Final 2014,2014-05-18 00:00:00 ART,ROS,ARG, , ,19,0,Sin confirmar,Ficha,Rosario Ctral., , ,Argentinos Jrs.,,Sin confirmar,Ficha,
+10,Torneo Final 2014,2014-05-18 00:00:00 ART,RIV,QUI, , ,19,0,Sin confirmar,Ficha,River Plate, , ,Quilmes A.C.,,Sin confirmar,Ficha,
