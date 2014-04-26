@@ -3,5 +3,5 @@
 # is deployed and started.  This script gets executed directly, so 
 # it could be python, php, ruby, etc.
 
-echo "exec rake import_leagues RAILS_ENV=${RAILS_ENV:-production}"
-bundle exec rake import_leagues RAILS_ENV=${RAILS_ENV:-production}
+# echo "exec rake import_leagues RAILS_ENV=${RAILS_ENV:-production}"
+# bundle exec rake import_leagues RAILS_ENV=${RAILS_ENV:-production}
