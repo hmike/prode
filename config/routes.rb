@@ -105,6 +105,7 @@ Prode::Application.routes.draw do
   # end
   # end
 
+  get 'my_groups', to: 'user_groups#index', as: :my_groups
 
   # AngularJS
   scope :api do
@@ -114,6 +115,7 @@ Prode::Application.routes.draw do
     post 'user_groups/:id/bet_match', to: 'user_groups#bet_match', defaults: {format: :json}
     get 'user_group_members/:id/my_bets', to: 'user_group_members#my_bets', defaults: {format: :json}
     get 'user_groups/:id/my_bets', to: 'user_groups#my_bets', defaults: {format: :json}
+    get 'user_groups/:id/matches/:league_date', to: 'user_groups#matches', defaults: {format: :json}
     resources :matches, defaults: {format: :json}
   end
   # root 'watchlist#index'

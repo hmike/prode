@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='Prode'>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "Prode" %></title>
+	<%= csrf_meta_tags %>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<%= stylesheet_link_tag "default", :media => "all" %>
+	
+	<!-- For third-generation iPad with high-resolution Retina display: -->
+	<!-- Size should be 144 x 144 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+	<!-- For iPhone with high-resolution Retina display: -->
+	<!-- Size should be 114 x 114 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+	<!-- For first- and second-generation iPad: -->
+	<!-- Size should be 72 x 72 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<!-- Size should be 57 x 57 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+	<!-- For all other devices -->
+	<!-- Size should be 32 x 32 pixels -->
+	<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+	</head>
+	<body>
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<% if current_page?(authenticated_root_path) %>
+				<a class="navbar-brand" href="#">PROde<i class='fa fa-star'></i></a>
+				<% else %>
+				<%= link_to "PROde<i class='fa fa-star'></i>".html_safe, authenticated_root_path, :class => "navbar-brand" %>
+				<% end %>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<% if user_signed_in? %>
+						<% if current_user.admin? %>
+						<li class=""><%= link_to "<i class='fa fa-cogs'>".html_safe, rails_admin_path, :target => '_blank' %></i></a></li>
+						<% end %>
+						<li class="trophy"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-trophy')"><i class='fa fa-trophy'></i></a></li>
+						<li class="groups"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-groups')"><i class='fa fa-users'></i></a></li>
+					<% end %>
+					<li class="user"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-user')"><i class='fa fa-user'></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-fixed-top subnavbar">
+		<div class="container">
+
+			<!-- subnavbar-user -->
+			<div class="subnavbar-panel subnavbar-user">
+				<a class="close" href='#' onclick="return hideAllSubnavbarMenus()">x</a>
+				<div class="panel-left">
+				<% if !user_signed_in? %>
+					<div class="title">
+
+					</div>
+					<div>
+					<p>Todavía no te registraste?</p>
+					</p>Registrate y empezá a jugar ya!</p>
+					<%= link_to "REGISTRARSE", new_user_registration_path, :class => 'btn btn-primary' %><br />
+					</div>
+				<% else %>  
+				<% end %>
+				</div>
+				<div class="panel-right">
+				<% if !user_signed_in? %>
+					<div class="title">Inicio de sesión</div>
+					<div class="login-container">
+					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+						<div class="form-group"><%= f.email_field :email, :autofocus => true, :placeholder => 'email' %></div>
+						<div class="form-group"><%= f.password_field :password, :placeholder => 'contraseña' %></div>
+						<div class="form-group"><a href="#">Si has olvidado tu contraseña...</a></div>
+						<% if devise_mapping.rememberable? %>
+						<div><%= f.check_box :remember_me %><%= f.label :remember_me, :class => 'remember-me' %></div>
+						<% end %>
+						<div class="form-group"><%= f.submit "Iniciar sesión", :class => 'btn btn-primary right login-btn' %></div>
+					<% end %>
+
+					</div>
+					<div class="login-social">
+					<%= link_to "<i class='fa fa-facebook-square'></i><span>Iniciar sesión con Facebook</span>".html_safe, omniauth_authorize_path(resource_name, 'facebook'), :class => 'btn btn-social btn-facebook' %>
+					<%= link_to "<i class='fa fa-google-plus-square'></i><span>Iniciar sesión con Google</span>".html_safe, omniauth_authorize_path(resource_name, 'google_oauth2'), :class => 'btn btn-social btn-google-plus' %>
+					</div>
+				<% else %>
+					<div class="title">Tu perfil</div>
+					<div class="logged-container">
+					<div class="form-group">
+						<%= link_to edit_user_registration_path do  %>
+						<%= image_tag current_user.avatar(:medium), :class => 'avatar' %>
+						<% end %>
+						<span>
+						<h2 id="logged-username"><%= current_user.name %></h2>
+						<%= link_to "edit<i class='fa fa-angle-right'></i>".html_safe, edit_user_registration_path, :class => 'edit' %>
+						</span>
+					</div>
+
+					</div>
+					<div class="logged-logout">
+					<%= link_to "Desconectar", destroy_user_session_path, :method => :delete, :class => 'btn btn-primary logout-btn' %>
+					</div>
+				<% end %>
+				</div>
+			</div>
+			<!-- end subnavbar-user -->
+
+			<!-- subnavbar-groups -->
+			<div class="subnavbar-panel subnavbar-groups">
+				<% if user_signed_in? %>
+				<a class="close" href='#' onclick="return hideAllSubnavbarMenus()">x</a>
+				<div class="panel-left">
+					<div class="title">
+					Mis Grupos
+					</div>
+					<div>
+					<% current_user.user_groups.reverse.first(3).each do |user_group| %>
+						<div class="group-container">
+						<%= link_to user_group do %>
+							<%= image_tag user_group.league.avatar(:thumb), :class => 'avatar' %>
+							<span><%= user_group.name %></span>
+						<% end %>
+						</div>
+					<% end %>
+					<div class="group-more">
+						<%= link_to 'ver grupos<i class="fa fa-angle-right"></i>'.html_safe, my_groups_path %>
+					</div>
+					</div>
+				</div>
+				<div class="panel-right">
+					<div class="title">Nuevo grupo</div>
+					<%= form_for(current_user.user_groups.new) do |f| %>
+					<div class="form-group"><%= f.text_field :name, :autofocus => true, :placeholder => 'Nuevo grupo', :maxlength => 40 %></div>
+					<div class="form-group">
+						<%= f.select(:league_id, options_from_collection_for_select(current_leagues, :id, :name), :class => 'form-control') %>
+					</div>
+					<div class="form-group"><%= f.submit "Crear", :class => 'btn btn-primary right' %></div>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
+			<!-- end subnavbar-trophy -->
+
+			<!-- subnavbar-trophy -->
+			<div class="subnavbar-panel subnavbar-trophy">
+				<a class="close" href='#' onclick="return hideAllSubnavbarMenus()">x</a>
+			</div>
+			<!-- end subnavbar-trophy -->
+
+		</div><!-- end container -->
+	</div><!-- end subnavbar -->
+
+	<div growl class="growlMessages"></div>
+	<div class="container main-container">
+		<%= yield %>
+	</div><!-- end container -->
+
+		<!-- <footer class="navbar-fixed-bottom">
+		<div class="container">
+			<p>Copyright&copy; 2014 PRODE. Reservados todos los derechos</p>
+		</div>
+		</footer> -->
+
+	<!-- Javascripts -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<%= javascript_include_tag "default" %>
+	<%= yield(:page_javascript) if content_for?(:page_javascript) %>
+
+	</body>
+</html>

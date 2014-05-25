@@ -59,10 +59,23 @@ production:
   encoding: utf8
   reconnect: false
   pool: 5
-  database: <%=ENV['OPENSHIFT_APP_NAME']%>
-  username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
-  password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
-  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
-  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+  database: prode2
+  username: adminkljarsz
+  password: bcB33lRV5pfN
+  host:     127.0.0.1
+  port:     5433
   min_messages: ERROR
   reconnect: false
+  # database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  # username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
+  # password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
+  # host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
+  # port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+
+  # postgresql-9.2 (PostgreSQL 9.2)
+  #  -------------------------------
+  #    Gears:          Located with ruby-1.9
+  #    Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
+  #    Database Name:  prode2
+  #    Password:       bcB33lRV5pfN
+  #    Username:       adminkljarsz

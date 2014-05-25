@@ -1,0 +1,188 @@
+@import "default/base";
+
+// Default
+// Bootswatch
+// bootswatch.css.less
+
+// Base =====================================================================
+
+body {
+	font-family: @font-family-base;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 13px;
+	line-height: 1.54;
+	color: #666666;
+	vertical-align: middle;
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #999999;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus,
+input[type="password"]:focus {
+	border-color: #0087e6;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 135, 230, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 135, 230, 0.6);
+}
+
+// autofill form fix
+input:-webkit-autofill {
+    color: #fff !important;
+}
+
+//remove outline
+a,
+a:active,
+a:focus,
+a img
+{ outline: none; }
+img,
+img:active,
+img:focus
+{ border: 0; }
+
+a {
+	color: white;
+
+	&:hover {
+		color: #5cace5;
+		text-decoration: none;
+	}
+}
+
+// Navbar =====================================================================
+
+.navbar {
+	background-color: #326295;
+	height: 40px;
+	overflow: hidden;
+	z-index: 900;
+	border: none;
+
+	.navbar-right a {
+		padding: 12px 25px;
+		font-size: 13px;
+		line-height: 1.54;
+		line-height: 40px;
+		color: #c0cbd9;
+		display: block;
+		height: 40px;
+		margin: 0 -8px;
+		z-index: 1;
+	}
+}
+
+// Buttons ====================================================================
+
+.btn {
+	border-radius: 0px;
+	.box-shadow(none);
+	text-shadow: none;
+	font-size: 13px;
+	min-width: 64px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	cursor: pointer;
+	padding: 0 10px;
+	.transition(none);
+	background-image: none;
+
+	// Hover/focus state
+	&:hover,
+	&:focus {
+		background-color: #0087e6;
+		background-position: 0 0px;
+		.transition(none);
+	}
+
+	// Focus state for keyboard and accessibility
+	&:focus {
+		.tab-focus();
+	}
+
+	// Active state
+	&.active,
+	&:active {
+		background-image: none;
+		outline: 0;
+		.box-shadow(none);
+	}
+
+	// Disabled state
+	&.disabled,
+	&[disabled] {
+		cursor: default;
+		background-image: none;
+		.opacity(65);
+		.box-shadow(none);
+	}
+}
+
+// Tables =====================================================================
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+	&.table {
+
+	  caption {
+		text-align: left;
+		text-transform: uppercase;
+		font-size: 14px;
+		line-height: 1.54;
+		font-weight: 700;
+		color: @gray;
+	  }
+
+  	  thead > tr > th {
+	  	font-size: 13px;
+		line-height: 25px;
+		// width: 84px;
+		height: 25px;
+	    font-weight: normal;
+	    text-transform: uppercase;
+	    vertical-align: middle;
+		color: @gray;
+		padding: 0;
+		border: none;
+		// border-bottom: 1px solid #e5e5e5;
+	  }
+
+	  thead > tr > td,
+	  tbody > tr > td {
+		font-size: 30px;
+		line-height: 80px;
+		// width: 84px;
+		height: 80px;
+		padding: 0px;
+		vertical-align: middle;
+		border: none;
+		border-bottom: 1px solid #e5e5e5;//#dddddd;
+	  }
+	}
+}
+
+// Forms ======================================================================
+
+.form-group {
+	margin-bottom: 5px;
+}
