@@ -15,7 +15,6 @@
 </div>
 
 <!-- Show Teams by league date -->
-<!--
 <% @league_groups.each do |k,group_teams| %>
 	<table class="table table-hover tbl-standing">
 		<caption class="table-title"><%= (k.nil?) ? "" : "Grupo #{k.upcase}" %></caption>
@@ -59,21 +58,10 @@
 		</tbody>
 	</table>
 <% end %>
--->
 
-
-<div class="test_button">
-	<button ng-click="start()">TEST</button>
-</div>
-
-<a href="#" class="btn btn-primary btn-lg" ng-click="start()">
-  <i class="glyphicon glyphicon-play-circle"></i> <span>cfpLoadingBar.</span>start()
-</a>
-
-
-<h2>Fixture</h2>
 <div ng-repeat="league_date in matches" ng-cloak class="ng-cloak">
-<!-- <h3>"Fecha #{k}"</h3> -->
+<h2>Fixture</h2>
+
 <table class="table tbl-fixture">
 	<caption class="table-title">Fecha {{league_date[1].league_date}}</caption>
 	<thead>
@@ -88,217 +76,36 @@
 	<tbody>
 		<tr ng-repeat="match in league_date">
 			<td class="tbl-date">
-				<!-- <span>match.date.strftime("%e %b. %Y - %k:%M")</span> -->
-				<!-- <span>match.date.strftime("%e %b. %Y")</span> -->
 				<span>{{match.date | date: 'EEE d MMM. yyyy'}}</span>
 				<span>Fecha {{match.league_date}}</span>
 			</td>
 			<!-- <td class="tbl-score">{{match.date.strftime("%k:%M")}}</td> -->
 			<td class="tbl-score">{{match.date | date: 'HH:mm'}}</td>
 			<td class="tbl-teamname tbl-teamlocal tbl-team-{{match.local_team.team.code | lowercase}}">
-				<div class="test_button">
-					<button>
+				<div>
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==1)}" ng-model="my_bets[match.id].bet" value="1" ng-click='betMatch(<%= @user_group.id %>, match.id, 1)'>
 						<img ng-src="/assets/teams/afa/{{match.local_team.team.code | lowercase}}_medium.png" ></img>
 						<label>{{match.local_team.team.name}}</label>
 					</button>
 				</div>
-				<!--<div>
-					<!-- if (match.local_team.avatar?)
-					image_tag match.local_team.avatar(:thumb)-->
-<!--					<img src="/assets/teams/afa/{{match.local_team.team.code | lowercase}}_medium.png" ></img>
-					<label>{{match.local_team.team.name}}</label>
-				</div>-->
 			</td>
 			<td class="tbl-tied">
-				<div class="test_button">
-					<button>EMPATE</button>
-				</div>
-				<!-- <div>
-					EMPATE
-				</div> -->
-			</td>
-			<td class="tbl-teamname tbl-teamaway tbl-team-{{match.away_team.team.code | lowercase}}">
-				<div class="test_button">
-					<button>
-						<label>{{match.away_team.team.name}}</label>
-						<img ng-src="/assets/teams/afa/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
+				<div>
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==0)}" ng-model="my_bets[match.id].bet" value="0" ng-click='betMatch(<%= @user_group.id %>, match.id, 0)'>
+						<label>EMPATE<label>
 					</button>
 				</div>
-			<!--
+			</td>
+			<td class="tbl-teamname tbl-teamaway tbl-team-{{match.away_team.team.code | lowercase}}">
 				<div>
-					<label>{{match.away_team.team.name}}</label>
-					<!-- if (match.away_team.avatar?)
-					image_tag match.away_team.avatar(:thumb) -->
-<!--					<img src="/assets/teams/afa/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
-				</div>-->
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==2)}" ng-model="my_bets[match.id].bet" value="2" ng-click='betMatch(<%= @user_group.id %>, match.id, 2)'>
+						<img ng-src="/assets/teams/afa/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
+						<label>{{match.away_team.team.name}}</label>
+					</button>
+				</div>
 			</td>
 		</tr>
 	</tbody>
 </table>
-
-<!-- 
-<h2>Fixture</h2>
-<% @groups_matches.each do |k,matches| %>
-	<!-- <h3><%= "Fecha #{k}" %></h3> ->
-	<table class="table tbl-fixture">
-		<caption class="table-title"><%= "Fecha #{k}" %></caption>
-		<thead>
-			<tr>
-				<th class="col-md-1"></th>
-				<th class="col-md-2"></th>
-				<th class="col-md-3"></th>
-				<th class="col-md-3"></th>
-				<th class="col-md-3"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% matches.each do |match| %>
-				<tr>
-					<td class="tbl-date">
-						<!-- <span><%= match.date.strftime("%e %b. %Y - %k:%M") %></span> ->
-						<span><%= match.date.strftime("%e %b. %Y") %></span>
-						<span><%= "Fecha #{k}" %></span>
-					</td>
-					<td class="tbl-score"><%= match.date.strftime("%k:%M") %></td>
-					<td class="tbl-teamname tbl-teamlocal tbl-team-<%= match.local_team.code.downcase %>">
-						<div>
-							<% if (match.local_team.avatar?) %>
-							<%= image_tag match.local_team.avatar(:thumb) %>
-							<% end %>
-							<label><%= match.local_team.name %></label>
-						</div>
-					</td>
-					<td class="tbl-tied">
-						<div>
-							EMPATE
-						</div>
-					</td>
-					<td class="tbl-teamname tbl-teamaway tbl-team-<%= match.away_team.code.downcase %>">
-						<div>
-							<label><%= match.away_team.name %></label>
-							<% if (match.away_team.avatar?) %>
-							<%= image_tag match.away_team.avatar(:thumb) %>
-							<% end %>
-						</div>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %>
-
-<% if !@playoff_matches.empty? %>
-<h2>Playoff</h2>
-<% @playoff_matches.each do |k,matches| %>
-	<h3><%= @playoff_labels[k] %></h3>
-	<table class="table">
-		<thead>
-			<tr>
-				<th class="col-md-3"></th>
-				<th class="col-md-4"></th>
-				<th class="col-md-1"></th>
-				<th class="col-md-4"></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% matches.each do |match| %>
-				 <tr>
-					<td class="tbl-date">
-						<span><%= match.date.strftime("%e %b. %Y - %k:%M") %></span>
-						<span><%= "Fecha #{k}" %></span>
-					</td>
-					<td class="tbl-teamname tbl-teamlocal tbl-team-<%= match.local_team.code.downcase %>">
-						<% if (match.local_team.avatar?) %>
-						<%= image_tag match.local_team.avatar(:thumb) %>
-						<% end %>
-						<label><%= match.local_team.name %></label>
-					</td>
-					<td class="tbl-score"><%= match.date.strftime("%k:%M") %></td>
-					<td class="tbl-teamname tbl-teamaway tbl-team-<%= match.away_team.code.downcase %>">
-						<label><%= match.away_team.name %></label>
-						<% if (match.away_team.avatar?) %>
-						<%= image_tag match.away_team.avatar(:thumb) %>
-						<% end %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %>
-<% end %>
- -->
-
-<!-- <h2>Playoff</h2>
-<% @groups_matches.each do |k,matches| %>
-	<!-- <h3><%#= @playoff_labels[k] %></h3> ->
-	<table class="table table-striped col-md-3">
-		<thead>
-			<tr>
-				<th class="col-md-3">Fecha</th>
-				<th class="col-md-3">Local</th>
-				<th class="col-md-1 text-center"></th>
-				<th class="col-md-1 text-center">L | E | V</th>
-				<th class="col-md-1 text-center"></th>
-				<th class="col-md-3">Visitante</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% matches.each do |match| %>
-				<tr>
-					<td><%= match.date %></td>
-					<td><% 
-						concat match.local_team.name
-						if (match.local_team.avatar?)
-							concat image_tag (match.local_team.avatar(:thumb))
-						end
-					%></td>
-					<td class="text-center"><%= match.local_score %></td>
-					<% 
-					style = ''
-					betclass = ''
-					if !(match.local_score.nil?) && !(match.away_score.nil?)
-						total_score = match.local_score - match.away_score
-						if (total_score > 0)
-							# concat "local"
-							bet_winner = 1
-						elsif (total_score < 0)
-							# concat "visitante"
-							bet_winner = 2
-						else
-							# concat "empate"
-							bet_winner = 0
-						end
-						# if (@user_bets.has_key?(match.id) && @user_bets[match.id].bet == bet_winner)
-						# 	style = '/*background-color: green; color: white*/'
-						# 	betclass = 'success'
-						# else
-						# 	style = '/*background-color: red;*/ color: white*/'
-						# 	betclass = 'danger'
-						# end
-					end
-					%>
-					<td class="text-center <%= betclass %>" style="<%= style %>">
-							<input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="1" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-							<input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="0" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-							<input type="radio" ng-model="my_bets[<%= match.id %>].bet" value="2" ng-change='betMatch(<%= @user_group.id %>, <%= match.id %>, my_bets[<%= match.id %>].bet)'>
-							<div class="animate-switch-container" ng-switch on="my_bets[<%= match.id %>].bet">
-									<div class="animate-switch" ng-switch-when="0">EMPATE</div>
-									<div class="animate-switch" ng-switch-when="1">LOCAL</div>
-									<div class="animate-switch" ng-switch-when="2">VISITANTE</div>
-							</div>
-						</div>
-					</td>
-					<td class="text-center"><%= match.away_score %></td>
-					<td><% 
-						if (match.away_team.avatar?)
-							concat image_tag (match.away_team.avatar(:thumb))
-						end
-						concat match.away_team.name
-					%></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %> -->
 
 </div>

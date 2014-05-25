@@ -9,6 +9,12 @@ table.table.tbl-groups {
 		padding: 20px 0;
 	}
 
+	tbody > tr.row-group {
+		&:hover > td > a {
+			color: #999999;
+		}
+	}
+
 	div.group-name,
 	div.group-league {
 		max-width: 800px;
@@ -74,17 +80,19 @@ table.table.tbl-standing {
 		}
 
 		label {
+			/*
 			text-transform: uppercase;
 			// font-size: 27px;
 			font-size: 26px;
 			line-height: 27px;
 			color: @gray-darker;
-			margin-left: 10px;
+			// margin-left: 10px;
 			float: none;
 			vertical-align: middle;
 			font-weight: normal;
-			margin: 0;
+			margin: auto;
 			max-width: 250px;
+			*/
 		}
 	}
 
@@ -121,9 +129,27 @@ table.table.tbl-standing {
 		text-align: center;
 	}
 
+	td.tbl-teamname,
 	td.tbl-teamlocal,
 	td.tbl-teamaway,
 	td.tbl-tied {
+		label {
+			text-transform: uppercase;
+			font-size: 26px;
+			line-height: 27px;
+			color: @gray-darker;
+			float: none;
+			vertical-align: middle;
+			font-weight: normal;
+			margin: auto;
+			max-width: 250px;
+		}
+	}
+
+	td.tbl-teamlocal,
+	td.tbl-teamaway,
+	td.tbl-tied {
+
 		&:hover {
 			// background-color: #326295;
 			// color: white;
@@ -134,9 +160,9 @@ table.table.tbl-standing {
 		}
 
 		&:active {
-			color: white;
+			// color: white;
 			
-			label { color: white; }
+			// label { color: white; }
 		}
 	}
 
@@ -152,7 +178,7 @@ table.table.tbl-standing {
 	td.tbl-team-atr label /*Atletico Rafaela*/,
 	td.tbl-team-ros label /*Rosario Central*/,
 	{
-		font-size: x-large;
+		font-size: 22px;
 	}
 
 	td.tbl-team-new label /*Newell's Old Boys*/
@@ -228,9 +254,7 @@ div.page-header {
 
 }
 
-.test_button {
-button
-{
+button.btn-press {
 	display: block;
 	font-size: 1.1em;
 	font-weight: bold;
@@ -253,37 +277,62 @@ button
 	background-color: #fff;
 	padding: 3px;
 	width: 273px;
+	border: 1px solid #e5e5e5;
+
+	box-shadow: 0 1px 0 #e5e5e5, 0 1px 0 #e5e5e5, 0 6px 1px #e5e5e5;
+	// box-shadow: 0 1px 0 #474747, 0 1px 0 #474747, 0 6px 1px #474747;
+	// box-shadow: 0 1px 0 #428bca, 0 1px 0 #428bca, 0 6px 1px #428bca;
 }
 
-button:hover, button:focus
-{
+button:hover, button:focus {
 	// -webkit-animation: pulsate 1.2s linear infinite;
 	// animation: pulsate 1.2s linear infinite;
 	color: @gray;
+	color: #474747;
 }
 	
-@-webkit-keyframes pulsate
-{
-	// 0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
-	// 50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
-	// 100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+@-webkit-keyframes pulsate {
+	0%   { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+	50%  { /*color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; */}
+	100% { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
 }
 		
-@keyframes pulsate
-{
-	// 0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
-	// 50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
-	// 100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+@keyframes pulsate {
+	0%   { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+	50%  { /*color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; */}
+	100% { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
 }
 
-button:active
-{
-	color: white;
-	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
+button:active,
+button.active {
+	// color: white;
+	// text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
 	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
 	-webkit-transform: translateY(3px);
 	transform: translateY(3px);
 	-webkit-animation: none;
 	animation: none;
+
+	box-shadow: 0 1px 0 #e5e5e5, 0 2px 0 #e5e5e5, 0 2px 2px #e5e5e5;
+
 }
+
+button.active {
+	background-color: #428bca;
+	border: 1px solid #428bca;
+
+	background-color: #92a8be;
+	border: 1px solid #92a8be;
+
+	background-color: #326295;
+	border: 1px solid #326295;
+
+	// background-color: #c0cbd9;
+	// border: 1px solid #e5e5e5;
+
+	// background-color: #e5e5e5;
+	// border: 1px solid #e5e5e5;
+	label {
+		color: white !important;
+	}
 }

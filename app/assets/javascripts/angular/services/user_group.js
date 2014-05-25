@@ -2,12 +2,12 @@ app.factory('UserGroup', ['$resource', function($resource) {
 
 	function UserGroup() {
 		this.service = $resource('/api/user_groups/:userGroupId', 
-									{userGroupId: '@id'}, 
-									{'query': {isArray: false}}
+									{userGroupId: '@id'}
+									// {'query': {isArray: true}}
 								);
 	};
 	UserGroup.prototype.query = function(id) {
-		return this.service.query({userGroupId: id});
+		return this.service.get({userGroupId: id});
 	};
 	UserGroup.prototype.all = function() {
 		return this.service.query();

@@ -1,5 +1,5 @@
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
-	// $scope.user_groups = UserGroup.all();
+	$scope.user_groups = UserGroup.all();
 	$scope.my_bets = new Array();
 	// console.log($scope.user_groups);
 	
@@ -117,6 +117,9 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 			function(result){
 				$scope.current_group = result;
 				$scope.matches = new Array();
+
+				// $scope.current_group.league.dates_count = 1;
+
 				for (var i=1; i<=$scope.current_group.league.dates_count; i++) {
 					$scope.matches[i] = UserGroup.matches(id, i);
 				};
