@@ -53,14 +53,15 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem "therubyracer"
-#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-#gem "twitter-bootstrap-rails"
+# gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# gem "twitter-bootstrap-rails"
 
 # twitter bootstrap css & javascript toolkit
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
-
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
+
+
 gem 'font-awesome-rails'
 
 gem 'angularjs-rails'
@@ -73,3 +74,5 @@ gem "cancan"
 
 gem 'paperclip'
 gem 'best_in_place', git: 'https://github.com/bernat/best_in_place.git', branch: 'rails-4'
+
+gem 'i18n_country_select'

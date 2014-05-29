@@ -1,20 +1,34 @@
-app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scope, growl, UserGroup, $filter) {
+app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
 	$scope.user_groups = UserGroup.all();
-	$scope.my_bets = new Array();
+	// $scope.my_bets = new Array();
+	// console.log($scope.user_groups);
 	
+	// ret.$promise.then(
+	// 	// success
+	// 	function(result){
+	// 		console.log('success', result);
+	// 		$scope.current_group = result;
+	// 	},
+	// 	// error
+	// 	function(error){
+	//     	// handle some error exception
+	//     	console.log('error', error);
+	//     }
+	// );
+
 	$scope.addSpecialWarnMessage = function() {
-        // growl.addWarnMessage("This adds a warn message");
-        // growl.addInfoMessage("This adds a info message");
-        // growl.addSuccessMessage("This adds a success message");
-        // growl.addErrorMessage("This adds a error message");
-    }
+		// growl.addWarnMessage("This adds a warn message");
+		// growl.addInfoMessage("This adds a info message");
+		// growl.addSuccessMessage("This adds a success message");
+		// growl.addErrorMessage("This adds a error message");
+	}
 
 	$scope.createUserGroup = function() {
 		var attr = {};
 		attr.name = $scope.newName;
 		attr.league_id = $scope.newLeague;
 		var newUserGroup = UserGroup.create(attr);
-   		$scope.user_groups.push(newUserGroup);
+		$scope.user_groups.push(newUserGroup);
 		$scope.newUserGroup = "";
 		$scope.newName = "";
 	};
@@ -40,7 +54,7 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 			},
 			// error
 			function(error){
-		    	// handle some error exception
+				// handle some error exception
 			}
 		);
 	};
@@ -61,36 +75,52 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', function($scop
 		ret.$promise.then(
 			// success
 			function(result){
-				$scope.my_bets[matchId].bet = bet;
+				$scope.my_bets[matchId].bet.bet = bet;
 
 			},
 			// error
 			function(error){
-		    	// handle some error exception
-		    	$scope.my_bets[matchId].bet = '';
+				// handle some error exception
+				$scope.my_bets[matchId].bet = null;
 			}
 		);
 	};
 
 	$scope.init = function(id){
-	    $scope.id = id
+		$scope.id = id
+
+		ret = UserGroup.query(id);
+		ret.$promise.then(
+			// success
+			function(result){
+				$scope.current_group = result;
+				$scope.matches = new Array();
+
+				for (var i=0; i<$scope.current_group.league.dates_count; i++) {
+					$scope.matches[i] = UserGroup.matches(id, i+1);
+				};
+			}
+		);
+
+		$scope.my_bets = new Array();
 		ret = UserGroup.myBets(id);
 		ret.$promise.then(
 			// success
 			function(result){
 				myBets = result;
 				for (var i = 0; i < myBets.length; i++) {
-					var bet = myBets[i]
-					if (bet.bet != null){
-						$scope.my_bets[bet.match] = { bet: bet.bet.bet.bet };
+					var match = myBets[i].match;
+					var bet = myBets[i].bet;
+					if (bet != null){
+						$scope.my_bets[match.id] = { bet: bet };
 					} else {
-						$scope.my_bets[bet.match] = { bet: '' };
+						$scope.my_bets[match.id] = { bet: null };
 					}
 				}
 			},
 			// error
 			function(error){
-		    	// handle some error exception
+				// handle some error exception
 			}
 		);
 	};

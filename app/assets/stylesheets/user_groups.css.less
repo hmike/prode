@@ -1,0 +1,380 @@
+@import "default/variables";
+
+/* USER GROUPS */
+table.table.tbl-groups {
+
+	tbody > tr > td {
+		font-size: large;
+		line-height: 100%;
+		padding: 20px 0;
+	}
+
+	tbody > tr.row-group {
+		&:hover > td > a {
+			color: #999999;
+		}
+	}
+
+	div.group-name,
+	div.group-league {
+		max-width: 800px;
+		display: block;
+		overflow: hidden;
+		margin: auto 0;
+		vertical-align: middle;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: large;
+		height: 50px;
+		line-height: 50px;
+	}
+
+	div.group-name {
+		font-size: xx-large;
+	}
+
+	a {
+		color: @gray-light;
+		font-size: 60px;
+
+		&:hover {
+			color: @gray;
+		}
+	}
+
+	td.tbl-group-links {
+		text-align: center;
+	}
+}
+
+/* FIXTURE */
+.league-banner {
+	height: 160px;
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #d9effc;
+	margin: 0;
+	margin-bottom: 10px;
+
+	img {
+		width: 100%;
+	}
+}
+
+table.table,
+table.table.tbl-standing {
+
+	th.tbl-teamname,
+	td.tbl-teamname {
+		// width: auto;
+	}
+
+	td.tbl-teamname {
+		img {
+			// border: 1px solid #c7c6c6;
+			width: 48px;
+			float: none;
+			vertical-align: middle;
+		}
+
+		label {
+			/*
+			text-transform: uppercase;
+			// font-size: 27px;
+			font-size: 26px;
+			line-height: 27px;
+			color: @gray-darker;
+			// margin-left: 10px;
+			float: none;
+			vertical-align: middle;
+			font-weight: normal;
+			margin: auto;
+			max-width: 250px;
+			*/
+		}
+	}
+
+	td.tbl-date {
+		width: auto;
+
+		span {
+			font-size: 12px;
+			text-transform: uppercase;
+			text-align: left;
+			color: @gray-dark;
+			display: block;
+			line-height: 17px;
+		}
+	}
+
+	td.tbl-teamlocal {
+		text-align: left;
+		// width: 315px;
+		padding-left: 10px;
+	}
+
+	td.tbl-teamaway {
+		text-align: right;
+		// width: 315px;
+		padding-right: 10px;
+	}
+
+	td.tbl-score {
+		text-align: center;
+
+
+		div.bet-score {
+			span, p {
+				font-size: 12px;
+				text-transform: uppercase;
+				text-align: center;
+				display: block;
+				line-height: 17px;
+			}
+
+			span {
+				font-size: 40px;
+				line-height: 40px;
+				// font-weight: bold;
+				color: #d9534f;//#5cb85c;//#3c763d;
+			}
+
+			p {
+				background-color: #d9534f;//#5cb85c;
+				color: white;
+				width: 40%;
+				margin: 0 auto;
+				border-radius: 3px;
+			}
+		}
+
+		div.bet-score.win {
+			span {
+				color: #5cb85c;//#3c763d;
+			}
+
+			p {
+				background-color: #5cb85c;//#d9534f;//#5cb85c;
+			}
+		}
+	}
+
+	td.tbl-tied {
+		text-align: center;
+	}
+
+	td.tbl-teamname,
+	td.tbl-teamlocal,
+	td.tbl-teamaway,
+	td.tbl-tied {
+		label {
+			text-transform: uppercase;
+			font-size: 28px;
+			line-height: 27px;
+			color: @gray-darker;
+			float: none;
+			vertical-align: middle;
+			font-weight: normal;
+			margin: auto;
+			max-width: 250px;
+		}
+	}
+
+	td.tbl-tied {
+		label {
+			font-size: 36px;
+		}
+	}
+
+	td.tbl-teamlocal,
+	td.tbl-teamaway,
+	td.tbl-tied {
+
+		&:hover {
+			// background-color: #326295;
+			// color: white;
+
+			label {
+				//color: white;
+			}
+		}
+
+		&:active {
+			// color: white;
+			
+			// label { color: white; }
+		}
+	}
+
+	// Team adjustments
+	td.tbl-team-bih label /*Bosnia y Herzegovina*/,
+	td.tbl-team-civ label /*Costa de Marfil*/,
+	td.tbl-team-kor label /*Korea*/,
+	{
+		width: 200px;
+		font-size: 22px;
+	}
+
+	td.tbl-team-atr label /*Atletico Rafaela*/,
+	td.tbl-team-ros label /*Rosario Central*/,
+	{
+		font-size: 22px;
+	}
+
+	td.tbl-team-new label /*Newell's Old Boys*/
+	{
+		font-size: large;
+	}
+}
+
+table.table.tbl-fixture {
+	caption {
+		border-bottom: solid 1px #474747;
+		color: #474747;
+		font-size: 21px;
+		text-transform: lowercase;
+		font-weight: normal;
+		line-height: 50px;
+	}
+}
+
+div.page-header {
+
+	overflow: hidden;
+	.league-avatar {
+		float: left;
+		max-width: 10%;
+		margin-right: 20px;
+
+		img {
+			margin: auto;
+		}
+	}
+
+	h1 {
+		display: inline-block;
+		width: 90%;
+		margin: 0;
+		vertical-align: middle;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 50px;
+		height: 60px;
+		line-height: 50px;
+		overflow: hidden;
+		margin-top: 10px;
+	}
+
+	h3 {
+		display: inline-block;
+		width: 90%;
+		margin-top: 5px;
+		overflow: hidden;
+	}
+}
+
+.form-actions {
+	text-align: right;
+	margin-bottom: 20px;
+
+	a {
+		color: #428bca;
+		margin-right: 20px;
+		font-size: x-large;
+
+		&:hover {
+			color: #5cace5;
+		}
+
+		i.fa-angle-right {
+			margin-left: 5px;
+			vertical-align: middle;
+		}
+	}
+
+}
+
+button.btn-press {
+	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 15px;
+	margin: 20px auto;
+	// color: #ccc;
+	background-color: white;
+	// background: -webkit-linear-gradient(#888, #555);
+	// background: linear-gradient(#888, #555);
+	border: 0 none;
+	border-radius: 3px;
+	// text-shadow: 0 -1px 0 #000;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	cursor: pointer;
+	-webkit-transition: all 150ms ease;
+	transition: all 150ms ease;
+
+	color: #474747;
+	background-color: #fff;
+	padding: 3px;
+	width: 273px;
+	border: 1px solid #e5e5e5;
+
+	box-shadow: 0 1px 0 #e5e5e5, 0 1px 0 #e5e5e5, 0 6px 1px #e5e5e5;
+	// box-shadow: 0 1px 0 #474747, 0 1px 0 #474747, 0 6px 1px #474747;
+	// box-shadow: 0 1px 0 #428bca, 0 1px 0 #428bca, 0 6px 1px #428bca;
+}
+
+button:hover, button:focus {
+	// -webkit-animation: pulsate 1.2s linear infinite;
+	// animation: pulsate 1.2s linear infinite;
+	color: @gray;
+	color: #474747;
+}
+	
+@-webkit-keyframes pulsate {
+	0%   { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+	50%  { /*color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; */}
+	100% { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+}
+		
+@keyframes pulsate {
+	0%   { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+	50%  { /*color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; */}
+	100% { /*color: #ddd; text-shadow: 0 -1px 0 #000; */}
+}
+
+button:active,
+button.active {
+	// color: white;
+	// text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
+	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
+	-webkit-animation: none;
+	animation: none;
+
+	box-shadow: 0 1px 0 #e5e5e5, 0 2px 0 #e5e5e5, 0 2px 2px #e5e5e5;
+
+}
+
+button.active {
+	background-color: #428bca;
+	border: 1px solid #428bca;
+
+	background-color: #92a8be;
+	border: 1px solid #92a8be;
+
+	background-color: #326295;
+	border: 1px solid #326295;
+
+	// background-color: #c0cbd9;
+	// border: 1px solid #e5e5e5;
+
+	// background-color: #e5e5e5;
+	// border: 1px solid #e5e5e5;
+	label {
+		color: white !important;
+	}
+}

@@ -1,0 +1,46 @@
+@social-btn-height:			38px;
+@social-btn-width:			232px;
+
+
+.btn-social {
+	height: @social-btn-height;
+	width: @social-btn-width;
+	border: none;
+	color: white;
+	margin-bottom: 10px;
+	text-align: left;
+	padding-left: 20px;
+
+	&.btn-facebook {
+		// background-color: #3B5999;
+		background-color: #2b4b90;
+
+		&:hover,
+		&:focus,
+		&:active,
+		&.disabled,
+		&[disabled] {
+			background-color: #133783;
+			// background-color: #476fb3;
+			color: white;
+		}
+	}
+
+	&.btn-google-plus {
+		// background-color: #dd4b39;
+		background-color: #d34332;
+
+		&:hover {
+			// background-color: #de6145;
+  			background-color: #c53727;
+			color: white;
+		}
+	}
+
+	i.fa-facebook-square,
+	i.fa-google-plus-square {
+		vertical-align: middle;
+		font-size: 18px;
+		margin-right: 5px;
+	}
+}

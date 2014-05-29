@@ -7,7 +7,7 @@ class Bet < ActiveRecord::Base
 	belongs_to :user_group_member
 	belongs_to :match
 
-	def get_score
+	def win
 		bet_win = false
 		if match.is_local_win
 			bet_win = (bet == 1)
@@ -16,8 +16,22 @@ class Bet < ActiveRecord::Base
 		elsif match.is_tie
 			bet_win = (bet == 0)
 		end
+		return bet_win
+	end
 
-		bet_win ? 1:0
+	def score
+		win ? 1:0
+	end
+
+	def bet_label
+		case bet
+		when 0
+			'empate'
+		when 1
+			'local'
+		when 2
+			'visitante'
+		end
 	end
 
 end

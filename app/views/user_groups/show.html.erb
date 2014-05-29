@@ -1,61 +1,44 @@
-<%- model_class = UserGroup -%>
 <div class="page-header">
-  <h1><%= @user_group.name %></h1>
-  <h3><% 
-    if (@user_group.league.avatar?)
-      concat image_tag (@user_group.league.avatar(:medium))
-    end
-    concat @user_group.league.name
-  %></h3>
+	<% if (@user_group.league.name == "Torneo Final 2014") %>
+		<div class="league-avatar"><%= image_tag ('logos/afa.png') %></div>
+	<% else %>
+		<div class="league-avatar"><%= image_tag ('logos/fifa_wc2014.png') %></div>
+	<% end %>
+	<h1><%= @user_group.name %></h1>
+	<h3><%= @user_group.league.name %></h3>
 </div>
-
-<!-- <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @user_group.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @user_group.name %></dd>
-</dl> -->
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              user_groups_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_group_path(@user_group), :class => 'btn' %>
-  <%= link_to 'Ver Fixture', user_group_fixture_path, :class => 'btn btn-primary' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              user_group_path(@user_group),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+	<%= #link_to t('.back', :default => t("helpers.links.back")),
+		#					user_groups_path, :class => 'btn btn-primary'
+	%>
+	<%= link_to "ver fixture<i class='fa fa-angle-right'></i>".html_safe, user_group_fixture_path, :class => '' %>
 </div>
 
-<!-- Show Memebers -->
-<div class="col-md-12">
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th class="col-md-1"></th>
-      <th class="col-md-8">Nombre</th>
-      <th class="col-md-1 text-center">Puntos</th>
-      <th class="col-md-2 text-center">Aciertos (%)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% position = 1 %>
-    <% @members_scored.each do |member| %>
-      <tr>
-        <td><%= position %></td>
-        <td><%
-          if (member.user.avatar?)
-            concat image_tag(member.user.avatar(:thumb))
-          end
-          concat " " + member.user.email 
-        %></td>
-        <td class="text-center"><%= member.score %></td>
-        <td class="text-center">-</td>
-      </tr>
-      <% position+=1 %>
-    <% end %>
-  </tbody>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="col-md-1"></th>
+			<th class="col-md-9">Nombre</th>
+			<th class="col-md-1 text-center">Pts</th>
+			<th class="col-md-1 text-center">%</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% position = 1 %>
+		<% @members_scored.each do |member| %>
+			<tr>
+				<td><%= position %></td>
+				<td><%
+					if (member.user.avatar?)
+						concat image_tag(member.user.avatar(:thumb))
+					end
+					concat " " + member.user.email 
+				%></td>
+				<td class="text-center"><%= member.score %></td>
+				<td class="text-center">-</td>
+			</tr>
+			<% position+=1 %>
+		<% end %>
+	</tbody>
 </table>
-</div>

@@ -15,4 +15,7 @@ class League < ActiveRecord::Base
 
 	def avatar_thumb_url; avatar.url(:thumb);	end
 
+	# The max league.date_count based on the current matches
+	def dates_count;	self.matches.order('league_date DESC').pluck(:league_date).first	end
+
 end

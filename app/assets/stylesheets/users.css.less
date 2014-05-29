@@ -1,0 +1,80 @@
+@import "default/variables";
+
+/* My Profile */
+.my-profile-left-panel {
+	width: 22%;
+	float: left;
+}
+
+.my-profile-right-panel {
+	width: 78%;
+	float: right;
+	padding: 20px;
+}
+
+.profile-avatar {
+	width: 240px;
+	height: 240px;
+	margin: 0;
+	/* padding: 20px; */
+	position: relative;
+	text-align: center;
+	border: 1px solid @gray;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+	}
+
+	i.fa {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 100px;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+		line-height: 250px;
+		color: transparent;
+
+		&:hover {
+			color: white;
+			background-color: #326295;
+			opacity: 0.7;
+		}
+	}
+}
+
+.profile-row {
+	font-size: x-large;
+
+	input {
+		font-size: large;
+	}
+
+	select {
+		font-size: large;
+		padding: 0 0 0 10px;
+	}
+
+	label {
+		width: 220px;
+		display: inline-block;
+		width: 29%;
+	}
+	span {
+		display: inline-block;
+		width: 70%;
+		
+		&.best_in_place:hover {
+			cursor: pointer;
+			opacity: 0.7;
+		}
+	}
+}

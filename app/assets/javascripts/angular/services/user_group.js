@@ -1,7 +1,13 @@
 app.factory('UserGroup', ['$resource', function($resource) {
 
 	function UserGroup() {
-		this.service = $resource('/api/user_groups/:userGroupId', {userGroupId: '@id'});
+		this.service = $resource('/api/user_groups/:userGroupId', 
+									{userGroupId: '@id'}
+									// {'query': {isArray: true}}
+								);
+	};
+	UserGroup.prototype.query = function(id) {
+		return this.service.get({userGroupId: id});
 	};
 	UserGroup.prototype.all = function() {
 		return this.service.query();
@@ -32,6 +38,12 @@ app.factory('UserGroup', ['$resource', function($resource) {
 							{'my_bets': {method: 'GET', isArray: true}}
 						);
 		return service.my_bets();
+	}
+	UserGroup.prototype.matches = function(id, leagueDate) {
+		var service = $resource('/api/user_groups/:userGroupId/matches/:leagueDate', {userGroupId: id, leagueDate: leagueDate}, 
+							{'matches': {method: 'GET', isArray: true}}
+						);
+		return service.matches();
 	}
 	return new UserGroup;
 }]);

@@ -1,18 +1,18 @@
 <!-- <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+	<%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	<div><%= f.label :email %><br />
+	<%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<div><%= f.label :password %><br />
+	<%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+	<div><%= f.label :password_confirmation %><br />
+	<%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+	<div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
@@ -20,72 +20,66 @@
 <% "Sign In" %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <ol class="formList">
-    <li><%= f.label :email %> <%= f.text_field :email %></li>
-    <li><%= f.label :password %> <%= f.password_field :password %></li>
-    <% if devise_mapping.rememberable? -%>
-    <li><%= f.check_box :remember_me %> <%= f.label :remember_me %></li>
-    <% end %>
-    <li><%= f.submit "Sign in" %></li>
-  </ol>
+	<ol class="formList">
+		<li><%= f.label :email %> <%= f.text_field :email %></li>
+		<li><%= f.label :password %> <%= f.password_field :password %></li>
+		<% if devise_mapping.rememberable? -%>
+		<li><%= f.check_box :remember_me %> <%= f.label :remember_me %></li>
+		<% end %>
+		<li><%= f.submit "Sign in" %></li>
+	</ol>
 <% end %>
 <%= render :partial => "devise/shared/links" %>
 
- -->
+-->
 
-<div class="bs-docs-section">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="page-header">
-              <h1 id="forms">Registrate ya!</h1>
-            </div>
-          </div>
-        </div>
+<div class="row">
+	<div class="page-header">
+		<h1 id="forms">Registrate y empezá a jugar!</h1>
+	</div>
+</div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="well">
-            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { :class => "bs-example form-horizontal"}) do |f| %>
-            <%= devise_error_messages! %>
-              <!-- <form class="bs-example form-horizontal"> -->
-                <fieldset>
-                  <legend>Completá los siguientes campos y en minutos más estarás haciendo tus propios pronosticos</legend>
-                  <div class="form-group">
-                    <!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
-                    <%= f.label :email, :class => "col-lg-2 control-label" %>
-                    <div class="col-lg-10">
-                      <%= f.email_field :email, :autofocus => true, :class => "form-control", :id => "inputEmail" %>
-                      <!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
-                    <%= f.label :password, :class => "col-lg-2 control-label" %>
-                    <div class="col-lg-10">
-                      <%= f.password_field :password, :class => "form-control", :id => "inputPassword" %>
-                      <!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
-                    <%= f.label :password_confirmation, :class => "col-lg-2 control-label" %>
-                    <div class="col-lg-10">
-                      <%= f.password_field :password_confirmation, :class => "form-control", :id => "inputPasswordConfirmation" %>
-                      <!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <!-- <button class="btn btn-default">Cancel</button> -->
-                      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                      <%= link_to "Cancel", :back, :class => "btn btn-default" %>
-                      <%= f.submit "Registrarse", :class => "btn btn-primary" %>
-                    </div>
-                  </div>
-                </fieldset>
-              <% end %>
-              <!-- </form> -->
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="row col-md-8">
+	<div class="well">
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { :class => ""}) do |f| %>
+		<%= devise_error_messages! %>
+		<!-- <form class="bs-example form-horizontal"> -->
+		<fieldset>
+			<legend>Completá los siguientes campos y en minutos más estarás haciendo tus propios pronosticos</legend>
+			<div class="form-group">
+				<!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
+				<!-- <%= f.label :email, :class => "" %> -->
+				<div class="col-md-10">
+					<%= f.email_field :email, :autofocus => true, :class => "", :placeholder => 'email', :required => true %>
+					<!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
+				<!--<%= f.label :password, :class => "col-lg-2 control-label" %> -->
+				<div class="col-lg-10">
+					<%= f.password_field :password, :class => "", :placeholder => "contraseña", :required => true %>
+					<!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<!-- <label for="inputEmail" class="col-lg-2 control-label">Email</label> -->
+				<!-- <%= f.label :password_confirmation, :class => "col-lg-2 control-label" %> -->
+				<div class="col-lg-10">
+					<%= f.password_field :password_confirmation, :class => "", :placeholder => "confirmar contraseña", :required => true %>
+					<!-- <input type="text" class="form-control" id="inputEmail" placeholder="Email"> -->
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<!-- <button class="btn btn-default">Cancel</button> -->
+					<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+					<%= link_to "Cancel", :back, :class => "btn btn-default" %>
+					<%= f.submit "Registrarse", :class => "btn btn-primary" %>
+				</div>
+			</div>
+		</fieldset>
+		<% end %>
+		<!-- </form> -->
+	</div>
+</div>

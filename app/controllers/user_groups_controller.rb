@@ -1,5 +1,5 @@
 class UserGroupsController < ApplicationController
-  before_action :set_user_group, only: [:show, :edit, :update, :destroy, :invite_member, :fixture, :bet_match, :my_bets]
+  before_action :set_user_group, only: [:show, :edit, :update, :destroy, :invite_member, :fixture, :bet_match, :my_bets, :matches]
 
   before_filter :authenticate_user!#, :except => [:some_action_without_auth]
 
@@ -104,7 +104,7 @@ class UserGroupsController < ApplicationController
     group_id = @user_group.id
 
     # @leagues_teams = LeaguesTeams.find_all_by_league_id(@league.id, :order => :group_number)
-    @leagues_teams = LeaguesTeams.where(:league => @league).where.not(:group_number => "").order(:group_number)
+    @leagues_teams = LeaguesTeams.where(:league => @league).order(:group_number)
     @league_groups = Hash.new
     @leagues_teams.each do |league_team|
       if (!@league_groups[league_team.group_number]) 
@@ -164,8 +164,12 @@ class UserGroupsController < ApplicationController
 
   end
 
+  def matches
+    @matches = @user_group.league.matches.where(:league_date => params[:league_date]).order(:league_date, :date)
+  end
+
   def bet_match
-    #@todo: hmike: validate if already expiry the bet
+    #@todo: hmike: validate if the bet was expired
     user_group_member = @user_group.user_group_members.where(:user_id => current_user.id).first
     bet = Bet.where(:user_group_member => user_group_member, :match_id => params[:match_id]).first
     if (bet.nil?)

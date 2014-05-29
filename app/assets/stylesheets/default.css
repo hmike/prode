@@ -1,0 +1,29 @@
+/* Default
+ * Bootswatch
+ *= require_self
+ *= require jquery.ui.all
+ *= require default/loader
+ *= require default/bootswatch
+ *= require_tree ./angular/
+ *= require font-awesome
+ *= require bootstrap_and_overrides
+
+/* Custom Stylesheets files
+ *= require fonts
+ *= require social_buttons
+ *= require header
+ *= require footer
+ *= require users
+ *= require user_groups
+ */
+
+.main-container {
+	margin-top: 50px;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+.bold { font-weight: bold; }
+
+.ng-cloak { display:none; }
