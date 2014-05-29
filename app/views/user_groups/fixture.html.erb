@@ -1,9 +1,6 @@
 <div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)">
 
 <%- model_class = UserGroup -%>
-<!-- <div class="league-banner">
-	<img src="http://img.fifa.com/images/fwc/2014/brand/header.es.png?v=130439605604123628" />
-</div> -->
 <div class="page-header">
 	<% if (@user_group.league.name == "Torneo Final 2014") %>
 		<div class="league-avatar"><%= image_tag ('logos/afa.png') %></div>
@@ -59,11 +56,10 @@
 	</table>
 <% end %>
 
-<div ng-repeat="league_date in matches" ng-cloak class="ng-cloak">
 <h2>Fixture</h2>
 
-<table class="table tbl-fixture">
-	<caption class="table-title">Fecha {{league_date[1].league_date}}</caption>
+<table class="table tbl-fixture" ng-repeat="(league_date, league_date_matches) in matches" ng-cloak class="ng-cloak">
+	<caption class="table-title">Fecha {{league_date+1}}</caption>
 	<thead>
 		<tr>
 			<th class="col-md-1"></th>
@@ -74,38 +70,68 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="match in league_date">
+		<tr ng-repeat="match in league_date_matches">
 			<td class="tbl-date">
-				<span>{{match.date | date: 'EEE d MMM. yyyy'}}</span>
-				<span>Fecha {{match.league_date}}</span>
+				<span>{{match.date | date: 'EEE d MMM.'}}</span>
+				<span>{{match.date | date: 'yyyy'}}</span>
+				<span class="bold">Fecha {{match.league_date}}</span>
 			</td>
+			<% 
+				if (@user_group.league.name == "Torneo Final 2014")
+					folder = 'afa'
+				else
+					folder = 'fifa'
+				end
+			%>
 			<!-- <td class="tbl-score">{{match.date.strftime("%k:%M")}}</td> -->
-			<td class="tbl-score">{{match.date | date: 'HH:mm'}}</td>
+			<td class="tbl-score">
+				<div ng-class="{'hide' : (match.is_expired)}">
+					{{match.date | date: 'HH:mm'}}
+				</div>
+				<div class="bet-score" ng-class="{'hide' : (!match.is_expired), 'win' : (my_bets[match.id].bet.win)}">
+					<span>+{{{true: my_bets[match.id].bet.score, false: 0}[my_bets[match.id].bet != null]}}</span>
+					<p>{{{true: my_bets[match.id].bet.bet_label, false: '-'}[my_bets[match.id].bet != null]}}</p>
+				</div>
+			</td>
 			<td class="tbl-teamname tbl-teamlocal tbl-team-{{match.local_team.team.code | lowercase}}">
-				<div>
-					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==1)}" ng-model="my_bets[match.id].bet" value="1" ng-click='betMatch(<%= @user_group.id %>, match.id, 1)'>
-						<img ng-src="/assets/teams/afa/{{match.local_team.team.code | lowercase}}_medium.png" ></img>
+				<div ng-class="{'hide' : (match.is_expired)}">
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet.bet==1)}" ng-model="my_bets[match.id].bet.bet" value="1" ng-click='betMatch(<%= @user_group.id %>, match.id, 1)'>
+						<img ng-src="/assets/teams/<%= folder %>/{{match.local_team.team.code | lowercase}}_medium.png" ></img>
 						<label>{{match.local_team.team.name}}</label>
 					</button>
 				</div>
+				<div class="text-center" ng-class="{'hide' : (!match.is_expired)}">
+					<img ng-src="/assets/teams/<%= folder %>/{{match.local_team.team.code | lowercase}}_medium.png" ></img>
+					<label>{{match.local_team.team.name}}</label>
+				</div>
 			</td>
 			<td class="tbl-tied">
-				<div>
-					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==0)}" ng-model="my_bets[match.id].bet" value="0" ng-click='betMatch(<%= @user_group.id %>, match.id, 0)'>
+				<div ng-class="{'hide' : (match.is_expired)}">
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet.bet==0)}" ng-model="my_bets[match.id].bet.bet" value="0" ng-click='betMatch(<%= @user_group.id %>, match.id, 0)'>
 						<label>EMPATE<label>
 					</button>
 				</div>
+				<div ng-class="{'hide' : (!match.is_expired)}">
+					<label>
+						{{{true: match.local_score, false: 0}[match.local_score != nill]}}
+						-
+						{{{true: match.away_score, false: 0}[match.away_score != nill]}}
+					</label>
+					<!-- <label>{{match.local_score}} - {{match.away_score}}<label> -->
+				</div>
 			</td>
 			<td class="tbl-teamname tbl-teamaway tbl-team-{{match.away_team.team.code | lowercase}}">
-				<div>
-					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet==2)}" ng-model="my_bets[match.id].bet" value="2" ng-click='betMatch(<%= @user_group.id %>, match.id, 2)'>
-						<img ng-src="/assets/teams/afa/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
+				<div ng-class="{'hide' : (match.is_expired)}">
+					<button class="btn-press" ng-class="{'active' : (my_bets[match.id].bet.bet==2)}" ng-model="my_bets[match.id].bet.bet" value="2" ng-click='betMatch(<%= @user_group.id %>, match.id, 2)'>
+						<img ng-src="/assets/teams/<%= folder %>/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
 						<label>{{match.away_team.team.name}}</label>
 					</button>
+				</div>
+				<div class="text-center" ng-class="{'hide' : (!match.is_expired)}">
+					<label>{{match.away_team.team.name}}</label>
+					<img ng-src="/assets/teams/<%= folder %>/{{match.away_team.team.code | lowercase}}_thumb.png" ></img>
 				</div>
 			</td>
 		</tr>
 	</tbody>
 </table>
-
-</div>

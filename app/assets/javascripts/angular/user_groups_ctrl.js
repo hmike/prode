@@ -1,6 +1,6 @@
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
 	$scope.user_groups = UserGroup.all();
-	$scope.my_bets = new Array();
+	// $scope.my_bets = new Array();
 	// console.log($scope.user_groups);
 	
 	// ret.$promise.then(
@@ -75,40 +75,18 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 		ret.$promise.then(
 			// success
 			function(result){
-				$scope.my_bets[matchId].bet = bet;
+				$scope.my_bets[matchId].bet.bet = bet;
 
 			},
 			// error
 			function(error){
 				// handle some error exception
-				$scope.my_bets[matchId].bet = '';
+				$scope.my_bets[matchId].bet = null;
 			}
 		);
 	};
 
-	$scope.start = function() {
-		// cfpLoadingBar.start();
-		// ret = UserGroup.query(64);
-		ret = UserGroup.matches(64, 1);
-		console.log(ret);
-	};
-
 	$scope.init = function(id){
-
-    // fake the initial load so first time users can see it right away:
-    // $scope.start();
-    // $scope.fakeIntro = true;
-    // $timeout(function() {
-    //   $scope.complete();
-    //   $scope.fakeIntro = false;
-    // }, 750);
-
-
-
-
-		// console.log(id);
-		// $scope.current_group = UserGroup.view(id)
-		// console.log($scope.current_group);
 		$scope.id = id
 
 		ret = UserGroup.query(id);
@@ -118,25 +96,25 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 				$scope.current_group = result;
 				$scope.matches = new Array();
 
-				// $scope.current_group.league.dates_count = 1;
-
-				for (var i=1; i<=$scope.current_group.league.dates_count; i++) {
-					$scope.matches[i] = UserGroup.matches(id, i);
+				for (var i=0; i<$scope.current_group.league.dates_count; i++) {
+					$scope.matches[i] = UserGroup.matches(id, i+1);
 				};
 			}
 		);
 
+		$scope.my_bets = new Array();
 		ret = UserGroup.myBets(id);
 		ret.$promise.then(
 			// success
 			function(result){
 				myBets = result;
 				for (var i = 0; i < myBets.length; i++) {
-					var bet = myBets[i]
-					if (bet.bet != null){
-						$scope.my_bets[bet.match] = { bet: bet.bet.bet.bet };
+					var match = myBets[i].match;
+					var bet = myBets[i].bet;
+					if (bet != null){
+						$scope.my_bets[match.id] = { bet: bet };
 					} else {
-						$scope.my_bets[bet.match] = { bet: '' };
+						$scope.my_bets[match.id] = { bet: null };
 					}
 				}
 			},

@@ -123,6 +123,42 @@ table.table.tbl-standing {
 
 	td.tbl-score {
 		text-align: center;
+
+
+		div.bet-score {
+			span, p {
+				font-size: 12px;
+				text-transform: uppercase;
+				text-align: center;
+				display: block;
+				line-height: 17px;
+			}
+
+			span {
+				font-size: 40px;
+				line-height: 40px;
+				// font-weight: bold;
+				color: #d9534f;//#5cb85c;//#3c763d;
+			}
+
+			p {
+				background-color: #d9534f;//#5cb85c;
+				color: white;
+				width: 40%;
+				margin: 0 auto;
+				border-radius: 3px;
+			}
+		}
+
+		div.bet-score.win {
+			span {
+				color: #5cb85c;//#3c763d;
+			}
+
+			p {
+				background-color: #5cb85c;//#d9534f;//#5cb85c;
+			}
+		}
 	}
 
 	td.tbl-tied {
@@ -135,7 +171,7 @@ table.table.tbl-standing {
 	td.tbl-tied {
 		label {
 			text-transform: uppercase;
-			font-size: 26px;
+			font-size: 28px;
 			line-height: 27px;
 			color: @gray-darker;
 			float: none;
@@ -143,6 +179,12 @@ table.table.tbl-standing {
 			font-weight: normal;
 			margin: auto;
 			max-width: 250px;
+		}
+	}
+
+	td.tbl-tied {
+		label {
+			font-size: 36px;
 		}
 	}
 

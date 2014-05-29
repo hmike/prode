@@ -169,7 +169,7 @@ class UserGroupsController < ApplicationController
   end
 
   def bet_match
-    #@todo: hmike: validate if already expiry the bet
+    #@todo: hmike: validate if the bet was expired
     user_group_member = @user_group.user_group_members.where(:user_id => current_user.id).first
     bet = Bet.where(:user_group_member => user_group_member, :match_id => params[:match_id]).first
     if (bet.nil?)

@@ -45,4 +45,15 @@ class Match < ActiveRecord::Base
 		(local_score == away_score)
 	end
 
+	def is_expired
+		date.past?
+		# (Time.now - self.date).hours < 2.hours
+		# date.to_datetime.to_s
+		# (DateTime.now - date)
+		# (date - DateTime.now) < 2.hours
+		# 2.hours
+		# DateTime.now
+		# date
+	end
+
 end
