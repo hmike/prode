@@ -1,5 +1,25 @@
-app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
+app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', 'Auth', function($scope, growl, UserGroup, $filter, cfpLoadingBar, Auth) {
 	$scope.user_groups = UserGroup.all();
+
+// Auth.currentUser().then(function(user) {
+//             // User was logged in, or Devise returned
+//             // previously authenticated session.
+//             console.log(user); // => {id: 1, ect: '...'}
+//         }, function(error) {
+//             // unauthenticated error
+//         });
+
+		// var credentials = {
+  //           email: 'user@domain.com',
+  //           password: 'password1'
+  //       };
+
+  //       Auth.login(credentials).then(function(user) {
+  //           console.log(user); // => {id: 1, ect: '...'}
+  //       }, function(error) {
+  //           // Authentication failed...
+  //       })
+
 	// $scope.my_bets = new Array();
 	// console.log($scope.user_groups);
 	
@@ -87,6 +107,9 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 	};
 
 	$scope.init = function(id){
+
+		console.log(Auth);
+
 		$scope.id = id
 
 		ret = UserGroup.query(id);

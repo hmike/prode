@@ -76,3 +76,6 @@ gem 'paperclip'
 gem 'best_in_place', git: 'https://github.com/bernat/best_in_place.git', branch: 'rails-4'
 
 gem 'i18n_country_select'
+
+# gem 'angular-devise'
+gem 'ng-rails-csrf'
