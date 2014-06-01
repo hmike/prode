@@ -107,10 +107,12 @@ class UserGroupsController < ApplicationController
     @leagues_teams = LeaguesTeams.where(:league => @league).order(:group_number)
     @league_groups = Hash.new
     @leagues_teams.each do |league_team|
-      if (!@league_groups[league_team.group_number]) 
-        @league_groups[league_team.group_number] = Array.new
+      if (!league_team.group_number.nil?) 
+        if (!@league_groups[league_team.group_number])
+          @league_groups[league_team.group_number] = Array.new
+        end
+        @league_groups[league_team.group_number].push(league_team)
       end
-      @league_groups[league_team.group_number].push(league_team)
     end
 
 

@@ -113,7 +113,6 @@ a {
 	// Hover/focus state
 	&:hover,
 	&:focus {
-		background-color: #0087e6;
 		background-position: 0 0px;
 		.transition(none);
 	}
@@ -138,6 +137,13 @@ a {
 		background-image: none;
 		.opacity(65);
 		.box-shadow(none);
+	}
+
+	.btn-default {
+		&:hover,
+		&:focus {
+			background-color: #0087e6;
+		}
 	}
 }
 

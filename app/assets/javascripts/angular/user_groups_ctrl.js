@@ -71,17 +71,15 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 
 	$scope.betMatch = function(id, matchId, bet) {
 		var ret = UserGroup.betMatch(id, matchId, bet);
-
 		ret.$promise.then(
 			// success
 			function(result){
-				$scope.my_bets[matchId].bet.bet = bet;
-
+				$scope.my_bets[matchId].bet = { bet: bet };
 			},
 			// error
 			function(error){
 				// handle some error exception
-				$scope.my_bets[matchId].bet = null;
+				$scope.my_bets[matchId].bet = { bet: null };
 			}
 		);
 	};

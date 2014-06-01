@@ -89,10 +89,10 @@ Prode::Application.routes.draw do
     post 'create' => 'devise/registrations#create', :as => :user_registration
     get 'signup' => 'devise/registrations#new', :as => :new_user_registration
     get 'profile', to: 'devise/registrations#edit', as: :edit_user_registration
-    # LAS PROX DOS SON PARA OVERRIDE DEL UPDATE CON registrations_controller.rb
+    delete 'create', to: 'devise/registrations#destroy'
+
     patch 'create', to: 'registrations#update'
     put 'create', to: 'registrations#update'
-    delete 'create', to: 'devise/registrations#destroy'
   end
 
   # resources :user_groups do

@@ -12,7 +12,20 @@ class User < ActiveRecord::Base
 	# for the Group owner relationship
 	has_many :user_groups
 
-	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "40x40>" }
+	validates_uniqueness_of :email, :case_sensitive => false
+
+	has_attached_file :avatar,
+		:styles => {
+			# :thumb => "40x40>",
+			# :medium => "300x300>"
+			:thumb => "60x60>",
+			:small  => "80x80>",
+			:medium => "140x140>",
+			:large =>   "300x300>"
+		},
+	:default_url => "/assets/default_avatar.png"
+
+	# has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "40x40>" }
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
