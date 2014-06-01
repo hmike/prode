@@ -27,3 +27,12 @@
 .bold { font-weight: bold; }
 
 .ng-cloak { display:none; }
+
+#error-explanation {
+	display: inline-table;
+}
+
+#error-explanation label {
+	font-size: 14px;
+	color: #a94442;
+}
