@@ -1,3 +1,4 @@
+<div ng-controller="UserGroupsCtrl" ng-init="init(<%= @user_group.id %>)">
 <div class="page-header">
 	<% if (@user_group.league.name == "Torneo Final 2014") %>
 		<div class="league-avatar"><%= image_tag ('logos/afa.png') %></div>
@@ -7,6 +8,15 @@
 	<h1><%= @user_group.name %></h1>
 	<h3><%= @user_group.league.name %></h3>
 </div>
+
+<form ng-submit="inviteMember(current_group.id, null)" class="col-md-6 invite-user">
+	<div class="input-group">
+		<input type="email" class="form-control" placeholder="Ingresa el email de quien quieras invitar" ng-model='newMemberEmail' required="required">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+		</span>
+	</div>
+</form>
 
 <div class="form-actions">
 	<%= #link_to t('.back', :default => t("helpers.links.back")),
@@ -29,12 +39,10 @@
 		<% @members_scored.each do |member| %>
 			<tr>
 				<td><%= position %></td>
-				<td><%
-					if (member.user.avatar?)
-						concat image_tag(member.user.avatar(:thumb))
-					end
-					concat " " + member.user.email 
-				%></td>
+				<td>
+					<%= image_tag member.user.avatar(:thumb), :class => 'img img-thumb' %>
+					<%= member.user.email %>
+				</td>
 				<td class="text-center"><%= member.score %></td>
 				<td class="text-center">-</td>
 			</tr>
@@ -42,3 +50,4 @@
 		<% end %>
 	</tbody>
 </table>
+</div>

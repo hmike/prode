@@ -44,13 +44,17 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 	};
 
 	$scope.inviteMember = function(id, idx) {
-		newMemberEmail = $scope.user_groups[idx].newMemberEmail;
+		if (idx){
+			newMemberEmail = $scope.user_groups[idx].newMemberEmail;
+		} else {
+			newMemberEmail = $scope.newMemberEmail;
+		}
 		var ret = UserGroup.inviteMember(id, newMemberEmail);
 		ret.$promise.then(
 			// success
 			function(result){
-				$scope.user_groups[idx].members = result
-				$scope.user_groups[idx].newMemberEmail = "";
+				// $scope.user_groups[idx].members = result
+				// $scope.user_groups[idx].newMemberEmail = "";
 			},
 			// error
 			function(error){
