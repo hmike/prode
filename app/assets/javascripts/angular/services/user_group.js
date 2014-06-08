@@ -21,11 +21,17 @@ app.factory('UserGroup', ['$resource', function($resource) {
 	UserGroup.prototype.search = function(name) {
 		return this.service.search(name)
 	}
-	UserGroup.prototype.inviteMember = function(id, email) {
-		var service = $resource('/api/user_groups/:userGroupId/invite_member/', {userGroupId: id}, 
-							{'invite_member': {method: 'POST', isArray: true}}
+	UserGroup.prototype.myGroups = function() {
+		var service = $resource('/api/user_groups/my_groups', {}, 
+							{'my_groups': {method: 'GET', isArray: true}}
 						);
-		return service.invite_member({email: email});
+		return service.my_groups();
+	}
+	UserGroup.prototype.inviteUser = function(id, email) {
+		var service = $resource('/api/user_groups/:userGroupId/invite_user/', {userGroupId: id}, 
+							{'invite_user': {method: 'POST', isArray: true}}
+						);
+		return service.invite_user({email: email});
 	}
 	UserGroup.prototype.betMatch = function(id, matchId, bet) {
 		var service = $resource('/api/user_groups/:userGroupId/bet_match/', {userGroupId: id}, 
@@ -44,6 +50,18 @@ app.factory('UserGroup', ['$resource', function($resource) {
 							{'matches': {method: 'GET', isArray: true}}
 						);
 		return service.matches();
+	}
+	UserGroup.prototype.acceptInvitation = function(id) {
+		var service = $resource('/api/user_groups/:userGroupId/accept_invitation', {userGroupId: id}, 
+							{'accept_invitation': {method: 'POST', isArray: false}}
+						);
+		return service.accept_invitation();
+	}
+	UserGroup.prototype.rejectInvitation = function(id) {
+		var service = $resource('/api/user_groups/:userGroupId/reject_invitation', {userGroupId: id}, 
+							{'reject_invitation': {method: 'POST', isArray: false}}
+						);
+		return service.reject_invitation();
 	}
 	return new UserGroup;
 }]);

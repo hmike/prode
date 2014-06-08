@@ -5,7 +5,6 @@ Prode::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
 
-  resources :users
   resources :user_groups
   resources :user_group_members
   resources :teams
@@ -18,7 +17,7 @@ Prode::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   # root "users/edit"
-  # root :to => 'devise/registrations#new'
+  root :to => 'user_groups#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -80,6 +79,9 @@ Prode::Application.routes.draw do
   end
   devise_for :users, :skip => [:sessions, :registrations], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # devise_for :users, :skip => [:sessions], :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  resources :users
+
   as :user do
     get 'login', to: 'devise/sessions#new', as: :new_user_session
     post 'login', to:'devise/sessions#create', as: :user_session
@@ -99,7 +101,7 @@ Prode::Application.routes.draw do
     # get 'signup', :on => :collection
   # devise_scope :user_groups do
   as :user_groups do
-    get 'user_groups/:id/invite_member/:email', to: 'user_groups#invite_member', as: :user_group_invite_member
+    get 'user_groups/:id/invite_user/:email', to: 'user_groups#invite_user', as: :user_group_invite_user
     get 'user_groups/:id/fixture', to: 'user_groups#fixture', as: :user_group_fixture
   end
   # end
@@ -109,13 +111,16 @@ Prode::Application.routes.draw do
 
   # AngularJS
   scope :api do
+    get 'user_groups/my_groups', to: 'user_groups#my_groups', defaults: {format: :json}
     resources :user_groups, defaults: {format: :json}
-    # match 'user_groups/:id/invite_member', to: 'user_groups#invite_member', defaults: {format: :json}, via: [:post]
-    post 'user_groups/:id/invite_member', to: 'user_groups#invite_member', defaults: {format: :json}
+    # match 'user_groups/:id/invite_user', to: 'user_groups#invite_user', defaults: {format: :json}, via: [:post]
+    post 'user_groups/:id/invite_user', to: 'user_groups#invite_user', defaults: {format: :json}
     post 'user_groups/:id/bet_match', to: 'user_groups#bet_match', defaults: {format: :json}
     get 'user_group_members/:id/my_bets', to: 'user_group_members#my_bets', defaults: {format: :json}
     get 'user_groups/:id/my_bets', to: 'user_groups#my_bets', defaults: {format: :json}
     get 'user_groups/:id/matches/:league_date', to: 'user_groups#matches', defaults: {format: :json}
+    post 'user_groups/:id/accept_invitation', to: 'user_groups#accept_invitation', as: :user_group_accept_invitation, defaults: {format: :json}
+    post 'user_groups/:id/reject_invitation', to: 'user_groups#reject_invitation', as: :user_group_reject_invitation, defaults: {format: :json}
     resources :matches, defaults: {format: :json}
   end
   # root 'watchlist#index'

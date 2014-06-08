@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable,
+	devise :invitable, :database_authenticatable, :registerable,
 			:recoverable, :rememberable, :trackable, 
-			:omniauthable
+			:omniauthable, :invitable
 
 	has_many :user_group_members
 	has_many :user_groups, :through => :user_group_members
@@ -65,6 +65,10 @@ class User < ActiveRecord::Base
 			)
 			end
 		end
+	end
+
+	def can_manage_group(user_group)
+		user_group.user_id == id
 	end
 
 end

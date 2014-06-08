@@ -91,7 +91,7 @@
 						{{member.user.email}}<br/>
 					</span>
 					</div>
-					<form ng-submit="inviteMember(user_group.id, $index)" class="col-md-6">
+					<form ng-submit="inviteUser(user_group.id, $index)" class="col-md-6">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Ingresa el email de quien quieras invitar" ng-model='user_groups[$index].newMemberEmail'>
 						<span class="input-group-btn">

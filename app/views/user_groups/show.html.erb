@@ -8,8 +8,8 @@
 	<h1><%= @user_group.name %></h1>
 	<h3><%= @user_group.league.name %></h3>
 </div>
-
-<form ng-submit="inviteMember(current_group.id, null)" class="col-md-6 invite-user">
+<% if (current_user.can_manage_group(@user_group)) %>
+<form ng-submit="inviteUser(current_group.id, null)" class="col-md-6 invite-user">
 	<div class="input-group">
 		<input type="email" class="form-control" placeholder="Ingresa el email de quien quieras invitar" ng-model='newMemberEmail' required="required">
 		<span class="input-group-btn">
@@ -17,7 +17,7 @@
 		</span>
 	</div>
 </form>
-
+<% end %>
 <div class="form-actions">
 	<%= #link_to t('.back', :default => t("helpers.links.back")),
 		#					user_groups_path, :class => 'btn btn-primary'

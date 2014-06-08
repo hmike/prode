@@ -8,6 +8,7 @@ class UserGroupMember < ActiveRecord::Base
 	belongs_to :user_group
 	has_many :bets
 
+	# Virtual attr
 	def score
     	get_score
 	end
@@ -20,6 +21,15 @@ class UserGroupMember < ActiveRecord::Base
 		end
 		return score
 		# bets.count
+	end
+	#=============
+
+	def accept
+		update_attributes(:status => 40)
+	end
+
+	def reject
+		update_attributes(:status => 90)
 	end
 
 end

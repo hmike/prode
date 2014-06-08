@@ -60,7 +60,13 @@
 						<li class="trophy"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-trophy')"><i class='fa fa-trophy'></i></a></li>
 						<li class="groups"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-groups')"><i class='fa fa-users'></i></a></li>
 					<% end %>
-					<li class="user"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-user')"><i class='fa fa-user'></i></a></li>
+					<li class="user"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-user')">
+						<i class='fa fa-user'>
+							<% if (user_signed_in? && current_user.user_group_members.where(status: 10).count > 0) %>
+								<span class="badge"><%= current_user.user_group_members.where(status: 10).count %></span>
+							<% end %>
+						</i>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -82,7 +88,24 @@
 					</p>Registrate y empezá a jugar ya!</p>
 					<%= link_to "REGISTRARSE", new_user_registration_path, :class => 'btn btn-primary' %><br />
 					</div>
-				<% else %>  
+				<% elsif current_user.user_group_members.where(status: 10).count > 0 %>
+					<div class="title">
+						Notificaciones
+					</div>
+					<div class="notifications-container" ng-controller="UserGroupsCtrl">
+						<% current_user.user_group_members.where(status: 10).first(3).each do |user_group_member| %>
+							<div class="notification">
+								<%= link_to user_group_member.user_group do %>
+									<%= image_tag user_group_member.user_group.league.avatar(:thumb), :class => 'avatar' %>
+									Invitación del grupo <span><%= user_group_member.user_group.name %></span>
+								<% end %>
+								<button class="reject" ng-click="rejectInvitation(<%= user_group_member.user_group.id %>)"><i class='fa'>x</i></button>
+								<button class="accept" ng-click="acceptInvitation(<%= user_group_member.user_group.id %>)"><i class='fa fa-check'></i></button>
+								<!--<%= link_to "<i class='fa'>x</i>".html_safe, user_group_reject_invitation_path(user_group_member.user_group), :class => 'reject', :ngclick => 'aaa' %>
+								<%= link_to "<i class='fa fa-check'></i>".html_safe, user_group_accept_invitation_path(user_group_member.user_group), :class => 'accept' %>-->
+							</div>
+						<% end %>
+					</div>
 				<% end %>
 				</div>
 				<div class="panel-right">
@@ -135,24 +158,29 @@
 					<div class="title">
 					Mis Grupos
 					</div>
-					<div>
-					<% current_user.user_groups.reverse.first(3).each do |user_group| %>
-						<div class="group-container">
-						<%= link_to user_group do %>
-							<%= image_tag user_group.league.avatar(:thumb), :class => 'avatar' %>
-							<span><%= user_group.name %></span>
+					<div class="groups-container">
+					<% if current_user.user_group_members.where(status: 40).empty? %>
+						<h4>Todavia no tenes grupo? <br>Creá uno, invitá a tus amigos y empezá a jugar!!!</h4>
+						<p>También podés recibir invitaciones para jugar en los grupos de tus amigos, chequeá tus notificationes para unirte y jugar con ellos.</p>
+					<% else %>
+						<% current_user.user_group_members.where(status: 40).reverse.first(3).each do |user_group_member| %>
+							<div class="group-container">
+							<%= link_to user_group_member.user_group do %>
+								<%= image_tag user_group_member.user_group.league.avatar(:thumb), :class => 'avatar' %>
+								<span><%= user_group_member.user_group.name %></span>
+							<% end %>
+							</div>
 						<% end %>
+						<div class="group-more">
+							<%= link_to 'ver grupos<i class="fa fa-angle-right"></i>'.html_safe, my_groups_path %>
 						</div>
 					<% end %>
-					<div class="group-more">
-						<%= link_to 'ver grupos<i class="fa fa-angle-right"></i>'.html_safe, my_groups_path %>
-					</div>
 					</div>
 				</div>
 				<div class="panel-right">
-					<div class="title">Nuevo grupo</div>
+					<div class="title">Crear nuevo grupo</div>
 					<%= form_for(current_user.user_groups.new) do |f| %>
-					<div class="form-group"><%= f.text_field :name, :autofocus => true, :placeholder => 'Nuevo grupo', :maxlength => 40 %></div>
+					<div class="form-group"><%= f.text_field :name, :autofocus => true, :placeholder => 'Nombre del grupo', :maxlength => 40 %></div>
 					<div class="form-group">
 						<%= f.select(:league_id, options_from_collection_for_select(current_leagues, :id, :name), :class => 'form-control') %>
 					</div>

@@ -51,6 +51,7 @@ gem 'omniauth'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'devise_invitable', '~> 1.3.4'
 
 gem "therubyracer"
 # gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

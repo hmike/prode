@@ -1,5 +1,5 @@
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
-	$scope.user_groups = UserGroup.all();
+	$scope.user_groups = UserGroup.myGroups();
 	// $scope.my_bets = new Array();
 	// console.log($scope.user_groups);
 	
@@ -43,13 +43,14 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 		$scope.user_groups = searchedUserGroups;
 	};
 
-	$scope.inviteMember = function(id, idx) {
+	$scope.inviteUser = function(id, idx) {
 		if (idx){
 			newMemberEmail = $scope.user_groups[idx].newMemberEmail;
 		} else {
 			newMemberEmail = $scope.newMemberEmail;
 		}
-		var ret = UserGroup.inviteMember(id, newMemberEmail);
+		
+		var ret = UserGroup.inviteUser(id, newMemberEmail);
 		ret.$promise.then(
 			// success
 			function(result){
@@ -86,6 +87,20 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 				$scope.my_bets[matchId].bet = { bet: null };
 			}
 		);
+	};
+
+	$scope.acceptInvitation = function(id) {
+		var ret = UserGroup.acceptInvitation(id);
+		ret.$promise.then(function(result){
+			
+		});
+	};
+
+	$scope.rejectInvitation = function(id) {
+		var ret = UserGroup.rejectInvitation(id);
+		ret.$promise.then(function(result){
+
+		});
 	};
 
 	$scope.init = function(id){

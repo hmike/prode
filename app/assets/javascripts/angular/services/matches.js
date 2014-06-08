@@ -15,11 +15,11 @@ app.factory('Match', ['$resource', function($resource) {
 	// Match.prototype.search = function(name) {
 	// 	return this.service.search(name)
 	// }
-	// Match.prototype.inviteMember = function(id, email) {
-	// 	var service = $resource('/api/user_groups/:userGroupId/inviteMember/', {userGroupId: id}, 
-	// 						{'inviteMember': {method: 'POST', isArray: true}}
+	// Match.prototype.inviteUser = function(id, email) {
+	// 	var service = $resource('/api/user_groups/:userGroupId/inviteUser/', {userGroupId: id}, 
+	// 						{'inviteUser': {method: 'POST', isArray: true}}
 	// 					);
-	// 	return service.inviteMember({email: email});
+	// 	return service.inviteUser({email: email});
 	// }
 	return new Match;
 }]);

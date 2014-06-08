@@ -27,9 +27,9 @@ app.controller('MatchesCtrl', ['$scope', 'growl', 'Match', function($scope, grow
 	// 	$scope.user_groups = searchedUserGroups;
 	// };
 
-	// $scope.inviteMember = function(id, idx) {
+	// $scope.inviteUser = function(id, idx) {
 	// 	newMemberEmail = $scope.user_groups[idx].newMemberEmail;
-	// 	var ret= UserGroup.inviteMember(id, newMemberEmail);
+	// 	var ret= UserGroup.inviteUser(id, newMemberEmail);
 	// 	ret.$promise.then(
 	// 		// success
 	// 		function(result){
