@@ -238,7 +238,6 @@ class UserGroupsController < ApplicationController
 	end
 
 	def my_bets
-
 		user_group_member = @user_group.user_group_members.where(:user_id => current_user.id).first
 		@my_bets = Bet.where(:user_group_member => user_group_member)
 		@matches = Match.where(:league_id => @user_group.league_id).order(:league_date)
@@ -252,6 +251,10 @@ class UserGroupsController < ApplicationController
 			format.html { redirect_to user_group_members_path, notice: 'El usuario ha sido invitado al grupo!' }
 			format.json { render 'user_groups/my_bets', notice: 'El usuario ha sido invitado al grupo!', status: :created }
 		end
+	end
+
+	def notifications
+		@notifications = current_user.user_group_members.where(status: 10)
 	end
 
 	private

@@ -107,6 +107,14 @@
 		position: relative;
 		margin: 0 4px;
 	}
+
+	> li.user .badge {
+		position: absolute;
+		bottom: 8px;
+		left: 36px;
+		padding: 3px 5px;
+		font-size: 10px;
+	}
 }
 
 // .navbar .nav.navbar-right > li.cart > a:before { content: "\e60a"; }
@@ -275,6 +283,8 @@
 		padding-right: 40px;
 
 		.notification {
+			margin: 5px 0;
+
 			span {
 				color: #92a8be;
 				font-weight: bold;
@@ -288,9 +298,17 @@
 				padding: 0;
 			}
 
+			button.reject i {
+				font-size: 22px;
+				font-weight: bold;
+			}
+
 			&:hover {
 				a, button { color: #5cace5; }
 				button:hover { color: #3276b1; }
+			}
+			.avatar {
+				width: 28px;
 			}
 		}
 	}

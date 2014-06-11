@@ -112,6 +112,7 @@ Prode::Application.routes.draw do
   # AngularJS
   scope :api do
     get 'user_groups/my_groups', to: 'user_groups#my_groups', defaults: {format: :json}
+    get 'user_groups/notifications', to: 'user_groups#notifications', defaults: {format: :json}
     resources :user_groups, defaults: {format: :json}
     # match 'user_groups/:id/invite_user', to: 'user_groups#invite_user', defaults: {format: :json}, via: [:post]
     post 'user_groups/:id/invite_user', to: 'user_groups#invite_user', defaults: {format: :json}

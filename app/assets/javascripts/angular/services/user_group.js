@@ -63,5 +63,11 @@ app.factory('UserGroup', ['$resource', function($resource) {
 						);
 		return service.reject_invitation();
 	}
+	UserGroup.prototype.notifications = function() {
+		var service = $resource('/api/user_groups/notifications', {}, 
+							{'notifications': {method: 'GET', isArray: true}}
+						);
+		return service.notifications();
+	}
 	return new UserGroup;
 }]);

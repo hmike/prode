@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='Prode'>
+<html lang="en" ng-app='Prode' ng-controller="UserGroupsCtrl">
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -62,8 +62,8 @@
 					<% end %>
 					<li class="user"><a href="#" onclick="return toggleSubnavbarMenu('subnavbar-user')">
 						<i class='fa fa-user'>
-							<% if (user_signed_in? && current_user.user_group_members.where(status: 10).count > 0) %>
-								<span class="badge"><%= current_user.user_group_members.where(status: 10).count %></span>
+							<% if (user_signed_in?) %>
+								<span class="badge ng-cloak" ng-cloak ng-show="notifications.length">{{notifications.length}}</span>
 							<% end %>
 						</i>
 					</a></li>
@@ -92,19 +92,15 @@
 					<div class="title">
 						Notificaciones
 					</div>
-					<div class="notifications-container" ng-controller="UserGroupsCtrl">
-						<% current_user.user_group_members.where(status: 10).first(3).each do |user_group_member| %>
-							<div class="notification">
-								<%= link_to user_group_member.user_group do %>
-									<%= image_tag user_group_member.user_group.league.avatar(:thumb), :class => 'avatar' %>
-									Invitación del grupo <span><%= user_group_member.user_group.name %></span>
-								<% end %>
-								<button class="reject" ng-click="rejectInvitation(<%= user_group_member.user_group.id %>)"><i class='fa'>x</i></button>
-								<button class="accept" ng-click="acceptInvitation(<%= user_group_member.user_group.id %>)"><i class='fa fa-check'></i></button>
-								<!--<%= link_to "<i class='fa'>x</i>".html_safe, user_group_reject_invitation_path(user_group_member.user_group), :class => 'reject', :ngclick => 'aaa' %>
-								<%= link_to "<i class='fa fa-check'></i>".html_safe, user_group_accept_invitation_path(user_group_member.user_group), :class => 'accept' %>-->
-							</div>
-						<% end %>
+					<div class="notifications-container">
+						<div class="notification ng-cloak" ng-cloak ng-repeat="user_group_member in notifications">
+							<a ng-href='/user_groups/{{user_group_member.user_group.id}}' class="">
+								<img class="avatar" ng-src="/assets/logos/fifa_wc2014.png" />
+								Invitación del grupo <span>{{user_group_member.user_group.name}}</span>
+							</a>
+							<button class="reject" ng-click="rejectInvitation(user_group_member.user_group.id)"><i class='fa'>x</i></button>
+							<button class="accept" ng-click="acceptInvitation(user_group_member.user_group.id)"><i class='fa fa-check'></i></button>
+						</div>
 					</div>
 				<% end %>
 				</div>
@@ -159,22 +155,27 @@
 					Mis Grupos
 					</div>
 					<div class="groups-container">
-					<% if current_user.user_group_members.where(status: 40).empty? %>
-						<h4>Todavia no tenes grupo? <br>Creá uno, invitá a tus amigos y empezá a jugar!!!</h4>
-						<p>También podés recibir invitaciones para jugar en los grupos de tus amigos, chequeá tus notificationes para unirte y jugar con ellos.</p>
-					<% else %>
-						<% current_user.user_group_members.where(status: 40).reverse.first(3).each do |user_group_member| %>
+						<div ng-show="!user_groups.length">
+							<h4>Todavia no tenes grupo? <br>Creá uno, invitá a tus amigos y empezá a jugar!!!</h4>
+							<p>También podés recibir invitaciones para jugar en los grupos de tus amigos, chequeá tus notificationes para unirte y jugar con ellos.</p>
+						</div>
+						<div class="group-container ng-cloak" ng-cloak ng-repeat="user_group in user_groups">
+							<a ng-href='/user_groups/{{user_group.id}}' class="">
+								<img class="avatar" ng-src="{{user_group.league.avatar_thumb_url}}" />
+								<span>{{user_group.name}}</span>
+							</a>
+						</div>
+						<!--<% current_user.user_group_members.where(status: 40).reverse.first(3).each do |user_group_member| %>
 							<div class="group-container">
 							<%= link_to user_group_member.user_group do %>
 								<%= image_tag user_group_member.user_group.league.avatar(:thumb), :class => 'avatar' %>
 								<span><%= user_group_member.user_group.name %></span>
 							<% end %>
 							</div>
-						<% end %>
+						<% end %>-->
 						<div class="group-more">
 							<%= link_to 'ver grupos<i class="fa fa-angle-right"></i>'.html_safe, my_groups_path %>
 						</div>
-					<% end %>
 					</div>
 				</div>
 				<div class="panel-right">

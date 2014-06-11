@@ -1,4 +1,5 @@
 app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar', function($scope, growl, UserGroup, $filter, cfpLoadingBar) {
+	$scope.notifications = UserGroup.notifications();
 	$scope.user_groups = UserGroup.myGroups();
 	// $scope.my_bets = new Array();
 	// console.log($scope.user_groups);
@@ -92,14 +93,16 @@ app.controller('UserGroupsCtrl', ['$scope', 'growl', 'UserGroup', 'cfpLoadingBar
 	$scope.acceptInvitation = function(id) {
 		var ret = UserGroup.acceptInvitation(id);
 		ret.$promise.then(function(result){
-			
+			$scope.notifications = UserGroup.notifications();
+			$scope.user_groups = UserGroup.myGroups();
 		});
 	};
 
 	$scope.rejectInvitation = function(id) {
 		var ret = UserGroup.rejectInvitation(id);
 		ret.$promise.then(function(result){
-
+			$scope.notifications = UserGroup.notifications();
+			$scope.user_groups = UserGroup.myGroups();
 		});
 	};
 
