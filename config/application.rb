@@ -24,5 +24,7 @@ module Prode
     # add app/assets/fonts to the asset path
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
+    config.i18n.default_locale = 'es'
+
   end
 end

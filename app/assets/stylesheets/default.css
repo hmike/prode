@@ -37,6 +37,7 @@
 
 #error-explanation {
 	display: inline-table;
+	list-style-type: none;
 }
 
 #error-explanation label {
